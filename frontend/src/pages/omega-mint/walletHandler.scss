@@ -1,0 +1,120 @@
+.mintConnectContainer{
+    margin-top: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+
+    width: 95vw;
+    max-width: 500px;
+
+    padding: 30px;
+    background-color: #202020;
+    border: 1px solid #f1f1f1;
+    color: #f1f1f1;
+    box-shadow: 2px 2px;
+    font-family: Raleway;
+
+
+    @media screen and (max-width: 600px) {
+        margin-top: 0;
+    }
+
+    .mintConnectLogo{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    h2, h3{font-family: Cinzel;}
+    h2{ 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70px;
+        margin: 0;
+        font-size: 1.4rem; 
+        border-bottom: 1px solid #2d2d2d21;
+
+        @media screen and (max-width: 500px) {
+            height: auto;
+            margin-top: 10px;
+            font-size: 1.6rem;
+        }
+    }
+
+    span{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+
+        @media screen and (max-width: 600px) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mintConnectPrice{
+            width: 220px;
+            padding: 10px;
+            border: 1px solid rgb(201, 201, 201);
+            border-radius: 15px;
+
+            @media screen and (max-width: 600px) {
+                width: 260px;
+                margin-bottom: 10px;
+            }
+
+            b{color: #f1f1f1}
+        }
+    }
+
+    .bundleStyle.mintConnectPrice{
+        border-width: 2px;
+        border-color: #ff7b00;
+        b{color: #ff7b00}
+    }
+
+    hr{
+        margin-top: 40px;
+        width: 80%;
+        opacity: 0.5;
+    }
+
+    .mintConnectSupply{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-size: 0.8rem;
+
+        b{color: #FFB13B}
+    }
+
+    button{
+        margin-top: 20px;
+        margin-bottom: 10px;
+        height: 48px;
+        width: 180px;
+        background-color: #2e2e2c;
+        font: normal normal bold 1.6rem Cinzel;
+        color: #ff7b00;
+        border: 2px solid #ff7b00;
+        cursor: pointer;
+    } button:hover{
+        opacity: 0.9;
+        transform: scale(1.02);
+        transition: transform 0.7s, opacity 0.5s ease-in-out;
+    }
+}
+
+.mintConnectLinks{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    img{
+        margin: 15px;
+    }
+}

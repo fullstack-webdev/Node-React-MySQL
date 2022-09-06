@@ -1,0 +1,195 @@
+.marketplace-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .new-announce{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        border: 1px solid #dfdfdd;
+        margin-bottom: 40px;
+
+        p{
+            font: normal normal 600 1rem Raleway;
+            color: #FFB13B;
+            margin-left: 15px;
+            margin-bottom: 20px;
+        }
+
+        .inputs{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+            span{
+                position: relative;
+                width: calc(20% - 15px);
+                &:last-child {
+                    width: calc(40% - 15px);
+                }
+                display: flex;
+                flex-direction: column;
+                font: normal normal normal 0.7rem Raleway;
+                color: #FFB13B;
+                margin-left: 15px;
+
+                @media screen and (max-width: 1000px) {
+                    margin-top: 10px;
+                    width: calc(47% - 15px) !important;
+
+                    &:last-child {
+                        input {
+                            z-index: 1;
+                            position: absolute;
+                            background: transparent;
+                        }
+                        h3 {
+                            opacity: 0.4 !important;
+                        }
+                    }
+                }
+
+                input{
+                    margin-top: 5px;
+                    padding: 5px;
+                    padding-left: 10px;
+                    background-color: #161615;
+                    font: normal normal normal 0.8rem Raleway;
+                    color: #FFB13B;
+                    border: 1px solid #FFB13B;
+                    outline: none;
+                }
+
+                h3{
+                    opacity: 0.8;
+                    font-size: 0.6rem;
+                    font-weight: normal;
+                    font-style: italic;
+                    position: absolute;
+                    right: 10px;
+                    top: 20px;
+/* 
+                    @media screen and (max-width: 1000px) {
+                        margin-left: 14%;
+                    } */
+                }
+
+                h4{
+                    opacity: 0.8;
+                    position: absolute;
+                    margin-top: 50px;
+                    font-weight: normal;
+                }
+
+                select{
+                    padding: 5px;
+                    margin-top: 5px;
+                    background-color: #161615;
+                    font: normal normal normal 0.8rem Raleway;
+                    color: #FFB13B;
+                    border: 1px solid #FFB13B;
+                    outline: none;
+                }
+    
+                .time{ 
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-around;
+                    .days-container{
+                        width: 45%;
+                        position: relative;
+                    }
+                    .hours-container{
+                        width: 45%;
+                        position: relative;
+                    }
+
+                    .days{
+                        opacity: 0.8;
+                        position: absolute;
+                        right: 15px;
+                        top: 5px;
+                        /* 
+                        margin-top: 14px;
+                        margin-left: 4%;
+
+                        @media screen and (max-width: 1000px) {
+                            margin-left: 8%;
+                        } */
+                    }
+                    .hours{
+                        
+                        opacity: 0.6;
+                        position: absolute;
+                        right: 15px;
+                        top: 5px;
+                        /* margin-top: 14px;
+                        margin-left: 5%;
+
+                        @media screen and (max-width: 1000px) {
+                            margin-left: 10%;
+                        } */
+                    }
+    
+                    input{
+                        max-width: calc(100% - 25px);
+                    }
+                }
+    
+            }
+        }
+
+        input:disabled{
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .buttons{
+            width: 220px;
+            margin: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            align-self: flex-end;
+
+            .btn-reset.btn-a{
+                width: 0px;
+                height: 13px;
+                background-color: #161615;
+                color: #FF1900;
+                font-size: 0.8rem;
+                font-weight: bold;
+                border: 1px solid #FF1900;
+
+                span{border: none}
+            }
+
+            .btn-sell.btn-a{
+                width: 10px;
+                height: 18px;
+                font-size: 1rem;
+                font-weight: bold;
+                transform: perspective(510px) rotateX(24deg);
+                margin: 0;
+                color: #5E0C0C;
+            }
+            .btn-sell.disabled{
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+            .btn-sell.btn-span{
+                transform: perspective(240px) rotateX(-10deg);
+            }
+        }
+
+    }
+
+    h5.mrkt-error{
+        margin: 20px;
+        align-self: flex-end;
+        position: absolute;
+        color: #FF1900;
+    }
+}

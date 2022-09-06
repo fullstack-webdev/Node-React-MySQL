@@ -1,0 +1,314 @@
+.game-nav {
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    width: 60px;
+    margin-left: 20px;
+    padding-bottom: 30px;
+
+    @media screen and (max-width: 1000px) {
+        display: none;
+    }
+
+    @media screen and (max-height: 650px) {
+        display: none;
+    }
+
+    img.nav-bk {
+        margin-left: 20px;
+        position: absolute;
+        width: 87px;
+    }
+
+    div.btn-nav {
+        position: relative;
+
+        .alert {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(50%, 50%);
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgb(255, 141, 0);
+            color: black;
+            border-radius: 50%;
+            font: normal bold normal 15px Raleway;
+        }
+    }
+
+    img.btn-nav {
+        margin-top: 15px;
+        margin-left: 20px;
+        width: 30px;
+        filter: invert(100%) sepia(0%) saturate(7016%) hue-rotate(52deg) brightness(115%) contrast(74%);
+        cursor: pointer;
+    }
+
+    img.nav-lock {
+        position: absolute;
+        width: 25px;
+        top: 25px;
+        left: 30px;
+        transform: scale(0.8);
+        filter: invert(100%) drop-shadow(2px 2px 1px black);
+        transition: .2s all;
+
+        &:hover {
+            top: 20px;
+            left: 25px;
+            transform: scale(1.0);
+        }
+
+        &.nav-lock-delegation {
+            filter: invert(80%) sepia(98%) saturate(415%) hue-rotate(433deg) brightness(102%) contrast(101%) drop-shadow(2px 2px 1px black);
+        }
+    }
+
+    .disabled {
+        pointer-events: none;
+        opacity: 0.3;
+    }
+
+    img.btn-nav:hover:not(.disabled),
+    img.btn-nav.active {
+        filter: invert(68%) sepia(98%) saturate(415%) hue-rotate(333deg) brightness(102%) contrast(101%);
+
+        &.delegate {
+            filter: invert(80%) sepia(98%) saturate(415%) hue-rotate(433deg) brightness(102%) contrast(101%);
+        }
+    }
+
+    .css-1dgudnz-MuiPopper-root-MuiTooltip-popper .MuiTooltip-tooltip {
+        margin-top: 0px;
+        width: 10rem;
+        padding: 1rem;
+
+        background: rgba(0, 0, 0, 0.9);
+        border: 1px solid #ffb13bc9;
+        color: white;
+        font: normal bold 0.8rem Cinzel;
+        box-shadow: 0 0px 10px 3px rgba(238, 255, 0, 0.466);
+    }
+}
+
+.gamenav-icon-open {
+    z-index: 151;
+    position: fixed;
+    align-self: flex-end;
+    order: -1;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    cursor: pointer;
+
+    @media screen and (min-width: 1000px) and (min-height: 650px) {
+        display: none;
+    }
+}
+
+#regionNavMenu {
+    background: #380000 !important;
+    box-shadow: 0 0px 5px 2px rgba(0, 0, 0, 0.856) !important;
+    width: 8rem;
+
+    .css-1km1ehz,
+    .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+
+        &:hover {
+            background: rgb(146, 60, 60);
+
+            .regionNavImg {
+                filter: invert(68%) sepia(98%) saturate(415%) hue-rotate(333deg) brightness(102%) contrast(101%);
+            }
+
+            .regionNavLab {
+                color: gold;
+            }
+        }
+
+        .regionNavImg {
+            width: 2rem;
+            height: 2rem;
+            filter: invert(100%) sepia(0%) saturate(7016%) hue-rotate(52deg) brightness(115%) contrast(74%);
+
+            &.selected {
+                filter: invert(68%) sepia(98%) saturate(415%) hue-rotate(333deg) brightness(102%) contrast(101%);
+            }
+        }
+
+        .regionNavLab {
+            color: white;
+            font: normal bold 0.9rem Cinzel;
+
+            &.selected {
+                color: gold;
+            }
+        }
+    }
+
+    &.disabled {
+
+        .regionNavImg,
+        .regionNavLab {
+            opacity: 0.4;
+        }
+    }
+
+    &.land {
+        background: #00415f !important;
+        box-shadow: 0 0px 5px 2px rgba(0, 0, 0, 0.856) !important;
+
+        .css-1km1ehz,
+        .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+
+            &:hover {
+                background: rgb(0, 23, 49);
+
+                .regionNavImg {
+                    filter: invert(68%) sepia(98%) saturate(415%) hue-rotate(333deg) brightness(102%) contrast(101%);
+                }
+
+                .regionNavLab {
+                    color: gold;
+                }
+            }
+
+            .regionNavImg {
+                width: 2rem;
+                height: 2rem;
+                filter: invert(100%) sepia(0%) saturate(7016%) hue-rotate(52deg) brightness(115%) contrast(74%);
+
+                &.selected {
+                    filter: invert(68%) sepia(98%) saturate(415%) hue-rotate(333deg) brightness(102%) contrast(101%);
+                }
+            }
+
+            .regionNavLab {
+                color: white;
+                font: normal bold 0.9rem Cinzel;
+
+                &.selected {
+                    color: gold;
+                }
+            }
+        }
+    }
+}
+
+#inventoryMenu {
+    background: #380000 !important;
+    box-shadow: 0 0px 5px 2px rgba(0, 0, 0, 0.856) !important;
+    width: 8rem;
+
+    .css-1km1ehz,
+    .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+
+        &:hover {
+            background: rgb(146, 60, 60);
+
+            .regionNavImg {
+                filter: invert(68%) sepia(98%) saturate(415%) hue-rotate(333deg) brightness(102%) contrast(101%);
+            }
+
+            .regionNavLab {
+                color: gold;
+            }
+        }
+
+        .regionNavImg {
+            width: 2rem;
+            height: 2rem;
+            filter: invert(100%) sepia(0%) saturate(7016%) hue-rotate(52deg) brightness(115%) contrast(74%);
+
+            &.selected {
+                filter: invert(68%) sepia(98%) saturate(415%) hue-rotate(333deg) brightness(102%) contrast(101%);
+            }
+        }
+
+        .regionNavLab {
+            color: white;
+            font: normal bold 0.9rem Cinzel;
+
+            &.selected {
+                color: gold;
+            }
+        }
+    }
+
+    .disabled {
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+    &.disabled {
+
+        .regionNavImg,
+        .regionNavLab {
+            opacity: 0.4;
+        }
+    }
+
+    &.delegate {
+        background: #103d00 !important;
+        box-shadow: 0 0px 5px 2px rgba(0, 0, 0, 0.856) !important;
+
+        .css-1km1ehz,
+        .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+
+            &:hover {
+                background: rgb(60, 146, 64);
+
+                .regionNavImg {
+                    filter: invert(80%) sepia(98%) saturate(415%) hue-rotate(433deg) brightness(102%) contrast(101%) drop-shadow(2px 2px 1px black);
+                }
+
+                .regionNavLab {
+                    color: rgb(0, 255, 170);
+                }
+            }
+
+            .regionNavImg {
+                width: 2rem;
+                height: 2rem;
+                filter: invert(100%) sepia(0%) saturate(7016%) hue-rotate(52deg) brightness(115%) contrast(74%);
+
+                &.selected {
+                    filter: invert(80%) sepia(98%) saturate(415%) hue-rotate(433deg) brightness(102%) contrast(101%) drop-shadow(2px 2px 1px black);
+                }
+            }
+
+            .regionNavLab {
+                color: white;
+                font: normal bold 0.9rem Cinzel;
+
+                &.selected {
+                    color: rgb(0, 255, 170);
+                }
+            }
+        }
+    }
+}

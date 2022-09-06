@@ -1,0 +1,10 @@
+export { default as Logo } from './logo/Logo';
+export { default as Button } from './button/Button';
+export { default as ButtonCustom } from './button/Button';
+export { default as SocialIcon } from './social-icon/SocialIcon';
+export { default as Wallet } from './wallet/Wallet';
+export { default as CallToAction } from './call-to-action/CallToAction';
+export { default as Feature } from './feature/Feature';
+export { default as NFT } from './nft/NFT';
+export { default as Partners } from './partners/Partners';
+export { default as Bk } from './bk/Bk';

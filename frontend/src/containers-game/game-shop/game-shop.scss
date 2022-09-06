@@ -1,0 +1,43 @@
+.game-shop{
+    color: white;
+    .scroll-content{
+        .tab-content {
+            .shop-items{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                @media screen and (max-width: 1000px) {
+                    
+                }
+            }
+            .lottery-tickets{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                @media screen and (max-width: 1000px) {
+                    
+                }
+            }
+            .next-draws{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                span.draw{
+                    width: 100px;
+                    padding: 10px;
+                    margin: 10px;
+                    border: 1px solid white;
+                    font: normal 0.8rem Raleway;
+                    color: #FFB13B;
+                    text-transform: uppercase;
+                    p{margin: 0; color: white;}
+                }
+            }
+        }
+        
+    }
+}

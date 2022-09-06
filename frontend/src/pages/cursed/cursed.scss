@@ -1,0 +1,87 @@
+.cursed-overlay{
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: -9998;
+    margin: 0 auto;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../../containers-game/map/assets/map.jpg");
+    background-position: 50% 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cursed{
+    position: fixed;
+    top: 25%;
+    left: 10vw;
+    right: 10vw;
+    margin: auto;
+    height: auto;
+    width: 500px;
+    max-width: 600px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.589);
+    color: white;
+
+    @media screen and (max-width: 600px) {
+        width: 100vw;
+        top: 20vh;
+        left: 0;
+    }
+
+    .head{
+        display: flex;
+        align-items: center;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        background-color: #16161583;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.589);
+
+        img{width: 250px; padding: 10px; margin: 0 auto;}
+    }
+
+    .body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 250px;
+        background-color: #16161583;
+        padding-bottom: 30px;
+
+        h2{
+            font: normal normal bold 1.4rem Cinzel;
+        }
+
+        svg{ color: white; }
+
+        .message, .messageError{
+            font: normal normal bold 0.9rem Raleway;
+        }
+        .message{
+            color: rgb(0, 214, 0);
+        }
+        .messageError{
+            color: red;
+        }
+        
+    }
+    
+    .socialIcons{
+        z-index: 9999;
+        position: absolute;
+        bottom: -55px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img{
+            margin: 10px;
+            filter: invert(100%) sepia(0%) saturate(7016%) hue-rotate(52deg) brightness(10%) contrast(74%);
+        }
+    }
+}

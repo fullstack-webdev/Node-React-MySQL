@@ -1,0 +1,111 @@
+.features{
+    margin-top: 40px;
+    margin-bottom: 140px;
+    white-space:pre-line;
+
+    .call-to-action{
+        margin-bottom: 50px;
+        h2{
+            font: normal normal normal 1.8rem Cinzel;
+            @media screen and (max-width: 800px) {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .btn-a{
+        border: 3px solid #DFDFDD;
+        color: #DFDFDD;
+        background: none;
+        padding: 1.5rem 4rem;
+        width: 100px;
+        height: 38px;
+        font: normal normal normal 2rem Cinzel;
+        transform: perspective(510px) rotateX(24deg);
+    }
+    .btn-span{
+        transform: perspective(240px) rotateX(-10deg);
+    }
+
+    .btn-a:hover{
+        color: #882B21;
+        background: #DFDFDD ;
+        transform: scale(0.9);
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding-top: 15vh;
+        padding: 15px;
+
+        hr{
+            width: 90%;
+            margin: 60px;
+            opacity: 0.3;
+        }
+
+        .feature{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @media screen and (max-width: 900px) {
+                margin-bottom: 70px;
+            }
+        }
+
+        .feature img{
+            width: 37vw;
+            max-width: 380px;
+            transition: all .2s ease-in-out; 
+            
+            filter: drop-shadow(2px 2px 0 white)
+            drop-shadow(-1px 1px 0 white)
+            drop-shadow(1px -1px 0 white)
+            drop-shadow(-1px -1px 0 white);
+        }
+        .feature img:hover{
+            transform: scale(1.02);
+        }
+
+        img.text-first {
+            order: 2;
+
+        }
+        .text.image-first {
+            text-align: left;
+        }
+        .text.text-first {
+            text-align: right;
+        }
+
+        .text {
+            // background-color: black;
+            // border: 1px #FFB13B solid;
+            width: 47vw;
+            max-width: 380px;
+            padding: 20px;
+        }
+
+        h2{
+            margin: 0 auto;
+            font: normal normal bold 1.2rem Cinzel;
+            color: #FFB13B;
+            @media screen and (min-width: 600px) {
+                font-size: 1.8rem;
+            }
+        }
+        
+        p{
+            margin: 0 auto;
+            font: normal normal normal 0.9rem Raleway;
+            color: #DFDFDD;
+            @media screen and (min-width: 600px) {
+                font-size: 1.4rem;
+            }
+        }
+
+    }
+
+}

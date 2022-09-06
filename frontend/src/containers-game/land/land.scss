@@ -1,0 +1,373 @@
+.landComponent{
+    z-index: 50;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .upgrade-banner {
+        position: fixed;
+        bottom: 0px;
+        width: calc(100% - 1rem);
+        background: rgb(13 71 124 / 80%);
+        backdrop-filter: blur(5px);
+        z-index: 51;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 0.5rem;
+
+        .desc {
+            color: gold;
+        }
+        .land-desc-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        .home-mark {
+            width: 20px;
+            height: 20px;
+            margin: 0px 10px;
+        }
+        .land-info {
+            .max-spot {
+                color: white;
+                font-size: 15px;
+                font-family: Raleway;
+                b {
+                    margin: 0px 5px;
+                    color: greenyellow;
+                    font-size: 20px;
+                }
+            }
+        }
+        .remainingTime {
+            margin-left: 30px;
+            color: white;
+            font-size: 15px;
+            font-family: Raleway;
+            b {
+                color: rgb(255, 50, 50);
+                font-size: 20px;
+            }
+        }
+    }
+
+    .birds {
+        z-index: 3;
+        position: absolute;
+        pointer-events: none;
+        
+        .bird {
+            width: 50px;
+            height: 50px;
+            animation: fly 1s steps(8, end) infinite;
+    
+            &.bird0 {
+                background-image: url('./assets/birds/0.png');
+            }
+            &.bird45 {
+                background-image: url('./assets/birds/45.png');
+            }
+            &.bird-45 {
+                background-image: url('./assets/birds/-45.png');
+            }
+            &.bird90 {
+                background-image: url('./assets/birds/90.png');
+            }
+            &.bird-90 {
+                background-image: url('./assets/birds/-90.png');
+            }
+            &.bird135 {
+                background-image: url('./assets/birds/135.png');
+            }
+            &.bird-135 {
+                background-image: url('./assets/birds/-135.png');
+            }
+            &.bird180 {
+                background-image: url('./assets/birds/180.png');
+            }
+        }
+    }
+    .dolphins {
+        z-index: 3;
+        position: absolute;
+
+        .dolphin {
+            width: 124px;
+            height: 50px;
+            opacity: 0.0;
+            animation: swim 1s steps(5, end);
+            background-image: url('./assets/dolphin.png');
+        }
+    }
+    @keyframes swim {
+        from {
+            opacity: 1.0;
+            background-position: 0px;
+        }
+        to {
+            opacity: 1.0;
+            background-position: -620px;
+        }
+    }
+    @keyframes fly {
+        from {
+            background-position: 0px;
+        }
+          to {
+            background-position: -400px;
+        }
+    }
+
+    .map {
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        img {
+            position: absolute;
+        }
+    }
+    .cities {
+        z-index: 2;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        .city {
+            position: absolute;
+            transform: translate(-50%, -50%);
+
+            .my-city-mark {
+                z-index: 3;
+                position: absolute;
+                width: 70px;
+                left: 50%;
+                bottom: 0%;
+                transform: translate(-50%, 0%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+
+                .home-mark {
+                    font: normal bold normal 14px Raleway;
+                    border-radius: 5px;
+                    background: #850000;
+                    color: white;
+                    border: 1px solid gray;
+                    padding: 5px;
+                    &:hover {
+                        background: white;
+                        color: #850000;
+                    }
+                }
+            }
+            .other-city-mark {
+                z-index: 3;
+                position: absolute;
+                width: 70px;
+                left: 50%;
+                bottom: 0%;
+                transform: translate(-50%, 0%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                opacity: 0.6;
+                &:hover {
+                    opacity: 1.0;
+                }
+
+                .other-mark {
+                    font: normal bold normal 11px Raleway;
+                    border-radius: 5px;
+                    background: #fff8c9;
+                    color: black;
+                    border: 1px solid black;
+                    padding: 3px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    width: auto;
+                    &:hover {
+                        background: black;
+                        color: white;
+                    }
+                }
+            }
+            .slot {
+                cursor: pointer;
+                z-index: 2;
+                position: absolute;
+                margin: 28% 25% 27% 30%;
+                width: 45%;
+                height: 40%;
+                transform: rotate(32deg) skew(-25deg);
+                border-radius: 5px;
+            }
+            .cityImage {
+                z-index: 1;
+            }
+        }
+    }   
+}
+
+.bubbleModal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    z-index: 101;
+
+    .line {
+        position: absolute;
+        width: 30%;
+        height: 5px;
+        background: #000000;
+        z-index: 1;
+        &.line1 {
+            transform: translate(-50%, -50%);
+            left: 10%;
+            top: 40%;
+        }
+        &.line2 {
+            transform: translate(-50%, -50%);
+            left: 20%;
+            top: 60%;
+        }
+        &.line3 {
+            transform: translate(-50%, -50%);
+            right: 10%;
+            top: 60%;
+        }
+        &.line4 {
+            transform: translate(-50%, -50%);
+            right: 10%;
+            top: 40%;
+        }
+    }
+    .bubble-info-panel {
+        transition: .2s all;
+        width: 400px;
+        height: 400px;
+        @media screen and (max-width: 500px) {
+            width: 300px;
+            height: 300px;
+        }
+        box-shadow: 0px 0px 30px 5px #000000, inset 0px 0px 200px 2px rgb(0 180 255 / 45%);
+        background: rgb(0 0 0 / 60%);
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        animation: appear .2s;
+        @keyframes appear {
+            from {
+                opacity: 0.0;
+            }
+            to {
+                opacity: 1.0;
+            }
+        }
+        .visit-mark {
+            cursor: pointer;
+            width: 50px;
+            height: 40px;
+            position: absolute;
+            background: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            transition: .2s all;
+            .eyeIcon {
+                font-size: 30px;
+                color: white;
+            }
+            &.notAllowed {
+                pointer-events: none;
+            }
+            &:hover {
+                background: white;
+                .eyeIcon {
+                    color: black;
+                }
+            }
+        }
+        .city-info {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            .city-images {
+                .city-image {
+                    width: 150px;
+                    height: 150px;
+                    @media screen and (max-width: 500px) {
+                        width: 100px;
+                        height: 100px;
+                    }
+                    border-radius: 50%;
+                    border: 2px solid gray;
+                    background: rgb(0 0 0);
+                }
+                .emblem-image {
+                    margin-left: 20px;
+                    width: 100px;
+                    height: 100px;
+                    @media screen and (max-width: 500px) {
+                        width: 50px;
+                        height: 50px;
+                    }
+                    transition: 0.2s all;
+                    border: 2px solid gray;
+                    border-radius: 50%;
+                    background: black;
+                }
+            }
+            .city-name {
+                margin-top: 10px;
+                color: #ffbc00;
+                font: normal bold normal 17px Raleway;
+            }
+            .experience {
+                margin-top: 10px;
+                color: white;
+                font-size: 15px;
+                font-family: Raleway;
+                b {
+                    color: greenyellow;
+                    font-size: 17px;
+                }
+            }
+            .start-time {
+                margin-top: 10px;
+                color: white;
+                font-size: 15px;
+                font-family: Raleway;
+                b {
+                    color: greenyellow;
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+}

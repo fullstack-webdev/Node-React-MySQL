@@ -1,0 +1,12 @@
+.BkComponent{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100vw;
+    z-index: -10;
+    background-image: url("../../containers-game/map/assets/map.jpg");
+    background-position: 50% 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: brightness(0.6) blur(8px);
+}

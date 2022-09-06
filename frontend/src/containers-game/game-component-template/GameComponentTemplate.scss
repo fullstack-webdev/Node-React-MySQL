@@ -1,0 +1,45 @@
+.classNameForComponent {
+    .content {
+        position: relative;
+        .api-loading {
+            position: absolute;
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            border: 5px solid rgba(0, 0, 0, 0.5);
+            .apiCallingGif {
+                width: 180px;
+                height: 120px;
+                filter: drop-shadow(2px 4px 6px gold);
+            }
+            .loader{
+                margin-top: 20px;
+                font: normal bold 15px Raleway;
+                letter-spacing: 2px;
+                color: gold;
+                animation: smokeOut 1.5s ease-in-out infinite alternate;
+
+                &:before {
+                    content: "Loading";
+                }
+            }
+            
+            @keyframes smokeOut {
+                100% {
+                    opacity: 0.08;
+                    filter: blur(5px);
+                    letter-spacing: 4px;
+                }
+            }
+        }
+    }
+    .scroll-content {
+        min-height: 300px;
+        // add your custom css here for the tab content
+    }
+}

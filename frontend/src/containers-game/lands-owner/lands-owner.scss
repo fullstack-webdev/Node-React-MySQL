@@ -1,0 +1,148 @@
+.lands-owner {
+    .content {
+        position: relative;
+        .api-loading {
+            position: absolute;
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 100;
+            border: 5px solid rgba(0, 0, 0, 0.5);
+            .apiCallingGif {
+                width: 180px;
+                height: 120px;
+                filter: drop-shadow(2px 4px 6px gold);
+            }
+            .loader{
+                margin-top: 20px;
+                font: normal bold 15px Raleway;
+                letter-spacing: 2px;
+                color: gold;
+                animation: smokeOut 1.5s ease-in-out infinite alternate;
+
+                &:before {
+                    content: "Loading";
+                }
+            }
+            
+            @keyframes smokeOut {
+                100% {
+                    opacity: 0.08;
+                    filter: blur(5px);
+                    letter-spacing: 4px;
+                }
+            }
+        }
+    }
+    .scroll-content {
+        min-height: 300px;
+        position: relative;
+        @media screen and (max-width: 400px) {
+            width: 100% !important;
+            padding: 0rem !important;
+        }
+        .land-table {
+            tr {
+                th {
+                    font: normal bold 0.9rem Raleway;
+                    color: gold;
+                    text-transform: uppercase;
+                    padding: 1rem;
+                }
+                td {
+                    color: #ffbc00;
+                    font: normal normal 1rem Raleway;
+                    word-break: break-word;
+                    
+                    .land-image {
+                        width: 50px;
+                        height: 50px;
+                        border: 1px solid gray;
+                        transition: .2s all;
+                        &:hover {
+                            transform: scale(1.3);
+                        }
+                    }
+                    .iconBtn {
+                        padding: 10px;
+                        transition: .2s all;
+                        opacity: 1.0;
+                    }
+                    .visitBtn{
+                        background: #4160626b;
+                        svg {
+                            font-size: 30px;
+                            color: #77fff4;
+                        }
+                        &:hover {
+                            background: #2f818f6b;
+
+                            svg {
+                                color: #00fff2;
+                            }
+                        }
+                    }
+                    .stakeBtn {
+                        background: #4262416b;
+                        svg {
+                            font-size: 30px;
+                            color: #77ff77;
+                        }
+                        &:hover {
+                            background: #2f8f346b;
+
+                            svg {
+                                color: #00ff44;
+                            }
+                        }
+                    }
+                    .unstakeBtn {
+                        background: #6241416b;
+                        svg {
+                            font-size: 30px;
+                            color: #ff7777;
+                        }
+                        &:hover {
+                            background: #8f2f2f6b;
+
+                            svg {
+                                color: #ff0000;
+                            }
+                        }
+                    }
+                    &.notAllowed {
+                        pointer-events: none;
+                    }
+                    .unstakableMessage {
+                        color: #DFDFDD;
+                        font: normal normal normal 13px Raleway;
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    &:hover {
+                        background: rgba(0, 0, 0, 0.5);
+                    }
+                }
+            }
+        }
+        .pagination {
+            padding: 0rem;
+            margin: 0rem;
+            margin-top: 10px;
+        }
+        .notAllowedText {
+            font-size: 0.9rem;
+            color: gray;
+        }
+    }
+}
+.confirmText {
+    color: white;
+    font: normal normal normal 20px Raleway;
+}

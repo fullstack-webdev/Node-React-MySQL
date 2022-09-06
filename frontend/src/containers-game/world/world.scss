@@ -1,0 +1,232 @@
+.world{
+    z-index: 50;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .info-banner {
+        position: fixed;
+        bottom: 0px;
+        width: calc(100% - 1rem);
+        background: rgb(13 71 124 / 50%);
+        backdrop-filter: blur(5px);
+        z-index: 51;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+
+        .home-mark {
+            width: 20px;
+            height: 20px;
+            margin: 0px 10px;
+        }
+        .world-image {
+            width: 40px;
+            height: 40px;
+        }
+        .world-info {
+            font: normal bold normal 16px Raleway;
+            color: white;
+            a {
+                margin: 0px 5px;
+                color: greenyellow;
+                font-size: 17px;
+            }
+            b {
+                margin: 0px 5px;
+                color: greenyellow;
+            }
+            @media screen and (max-width: 500px) {
+                font-size: 15px;
+                a {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .searchLand {
+        z-index: 1;
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        width: calc(100% - 2rem);
+        padding-top: 1rem;
+        @media screen and (max-width: 1000px) {
+            justify-content: center;
+        }
+
+        .css-i44wyl {
+            background: #5befff;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            box-shadow: 0px 0px 10px black;
+
+            label {
+                color: rgb(54, 54, 54);
+            }
+            .css-17spqnz::before {
+                top: 0;
+                border-top: 5px solid rgba(0, 0, 0, 0.42);
+                border-bottom: 0px;
+            }
+            .css-17spqnz::after {
+                top: 0;
+                border-top: 2px solid rgb(4, 0, 255);
+                border-bottom: 0px;
+            }
+            input {
+                color: rgb(24 15 167);
+                font: normal bold 0.9rem Cinzel;
+            }
+        }
+        .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+            background: #5befff;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            box-shadow: 0px 0px 10px black;
+
+            label {
+                color: rgb(201, 0, 0);
+                font: normal bold 0.9rem Cinzel;
+            }
+
+            .css-19mk8g1-MuiInputBase-root-MuiFilledInput-root:hover:not(.Mui-disabled):before {
+                top: 0;
+                border-top: 5px solid rgba(0, 0, 0, 0.87) !important;
+                border-bottom: 0px;
+            }
+            .css-19mk8g1-MuiInputBase-root-MuiFilledInput-root:before {
+                top: 0;
+                border-top: 5px solid rgba(0, 0, 0, 0.42);
+                border-bottom: 0px;
+            }
+            .css-19mk8g1-MuiInputBase-root-MuiFilledInput-root:after {
+                top: 0;
+                border-top: 2px solid rgb(4, 0, 255);
+                border-bottom: 0px;
+            }
+            input {
+                color: rgb(24 15 167);
+                font: normal bold 1.0rem Raleway;
+            }
+        }
+    }
+    .map {
+        z-index: 0;
+        position: absolute;
+        background-image: url('./assets/ocean.png');
+        transition: all 0.2s ease 0s;
+
+        .land {
+            position: absolute;
+            transition: .2s all;
+            opacity: 0.6;
+            &.owned, &.home {
+                opacity: 1.0;
+            }
+            &:hover {
+                transform: scale(1.1);
+                opacity: 1.0;
+            }
+            .owner-info {
+                z-index: 5;
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                left: 50%;
+                top: 0%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                box-shadow: inset 0px 0px 10px 2px white;
+                border: 3px solid rgba(0, 255, 255, 0.5);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                pointer-events: none;
+                .owner-cityImage {
+                    width: 90%;
+                    height: 90%;
+                    border-radius: 50%;
+                }
+            }
+            .my-land-mark {
+                z-index: 5;
+                position: absolute;
+                width: 40px;
+                height: 30px;
+                left: 80%;
+                top: 0%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                pointer-events: none;
+                .home-mark {
+                    width: 20px;
+                    height: 30px;
+                    margin: 0px 10px;
+                }
+            }
+            .visit-mark {
+                cursor: pointer;
+                z-index: 4;
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                left: 50%;
+                top: 50%;
+                width: 60%;
+                height: 50%;
+                // background: rgba(0, 0, 0, 0.3);
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                transition: .2s all;
+                .eyeIcon {
+                    font-size: 30px;
+                    color: rgba(255, 255, 255, 0.8);
+                }
+            }
+            .landImage {
+                z-index: 3;
+                filter: drop-shadow(0px 0px 5px rgba(0, 255, 255, 0.5));
+                &.owned {
+                    filter: drop-shadow(0px 0px 30px rgb(0, 255, 0));
+                }
+            }
+            .landName {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 0%);
+
+                width: fit-content;
+                max-width: 60%;
+
+                border-radius: 5px;
+                padding: 1px 2px;
+
+                text-overflow: ellipsis;
+                overflow: hidden;
+                text-align: center;
+
+                background: white;
+                color: black;
+
+                font: normal bold normal 13px Raleway;
+            }
+            &.searched {
+                opacity: 1.0;
+                .landName {
+                    color: rgb(150, 0, 0);
+                }
+            }
+        }
+    }
+}

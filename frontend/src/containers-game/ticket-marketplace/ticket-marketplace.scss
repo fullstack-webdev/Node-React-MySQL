@@ -1,0 +1,412 @@
+.ticket-marketplace {
+    .content {
+        position: relative;
+        .api-loading {
+            position: absolute;
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 100;
+            border: 5px solid rgba(0, 0, 0, 0.5);
+            .apiCallingGif {
+                width: 180px;
+                height: 120px;
+                filter: drop-shadow(2px 4px 6px gold);
+            }
+            .loader{
+                margin-top: 20px;
+                font: normal bold 15px Raleway;
+                letter-spacing: 2px;
+                color: gold;
+                animation: smokeOut 1.5s ease-in-out infinite alternate;
+
+                &:before {
+                    content: "Loading";
+                }
+                &.buy:before {
+                    content: "Buying";
+                }
+                &.subscribe:before {
+                    content: "Subscribing";
+                }
+                &.unsubscribe:before {
+                    content: "Unsubscribing";
+                }
+            }
+            
+            @keyframes smokeOut {
+                100% {
+                    opacity: 0.08;
+                    filter: blur(5px);
+                    letter-spacing: 4px;
+                }
+            }
+        }
+        .priceUnitImg {
+            width: 20px;
+            height: 20px;
+        }
+        .detailView {
+            width: 100%;
+        }
+        .descriptionText {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font: normal normal normal 0.9rem Raleway;
+            color: #DFDFDD;
+            padding-bottom: 1rem;
+        }
+        .backBtn {
+            cursor: pointer;
+            width: fit-content;
+            margin: 0.5rem 0rem;
+            display: flex;
+            align-items: center;
+
+            .backImg {
+                width: 1.5rem;
+                height: 1.5rem;
+                filter: invert(100%);
+            }
+            color: white;
+            .backText {
+                font: normal bold 0.9rem Cinzel;
+            }
+            &:hover {
+                .backImg {
+                    filter: invert(70%) sepia(98%) saturate(415%) hue-rotate(333deg) brightness(102%) contrast(91%);
+                }
+                .backText {
+                    color: rgb(255, 174, 0);
+                }
+            }
+        }
+        .detail-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @media screen and (max-width: 600px) {
+                flex-direction: column;
+            }
+            padding-bottom: 1rem;
+            .ticket-info {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                @media screen and (max-width: 600px) {
+                    width: 100%;
+                }
+                .info-spec {
+                    display: flex;
+                    align-items: center;
+                    color: #DFDFDD;
+                    a {
+                        width: 50%;
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                    .view-panel-mark {
+                        margin: 5px 10px;
+                    }
+                    p {
+                        text-transform: capitalize;
+                        margin: 5px 10px;
+                        color: #ffbc00;
+                    }
+                }
+            }
+            .sell-panel {
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                @media screen and (max-width: 600px) {
+                    width: 100%;
+                    margin-top: 1rem;
+                    padding-top: 1rem;
+                    border-top: 1px solid rgb(255, 255, 255, 0.2);
+                }
+                .iconActionBar {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .info-text {
+                        display: flex;
+                        align-items: center;
+                        color: #DFDFDD;
+                        font: normal normal normal 15px Raleway;
+                        a {
+                            &:first-child {
+                                width: 50%;
+                                display: flex;
+                                justify-content: flex-end;
+                                align-items: center;
+                            }
+                            &:last-child {
+                                font-weight: bold;
+                                color: #ffbc00;
+                                font-size: 17px;
+                                display: flex;
+                                align-items: center;
+                            }
+                        }
+                    }
+
+                    .ctCheckInput {
+                        svg {
+                            border-radius: 4px;
+                            padding: 3px;
+                            font-size: 20px;
+                            color: #00ffff;
+                            background: #00ffff2b;
+                            border: 1px solid #00ffffff;
+                            opacity: 0.5;
+                        }
+                        &.Mui-checked {
+                            svg {
+                                opacity: 1.0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .iconAction {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0px 10px;
+            p {
+                color: #DFDFDD;
+                font: normal normal normal 13px Raleway;
+                margin: 5px 0px 0px 0px;
+            }
+
+            &:last-child:not(:first-child) {
+                border-left: 1px solid rgba(255, 255, 255, 0.2);
+                padding-left: 10px;
+            }
+        }
+        .iconBtn {
+            padding: 10px;
+            transition: .2s all;
+            opacity: 1.0;
+            svg {
+                font-size: 30px;
+            }
+            
+            &.buyBtn{
+                background: #4262416b;
+                svg {
+                    font-size: 30px;
+                    color: #77ff77;
+                }
+                &:hover {
+                    background: #2f8f346b;
+
+                    svg {
+                        color: #00ff44;
+                    }
+                }
+            }
+            &.sellBtn{
+                background: #5f62416b;
+                svg {
+                    color: #e5ff00cc;
+                }
+                &:hover {
+                    background: #5f6241;
+
+                    svg {
+                        color: #e5ff00;
+                    }
+                }
+            }
+            &.sendBtn{
+                background: #6241416b;
+                svg {
+                    font-size: 30px;
+                    color: #ff7777;
+                }
+                &:hover {
+                    background: #8f2f2f6b;
+
+                    svg {
+                        color: #ff0000;
+                    }
+                }
+            }
+            &.subscribeBtn{
+                background: #4262416b;
+                svg {
+                    font-size: 30px;
+                    color: #77ff77;
+                }
+                &:hover {
+                    background: #2f8f346b;
+
+                    svg {
+                        color: #00ff44;
+                    }
+                }
+            }
+            &.unsubscribeBtn{
+                background: #5f62416b;
+                svg {
+                    color: #e5ff00cc;
+                }
+                &:hover {
+                    background: #5f6241;
+
+                    svg {
+                        color: #e5ff00;
+                    }
+                }
+            }
+            &.sendBackBtn{
+                background: #6241416b;
+                svg {
+                    font-size: 30px;
+                    color: #ff7777;
+                }
+                &:hover {
+                    background: #8f2f2f6b;
+
+                    svg {
+                        color: #ff0000;
+                    }
+                }
+            }
+        }
+        .notAllowed {
+            pointer-events: none;
+            opacity: 0.4;
+        }
+    }
+    .scroll-content {
+        min-height: 300px;
+        position: relative;
+        @media screen and (max-width: 400px) {
+            width: 100% !important;
+            padding: 0rem !important;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .status-mark {
+                min-width: 60px;
+                font-size: 10px;
+                color: white;
+                padding: 5px;
+                border-radius: 5px;
+                width: fit-content;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-align: center;
+            }
+            .generated {
+                background: #005a00;
+                color: white;
+            }
+            .onSale {
+                background: #00626c;
+                color: white;
+            }
+            .sent {
+                background: white;
+                color: red;
+            }
+            .used {
+                background: rgb(255, 217, 0);
+                color: black;
+            }
+            .expired {
+                background: rgb(107, 0, 0);
+                color: white;
+            }
+        }
+        .ticket-table {
+            tr {
+                th {
+                    font: normal bold 0.85rem Raleway;
+                    color: gold;
+                    text-transform: uppercase;
+                    padding: 0.8rem;
+                }
+                td {
+                    color: #ffbc00;
+                    font: normal normal 0.9rem Raleway;
+                    word-break: break-word;
+                    padding: 0.4rem;
+                    .detailBtn {
+                        margin-left: 10px;
+                        padding: 5px;
+                        transition: .2s all;
+
+                        background: #4160626b;
+                        svg {
+                            font-size: 20px;
+                            color: #77fff4;
+                        }
+                        &:hover {
+                            background: #2f818f6b;
+
+                            svg {
+                                color: #00fff2;
+                            }
+                        }
+                    }
+                    .buyBtn{
+                        padding: 5px;
+                        transition: .2s all;
+
+                        background: #4262416b;
+                        svg {
+                            font-size: 20px;
+                            color: #77ff77;
+                        }
+                        &:hover {
+                            background: #2f8f346b;
+        
+                            svg {
+                                color: #00ff44;
+                            }
+                        }
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    &:hover {
+                        background: rgba(0, 0, 0, 0.5);
+                    }
+                }
+            }
+        }
+        .pagination {
+            padding: 0rem;
+            margin: 0rem;
+            margin-top: 10px;
+        }
+        .noTicketText {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font: normal normal normal 0.9rem Raleway;
+            color: #DFDFDD;
+        }
+        .notAllowedText {
+            font: normal normal normal 0.9rem Raleway;
+            color: gray;
+        }
+    }
+}

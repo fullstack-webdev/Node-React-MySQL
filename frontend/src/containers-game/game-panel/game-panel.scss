@@ -1,0 +1,42 @@
+.game-panel {
+    .scroll-content {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 30px;
+
+        .claimAll{
+            text-align: center;
+            color: white;
+            h3{font: normal bold 1.6rem Raleway;}
+            p{display: flex; font: normal normal 1.2rem Raleway;}
+            img{margin-right: 10px; width: 30px;}
+        }
+
+        .btn-a.btn-claimAll{
+            width: 100px;
+            height: 30px;
+            font-size: 1.4rem;
+            transform: perspective(510px) rotateX(24deg);
+
+            @media screen and (max-width: 700px){font-size: 1rem;}
+            @media screen and (min-width: 2000px){height: 40px; font-size: 2.2rem;}
+        }
+        .btn-span.btn-claimAll{
+            transform: perspective(240px) rotateX(-10deg);
+        }
+        .btn-a.btn-claimAll:hover:not(.disabled){
+            background: #c8c8c8;
+            transform: scale(0.9);
+        }
+        .btn-a.btn-claimAll.disabled{
+            background-color: #848D8C;
+            border-top: #848D8C;
+            border-bottom: #848D8C;
+            cursor: not-allowed;
+        }
+    }
+}

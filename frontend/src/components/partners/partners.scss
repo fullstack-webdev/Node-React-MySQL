@@ -1,0 +1,32 @@
+.Partners{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.788);
+    padding: 30px 0;
+    padding-bottom: 60px;
+
+    h2{
+        font: 2rem normal Cinzel;
+    }
+
+    .partners-list{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        img.partner{
+            margin: 20px;
+            height: 100px;
+            border: none;
+            cursor: pointer;
+        }
+
+        img.partner-orizontal{
+            margin: 20px;
+            height: auto;
+            width: 250px;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,60 @@
+table.tableLeaderboard { table-layout:fixed; }
+// table.tableLeaderboard td { overflow: hidden; }
+
+.tableLeaderboard{
+    color: white;
+    width: 100%;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    thead{
+        font: normal normal bold 1rem Raleway;
+        color: gold;
+        text-transform: uppercase;
+    }
+    thead th{
+        padding: 1rem 0;
+    }
+    tbody tr{
+        color: #ffb13b;
+        font: normal normal normal 1rem Raleway;
+    }
+    tbody td{
+        padding: 5px 0;
+        border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    .avatar{
+        height: 50px;
+        width: 50px;
+        transition: .2s all;
+        &:hover {
+            transform: scale(3);
+        }
+    }
+    .city {
+        width: auto;
+
+        @media screen and (max-width: 500px) {
+            width: 4.5rem;
+            margin: auto;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    .emblem {
+        &:hover {
+            transform: scale(4);
+        }
+    }
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    filter: invert(68%) sepia(98%) saturate(415%) hue-rotate(333deg) brightness(102%) contrast(101%);
+    img{width: 30px; margin: 10px; cursor: pointer;}
+    .page-disabled{pointer-events: none;opacity: 0.3; cursor: not-allowed;}
+}

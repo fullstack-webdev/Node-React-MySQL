@@ -1,0 +1,1514 @@
+.game-fish{
+    .content {
+        position: relative;
+        .api-loading {
+            position: absolute;
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            border: 5px solid rgba(0, 0, 0, 0.5);
+            .apiCallingGif {
+                width: 180px;
+                height: 120px;
+                filter: drop-shadow(2px 4px 6px gold);
+            }
+            .loader{
+                margin-top: 20px;
+                font: normal bold 15px Raleway;
+                letter-spacing: 2px;
+                color: gold;
+                animation: smokeOut 1.5s ease-in-out infinite alternate;
+
+                &:before {
+                    content: "Loading";
+                }
+                &.fish-loader:before {
+                    content: "Fishing";
+                }
+                &.change-loader:before {
+                    content: "Changing";
+                }
+                &.repair-loader:before {
+                    content: "Repairing";
+                }
+                &.upgrade-loader:before {
+                    content: "Upgrading";
+                }
+                &.burn-loader:before {
+                    content: "Burning Lures";
+                }
+                &.unlock-loader:before {
+                    content: "Unlocking";
+                }
+                &.passive-loader:before {
+                    content: "Setting Passive On";
+                }
+                &.active-loader:before {
+                    content: "Setting Passive Off";
+                }
+                &.passiveUpgrade-loader:before {
+                    content: "Upgrading Passive Level";
+                }
+            }
+            
+            @keyframes smokeOut {
+                100% {
+                    opacity: 0.08;
+                    filter: blur(5px);
+                    letter-spacing: 4px;
+                }
+            }
+        }
+    }
+
+    .scroll-content {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: auto;
+        // flex-direction: column;
+        @media screen and (min-width: 800px) {
+            justify-content: center;
+        }
+        @media screen and (max-width: 800px) {
+            flex-direction: column;
+        }
+
+        .fish-info {
+            width: calc(45% - 1rem);
+            display: flex;
+            flex-direction: column;
+            @media screen and (max-width: 800px) {
+                width: 100%;
+            }
+
+            .fish-rod {
+                width: calc(100% - 2rem);
+                padding: 0rem 1rem;
+                @media screen and (max-width: 800px) {
+                    padding: 1rem;
+
+                    .fish-img {
+                        width: calc(30% - 2rem) !important;
+                    }
+                }   
+
+                display: flex;
+                align-items: center;
+                // flex-direction: column;
+                justify-content: flex-start;
+
+                .fish-img {
+                    position: relative;
+
+                    background: rgba(80, 80, 80, 0.8);
+                    width: calc(40% - 3rem);
+                    padding: 1rem;
+                    margin-left: 0.5rem;
+                    border: 1px solid rgb(100 100 100);
+                    // border: 1px solid #ff0000;
+                    min-width: 4rem;
+                    min-height: 4rem;
+                    border-radius: 5px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .notAllowed {
+                    pointer-events: none;
+                }
+                .noEquippedText {
+                    color: rgba(255, 255, 255, 0.7);
+                    font: italic normal 0.9rem Arial;
+                    padding: 2rem 0rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                }
+                .fish-rod-info {
+                    min-width: 4rem;
+                    margin-left: 2rem;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+
+                    .fish-name {
+                        color: #ffbc00;
+                        text-align: center;
+                        font: normal bold 1.0rem Cinzel;
+                        // padding-top: 1rem;
+        
+                        b {
+                            font: normal normal 0.9rem Arial;
+                        }
+                    }
+                    .durability {
+                        width: 100%;
+                        padding-top: 0.5rem;
+                        padding-left: 0.5rem;
+                        display: flex;
+                        align-items: flex-end;
+                        justify-content: space-around;
+        
+                        .durability-info {
+                            display: flex;
+                            flex-direction: column;
+        
+                            .durability-label {
+                                color: #abff4e;
+                                font: normal bold 0.8rem Cinzel;
+                            }
+                            .durability-bar {
+                                width: 100%;
+                                background-color: #abff4e;
+                                border: 1px solid #abff4e;
+                                border-radius: 5px;
+                            }
+                        }
+                        .durability-text {
+                            color: #abff4e;
+                            font: normal bold 1.0rem Cinzel;
+                        }
+                    }
+                }
+            }
+
+            .fish-action {
+                width: calc(100% - 2rem);
+                display: flex;                
+                padding: 1.5rem 1rem 1rem 1rem;
+
+                @media screen and (max-width: 800px) {
+                    padding: 1rem 0rem 0rem 0rem;
+                    width: 100%;
+                }
+
+                .notRepairAvailable{
+                    background-color: gray;
+                    color: white;
+                }
+                .css-1elwnq4-MuiPaper-root-MuiAccordion-root, .css-67l5gl {
+                    background: rgb(20 20 20);
+                    width: 100%;
+                    border: 1px solid rgba(247, 167, 46, 0.35);
+                    transition: .2s all;
+                    &:hover {
+                        border: 1px solid rgba(255, 153, 0, 0.5);
+                    }
+
+                    .summary {
+                        width: 100%;
+                        height: 2.5rem;
+                        min-height: 2.5rem;
+                        display: flex;
+                        align-items: center;
+                        transition: all .5s;
+
+                        &.Mui-expanded {
+                            height: 2rem;
+                        }
+                        .setting-accordion-summary {
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            span:first-child {
+                                color: #ffbc00;
+                                font: normal bold 0.9rem Cinzel;
+                            }
+                            // span:last-child {
+                            //     color: gold;
+                            //     font: normal bold 1.0rem Cinzel;
+                            // }
+                        }
+                    }
+                    .details {
+                        border-top: 1px dotted rgba(255, 153, 0, 0.233);
+                        padding: 5px 0px;
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+
+                        .fish-action-button {
+                            // width: calc(50% - 1rem);
+                            display: flex;
+                            flex-direction: column;
+                            margin-left: 10px;
+        
+                            button {
+                                margin: 0.5rem 0;
+                                width: 100%;
+                                min-width: 7.5rem;
+                                font: normal bold 0.7rem Cinzel;
+                                // background: #ffbc00;
+                                color: #ffbc00;
+                                border-color: #ffbc00;
+                                transition: .2s all;
+
+                                &:hover {
+                                    background: #746200a8;
+                                    color: white;
+                                }
+                            }
+
+                            .notAllowed {
+                                pointer-events: none;
+                                color: rgba(255, 255, 255, 0.5);
+                                background-color: #8b3f007e;
+                            }
+                        }   
+        
+                        .fish-timer{
+                            // margin-left: 15px;
+                            // margin-right: 10px;   
+                            margin: auto;
+                            padding: 0rem 1rem;
+
+                            .remainingTime {
+                                
+                                margin-left: 0.3rem;
+                                color: white;
+                                text-align: left;
+                                font-size: 0.9rem;
+                
+                                b {
+                                    font-weight: normal;
+                                    color: rgb(255, 50, 50);
+                                }
+                            }
+                            .noFishingText {
+                                margin-left: 0.3rem;
+                                color: grey;
+                                text-align: left;
+                                font: normal 1.0rem Arial;
+                            }
+                        }
+                    }
+                    svg {
+                        color: gold;
+                    }
+                }  
+            }
+
+            .passive-panel {
+                width: calc(100% - 2rem);
+                display: flex;                
+                padding: 0rem 1rem 1rem 1rem;
+
+                @media screen and (max-width: 800px) {
+                    padding: 0rem 0rem 1rem 0rem;
+                    width: 100%;
+                }
+
+                .css-1elwnq4-MuiPaper-root-MuiAccordion-root, .css-67l5gl {
+                    background: rgb(20 30 60 / 80%);
+                    width: 100%;
+                    border: 1px solid rgb(255 255 255 / 25%);
+                    transition: .2s all;
+                    &:hover {
+                        border: 1px solid rgb(255 255 255 / 40%);
+                        box-shadow: 0px 0px 10px 5px #00325e;
+                    }
+
+                    .summary {
+                        width: 100%;
+                        height: 2.5rem;
+                        min-height: 2.5rem;
+                        display: flex;
+                        align-items: center;
+                        transition: all .5s;
+
+                        &.Mui-expanded {
+                            height: 2rem;
+                        }
+                        .setting-accordion-summary {
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            span:first-child {
+                                color: #ffbc00;
+                                font: normal bold 0.9rem Cinzel;
+                            }
+                            span:last-child {
+                                display: flex;
+                                align-items: center;
+
+                                margin-right: 5px;
+                                font: normal bold 0.9rem Raleway;
+                                svg {
+                                    font-size: 20px;
+                                    margin-right: 5px;
+                                }
+                                &.locked {
+                                    color: red;
+                                    svg {
+                                        color: red;
+                                    }
+                                }
+                                &.unlocked {
+                                    color: #00c800;
+                                    svg {
+                                        color: #00c800;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .details {
+                        border-top: 1px dotted rgba(255, 255, 255, 0.2);
+                        padding: 5px 0px;
+                        width: 100%;
+                        
+                        .actions {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-evenly;
+                            padding-top: 5px;
+
+                            .passiveSwitchText {
+                                color: #DFDFDD;
+                                font: normal normal normal 13px Raleway;
+                            }
+                            .passiveSwitchActions {
+                                display: flex;
+                                
+                                .iconBtn {
+                                    margin: 0px 10px;
+                                    padding: 5px;
+                                    transition: .2s all;
+                                    svg {
+                                        font-size: 30px;
+                                    }
+                                    &.notAllowed {
+                                        pointer-events: none;
+                                        opacity: 0.2;
+                                    }
+                                    background: #494f62;
+                                    svg {
+                                        color: rgb(180, 180, 180);
+                                    }
+                                    &:hover {
+                                        background: #4f5774;
+                                        svg {
+                                            color: rgb(220, 220, 220);
+                                        }
+                                    }
+                                }
+                                /* .activeBtn{
+                                    background: #494f62;
+                                    svg {
+                                        color: rgb(180, 180, 180);
+                                    }
+                                    &:hover {
+                                        background: #4f5774;
+                                        svg {
+                                            color: rgb(220, 220, 220);
+                                        }
+                                    }
+                                }
+                                .passiveBtn{
+                                    background: rgba(0, 255, 0, 0.4);
+                                    svg {
+                                        color: rgba(0, 255, 0, 0.7);
+                                    }
+                                    &:hover {
+                                        background: rgba(0, 255, 0, 0.6);
+                                        svg {
+                                            color: rgba(0, 255, 0, 0.8);
+                                        }
+                                    }
+                                } */
+                            }
+                            .unlockDesc {
+                                color: #DFDFDD;
+                                font: normal normal normal 13px Raleway;
+                                width: 50%;
+                                text-indent: 1rem;
+                                line-height: 1.3;
+                            }
+                            .passive-info {
+                                display: flex;
+                                flex-direction: column;
+                                width: 50%;
+                                .passive-level {
+                                    color: #DFDFDD;
+                                    font: normal normal normal 13px Raleway;
+                                    line-height: 1.3;
+                                    b {
+                                        font: normal normal normal 17px Raleway;
+                                        color: white;
+                                    }
+                                }
+                                .passive-fishingCoolDown {
+                                    color: #DFDFDD;
+                                    font: normal normal normal 13px Raleway;
+                                    line-height: 1.3;
+                                    b {
+                                        font: normal normal normal 17px Raleway;
+                                        color: white;
+                                    }
+                                }
+                            }
+                            .actionBtn {
+                                font-size: 0.7rem;
+                                padding: 5px 10px;
+                                svg {
+                                    font-size: 20px;
+                                }
+                                &.notAllowed {
+                                    pointer-events: none;
+                                }
+                            }
+                            .unLockBtn, .passiveUpgradeBtn {
+                                color: lime;
+                                border-color: rgb(0 200 0 / 70%);
+                                svg {
+                                    color: #00c800;
+                                }
+                                &:hover {
+                                    border-color: rgb(0 200 0 / 90%);
+                                    background: #00c80033;
+                                }
+                                &.notAllowed {
+                                    opacity: 0.5;
+                                    /* color: #00c8006e;
+                                    border-color: rgb(0 200 0 / 30%);
+                                    svg {
+                                        color: #00c8006e;
+                                    } */
+                                }
+                            }
+                        }
+                        .cost-list {
+                            display: flex;
+                            width: 100%;
+                            flex-wrap: wrap;
+                            justify-content: flex-end;
+                            align-items: center;
+                            
+                            .noRequirementsText {
+                                width: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                color: gray;
+                                font: normal normal normal 13px Raleway;
+                            }
+                            .cost {
+                                display: flex;
+                                align-items: center;
+                                padding: 0.5rem 0rem;
+                                width: 50%;
+                                justify-content: center;
+                
+                                &.notAllowed {
+                                    .costDesc {
+                                        color: rgb(255, 72, 0);
+                                    }
+                                    .costImg {
+                                        border: 1px solid rgb(255, 72, 0);
+                                    }
+                                }
+                                .costDesc {
+                                    width: 70px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: flex-end;
+                                    margin: 0px 10px;
+                                    color: #00db00;
+                
+                                    .costQuantity {
+                                        font-size: 14px;
+                                        font-weight: 500;
+                                    }
+                                    // .burnMark {
+                                    //     color: rgb(255, 50, 50);
+                                    //     font: normal bold 13px Cinzel;
+                                    //     text-align: right;
+                                    // }
+                                    .costName {
+                                        text-transform: capitalize;
+                                        font: normal normal normal 13px Arial;
+                                        text-align: right;
+                                    }
+                                }
+                                .costImg {
+                                    min-width: 40px;
+                                    width: 40px;
+                                    height: 40px;
+                                    // border: 1px solid gray;
+                                    border: 1px solid #009e00;
+                                    background: rgb(60, 60, 60);
+                                }
+                            }
+                        }
+                        .notAllowedText {
+                            color: gray;
+                            font: normal normal normal 13px Raleway;
+                        }
+                    }
+                    svg {
+                        color: rgba(255, 255, 255, 0.6);
+                    }
+                }  
+            }
+        }
+        .fish-items {
+            width: calc(55% - 1rem);
+            padding: 0rem 2rem 2rem 2rem;
+            @media screen and (max-width: 800px) {
+                padding: 1rem 0rem;
+                width: 100%;
+            }
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .lure-panel {
+                background: rgb(20 30 60 / 80%);
+                border: 1px solid rgb(255 255 255 / 25%);
+                transition: .2s all;
+                &:hover {
+                    border: 1px solid rgb(255 255 255 / 40%);
+                    box-shadow: 0px 0px 10px 5px #00325e;
+                }
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+                padding: 0.5rem 0rem;
+                margin-bottom: 0.5rem;
+
+                .lure-info {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+
+                    .lure-left {
+                        width: 60%;
+                        display: flex;
+                        align-items: center;
+
+                        .lure-image {
+                            width: 35px;
+                            height: 35px;
+                            border: 1px solid gray;
+                            background: rgb(60, 60, 60);
+                            padding: 5px;
+                        }
+                        .lure-desc {
+                            margin-left: 10px;
+                            width: calc(100% - 45px);
+                            color: #DFDFDD;
+                            font: normal normal normal 13px Raleway;
+                            line-height: 1.4;
+                            b {
+                                color: white;
+                                font-weight: 100;
+                            }
+                            a {
+                                color: white;
+                                font-size: 15px;
+                                font-weight: 500;
+                            }
+                            .lure-quantity {
+                                transition: .2s all;
+                                font: normal normal normal 15px Raleway;
+                                color: gold;
+                                &.missing {
+                                    color: rgb(255, 72, 0);
+                                }
+                            }
+                        }
+                    }
+                    .lure-right {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        .burnLureInput {
+                            width: 70px;
+                            color: white;
+                            background: rgba(0, 0, 0, 0.5);
+                            border: 1px solid gray;
+                            font: normal normal normal 15px Raleway;
+                            padding: 2px 5px;
+                            outline: none;
+                            &:focus {
+                                border: 1px solid white;
+                            }
+                        }
+                        .burnLureBtn {
+                            transition: .2s all;
+                            margin-top: 5px;
+                            width: 50px;
+                            padding: 2px;
+                            font-size: 0.7rem;
+                            background: rgb(110, 0, 0);
+                            color: white;
+                            &:hover {
+                                background: rgb(150, 15, 15);
+                                color: white;
+                            }
+                            &.missing {
+                                pointer-events: none;
+                                opacity: 0.5;
+                            }
+                        }
+                    }
+                }
+                .possibleActionCount {
+                    width: 100%;
+                    color: #DFDFDD;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 5px;
+                    font: normal normal normal 13px Raleway;
+
+                    b {
+                        color: white;
+                        margin: 0px 5px;
+                        font-size: 15px;
+                    }
+                    div {
+                        margin: 0px 5px;
+                        a {
+                            color: gold;
+                            font-size: 15px;
+                            margin: 0px 5px;
+                        }
+                    }
+                }
+                .action-info {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    margin-top: 10px;
+                    border-top: 1px solid rgb(60, 60, 60);
+                    padding-top: 10px;
+                
+                    .storedActionBar {
+                        width: 100%;
+                        color: #DFDFDD;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .bar-desc {
+                            font: normal normal normal 13px Raleway;
+                        }
+                        .bar-text {
+                            font: normal normal normal 13px Raleway;
+                            a {
+                                color: white;
+                                margin: 0px 5px;
+                                font-size: 15px;
+                                font-weight: 600;
+                            }
+                        }
+                        .nextStore {
+                            font: normal normal normal 13px Raleway;
+                            display: flex;
+                            align-items: center;
+                            margin-left: 10px;
+                            a {
+                                margin: 0px 5px;
+                                font: normal bold normal 17px Raleway;
+                                color: red;
+                            }
+                        }
+                    }
+                    .performActionCount {
+                        width: 100%;
+                        color: #DFDFDD;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding-top: 5px;
+                        font: normal normal normal 13px Raleway;
+                        b {
+                            color: lime;
+                            margin: 0px 5px;
+                            font-size: 15px;
+                        }
+                        a {
+                            margin: 0px 5px;
+                            font-size: 15px;
+                            color: rgb(255, 72, 0);
+                            font-weight: 600;
+                        }
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+
+            .consumables {
+                width: 250px;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+
+                .noConsumableText {
+                    padding: 1rem;
+                    color: gray;
+                    font: normal normal 0.8rem Arial;
+                }
+                .desc {
+                    color: gray;
+                    text-align: center;
+                    font: normal normal 0.8rem Arial;
+                }
+                .resetBtn {
+                    width: 50px;
+
+                    button {
+                        padding: 4px;
+                        width: 100%;
+                        font: normal bold 0.7rem Cinzel;
+                        background: rgb(110, 0, 0);
+                        color: white;
+
+                        &:hover {
+                            background: rgb(150, 15, 15);
+                            color: white;
+                        }
+                    }
+                }
+                .consumableBtn {
+                    cursor: pointer;
+                    margin: 0.5rem 0rem;
+                    box-shadow: inset 0 0 3px 1px grey, 0 0 3px 1px grey;
+                    width: 40px;
+                    height: 40px;
+                    // border: 5px solid transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    &:hover {
+                        box-shadow: inset 0 0 3px 1px gold, 0 0 3px 1px gold;
+                        // box-shadow: none;
+                        // border: 1px solid gray;
+                    }
+                    &.notAllowed {
+                        pointer-events: none;
+                    }
+                    .consumable-image {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            .fish-item {
+                min-height: 3rem;
+                width: calc(100% - 1rem);
+                padding: 0.5rem;
+                margin: 0.5rem 0rem 1rem 0rem;
+                border: 1px solid gray;
+                border-radius: 5px;
+
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                @media screen and (max-width: 800px) {
+                    flex-direction: column;
+                    margin-bottom: 1rem;
+                }
+                transition: .2s all;
+                &:hover {
+                    background: rgb(35, 35, 35);
+                }
+                &.special-sea {
+                    border-color: #ff000094;
+                    background: #3a0101a1;
+                    &:hover {
+                        background: #5e0e0ea1;
+                    }
+                }
+
+                .fish-item-title {
+                    width: 30%;
+                    @media screen and (max-width: 800px) {
+                        width: 100%;
+                    }
+                    color: #ffbc00;
+                    font: normal bold 1rem Cinzel;
+                    text-align: center;
+                }
+                .fish-item-content {
+                    width: 50%;
+                    @media screen and (max-width: 800px) {
+                        width: 100%;
+                        padding: 0.5rem 0rem;
+                    }
+
+                    display: flex;
+                    .fish-item-text {
+                        width: calc(80% - 10px);
+                        padding-left: 10px;
+                        .fish-item-description {
+                            color: white;
+                            font: normal bold 1.0rem Cinzel;
+                        }
+                        .fish-item-recipe {
+                            color: gray;
+                            font: italic bold 0.9rem Cinzel;
+                        }
+                        .fish-item-warning {
+                            color: #db0000;
+                            font-size: 0.8rem;
+                        }
+                    }
+                    .fish-item-detail {
+                        width: 20%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        button {
+                            padding: 0px;
+                            color: white;
+                            transition: .2s all;
+                            &:hover {
+                                color: gold;
+                            }
+                        }
+                    }
+                }
+                
+                .fish-item-btn {
+                    width: 20%;
+                    @media screen and (max-width: 800px) {
+                        width: 100%;
+                    }
+
+                    display: flex;
+                    justify-content: center;
+
+                    button {
+                        background: rgb(0, 143, 0);
+                        color: white;
+                        font: normal bold 0.8rem Cinzel;
+    
+                        &:hover {
+                            background: rgb(41, 70, 0);
+                            color: white;
+                        }
+                    }
+                    &.notAllowed {
+                        button {
+                            pointer-events: none;
+                            color: rgba(255, 255, 255, 0.5);
+                            background-color: #8b3f007e;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+#fishDropView {
+    .drop {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+
+        .drop-image {
+            width: 40px;
+            height: 40px;
+            margin: 0px 10px;
+            border: 1px solid gray;
+        }
+        .drop-name {
+            font: normal bold 0.9rem Cinzel;
+        }
+        .drop-desc {
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        .drop-rarity-1 {
+            color: white;
+        }
+        .drop-rarity-2 {
+            color: gold;
+        }
+        .drop-rarity-3 {
+            color: red;
+        }
+    }
+}
+#upgradeResponse, #repairResponse {
+    color: wheat;
+}
+.changeRodMenu {
+    max-height: 400px;
+    min-width: 250px;
+    overflow: auto;
+
+    ul {
+        padding: 0px;
+    }
+    .noRodText {
+        color: gray;
+        font: normal bold 1.0rem Cinzel;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ownedRod {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 0px 10px;
+        transition: .2s all;
+        position: relative;
+        margin-bottom: 20px;
+        &:not(:last-child) {
+        }
+        &:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+        &.equipped {
+            // pointer-events: none;
+        }
+        &.not-available {
+            pointer-events: none;
+        }
+
+        .statusText {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            font-style: italic;
+            font-size: 0.7rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .rodStatusText {
+                padding: 0rem 3px;
+            }
+            .rodWarningText {
+                color: red;
+            }
+            .rodEquipText {
+                color: rgb(0, 200, 0);
+            }
+            .rodFishingText {
+                color: rgb(255, 218, 6);
+            }
+        }
+        .rodImage {
+            width: 45px;
+            height: 45px;
+            background: rgb(80, 80, 80);
+            border: 1px solid gray;
+        }
+        .rodDesc {
+            margin-left: 10px;
+            padding: 1rem 0rem;
+            display: flex;
+            flex-direction: column;
+
+            .rodName {
+                color: #ffbc00;
+                // color: white;
+                font: normal bold 0.9rem Cinzel;
+                white-space: break-spaces;
+            }
+            .rodInfo {
+                // color: rgba(255, 255, 255, 0.7);
+                color: white;
+                font-size: 0.7rem;
+                // font: normal bold 0.7rem Cinzel;
+                white-space: break-spaces;
+                font-style: italic;
+            }
+        }
+    }
+}
+#fishConsumableMenu1, #fishConsumableMenu2 {
+    .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper, .css-177ic5c {
+        background: #121e2a !important;
+        border-radius: 0px;
+        box-shadow: 0px 0px 5px 1px black !important;
+        width: 280px;
+        max-height: 400px;
+        overflow: auto;
+        padding: 0px;
+        .noConsumableText {
+            color: rgba(255, 255, 255, 0.7);
+            font: normal normal 0.8rem Arial;
+            display: none;
+
+            &:last-child {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem 0rem;
+            }
+        }
+        
+        ul {
+            padding: 0px;
+        }
+        .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root, .css-1km1ehz {
+            display: flex;
+            align-items: center;
+            transition: .2s all;
+            &:not(:last-child) {
+                border-bottom: 1px solid gray;
+            }
+            &:hover {
+                background: rgba(0, 0, 0, 0.5);
+            }
+
+            &:not(:last-child) {
+                border-bottom: 1px solid gray;
+            }
+            &:hover {
+                background: rgba(0, 0, 0, 0.5);
+                /* .consumableDesc {
+                    .consumableQuantity{
+                        color: gold;
+                    }
+                    .consumableName {
+                        color: gold;
+                    }
+                    .consumableDescription {
+                        color: gold;
+                    }
+                } */
+            }
+            .consumableImage {
+                width: 45px;
+                height: 45px;
+                border: 1px solid gray;
+                background: rgb(40, 40, 40);
+            }
+            .consumableDesc {
+                width: calc(100% - 55px);
+                margin-left: 10px;
+                display: flex;
+                flex-direction: column;
+
+                .consumableQuantity{
+                    color: white;
+                    font-size: 0.9rem;
+                }
+                .consumableName {
+                    color: #ffbc00;
+                    font: normal bold 0.8rem Cinzel;
+                }
+                .consumableDescription {
+                    color: rgba(255, 255, 255, 0.7);
+                    font-style: italic;
+                    white-space: break-spaces;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
+
+.seaInfoMenu {
+    max-height: 450px;
+    overflow: auto;
+
+    ul {
+        padding: 0px;
+    }
+    .ownedSeaInfo {
+        display: flex;
+        align-items: center;
+        transition: .2s all;
+        padding: 0px;
+        &:not(:last-child) {
+            border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+        }
+        &:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .drop {
+            cursor: pointer;
+            width: calc(100% - 2rem);
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+
+            .drop-image {
+                width: 40px;
+                height: 40px;
+                background: rgb(40, 40, 40);
+                border: 1px solid gray;
+            }
+            .drop-desc {
+                width: 150px;
+                span {
+                    white-space: break-spaces;
+                    font-size: 14px;
+                    &.drop-desc-name-1 {
+                        color: white;
+                    }
+                    &.drop-desc-name-2 {
+                        color: gold;
+                    }
+                    &.drop-desc-name-3 {
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.confirm-panel {
+    .action-panel {
+        width: 384px;
+        padding: 1rem 0rem 0rem 0rem;
+        @media screen and (max-width: 800px) {
+            width: auto;
+            // min-width: 264px;
+        }
+        .actions-list {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            @media screen and (max-width: 800px) {
+                flex-direction: column;
+            }
+        }
+        .actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 120px;
+
+            .actionBtn {
+                width: 80px;
+                display: flex;
+
+                button {
+                    width: 100%;
+                    font: normal bold 0.7rem Cinzel;
+                }
+            }
+            .resetBtn {
+                // width: 50px;
+
+                button {
+                    padding: 4px;
+                    width: 100%;
+                    font: normal bold 0.7rem Cinzel;
+                    background: rgb(110, 0, 0);
+                    color: white;
+
+                    &:hover {
+                        background: rgb(150, 15, 15);
+                        color: white;
+                    }
+                }
+            }
+            .consumables {
+                width: 120px;
+                @media screen and (max-width: 800px) {
+                    width: 160px;
+                }
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-top: 1rem;
+
+                
+                .noConsumableText {
+                    color: gray;
+                    font: normal normal 0.8rem Arial;
+                }
+                .desc {
+                    color: gray;
+                    text-align: center;
+                    font: normal normal 0.8rem Arial;
+                }
+                .consumable-panel {
+                    width: calc(100% - 20px);
+                    margin: 10px;
+                    display: flex;
+                    justify-content: space-around;
+
+                    .consumableBtn {
+                        cursor: pointer;
+                        margin: 0.5rem 0rem;
+                        box-shadow: inset 0 0 3px 1px grey, 0 0 3px 1px grey;
+                        width: 40px;
+                        height: 40px;
+                        // border: 5px solid transparent;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        &:hover {
+                            box-shadow: inset 0 0 3px 1px gold, 0 0 3px 1px gold;
+                            // box-shadow: none;
+                            // border: 1px solid gray;
+                        }
+                        &.notAllowed {
+                            // pointer-events: none;
+                        }
+                        .consumable-image {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        .cost-list {
+            display: flex;
+            width: calc(100% - 120px);
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: center;
+            
+            @media screen and (max-width: 800px) {
+                width: 100%;
+                margin-top: 1rem;
+                // flex-direction: column;
+            }
+            
+            .noRequirementsText {
+                color: gray;
+                font: normal normal 0.8rem Arial;
+            }
+            .cost {
+                display: flex;
+                align-items: center;
+                padding: 0.5rem 0rem;
+                @media screen and (max-width: 800px) {
+                    width: 50%;
+                }
+
+                &.notAllowed {
+                    .costDesc {
+                        color: #ff5a5a;
+                    }
+                    .costImg {
+                        border: 1px solid #ff5a5a;
+                    }
+                }
+                .costDesc {
+                    width: 70px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    margin: 0px 10px;
+                    color: #8cff8c;
+
+                    .costQuantity {
+                        font-size: 14px;
+                    }
+                    .burnMark {
+                        color: rgb(255, 50, 50);
+                        font: normal bold 13px Cinzel;
+                        // text-align: right;
+                    }
+                    .costName {
+                        font: normal bold 13px Cinzel;
+                        text-align: right;
+                    }
+                }
+                .costImg {
+                    min-width: 40px;
+                    width: 40px;
+                    height: 40px;
+                    border: 1px solid gray;
+                    background: rgb(60, 60, 60);
+                }
+            }
+        }
+        .availableText {
+            color: gray;
+            font: normal bold 1.0rem Cinzel;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .desc-panel {
+            width: 100%;
+            color: wheat;
+            font: normal normal 0.9rem Arial;
+            margin: 1rem 0rem 0rem 0rem;
+            line-height: 1.5;
+            word-break: break-all;
+        }
+    }
+    .repair-panel {
+        .repairBtn {
+            button {
+                background: rgb(0, 143, 0);
+                color: white;
+
+                &:hover {
+                    background: rgb(41, 70, 0);
+                    color: white;
+                }
+            }
+            &.notAllowed {
+                button {
+                    pointer-events: none;
+                    color: rgba(255, 255, 255, 0.5);
+                    background-color: rgba(18, 151, 0, 0.5);
+                }
+            }
+        }
+    }
+    .upgrade-panel {
+        .upgradeBtn {
+            button {
+                background: rgb(138, 83, 0);
+                color: white;
+
+                &:hover {
+                    background: rgb(70, 42, 0);
+                    color: white;
+                }
+            }
+            &.notAllowed {
+                button {
+                    pointer-events: none;
+                    color: rgba(255, 255, 255, 0.5);
+                    background-color: #8b3f007e;
+                }
+            }
+        }
+    }
+    .passive-upgrade-panel {
+        .actions {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 10px;
+
+            .actionBtn {
+                font-size: 0.7rem;
+                padding: 5px 10px;
+                svg {
+                    font-size: 20px;
+                }
+                &.notAllowed {
+                    pointer-events: none;
+                }
+            }
+            .passiveUpgradeBtn {
+                color: lime;
+                border-color: rgb(0 200 0 / 70%);
+                svg {
+                    color: #00c800;
+                }
+                &:hover {
+                    border-color: rgb(0 200 0 / 90%);
+                    background: #00c80033;
+                }
+                &.notAllowed {
+                    opacity: 0.2;
+                }
+            }
+        }
+        .cost-list {
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: center;
+            
+            .noRequirementsText {
+                color: gray;
+                font: normal normal 0.8rem Arial;
+            }
+            .cost {
+                display: flex;
+                align-items: center;
+                padding: 0.5rem 0rem;
+                width: 50%;
+                justify-content: center;
+
+                &.notAllowed {
+                    .costDesc {
+                        color: #ff5a5a;
+                    }
+                    .costImg {
+                        border: 1px solid #ff5a5a;
+                    }
+                }
+                .costDesc {
+                    width: 70px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    margin: 0px 10px;
+                    color: #8cff8c;
+
+                    .costQuantity {
+                        font-size: 14px;
+                    }
+                    .burnMark {
+                        color: rgb(255, 50, 50);
+                        font: normal bold 13px Cinzel;
+                        // text-align: right;
+                    }
+                    .costName {
+                        font: normal bold 13px Cinzel;
+                        text-align: right;
+                    }
+                }
+                .costImg {
+                    min-width: 40px;
+                    width: 40px;
+                    height: 40px;
+                    border: 1px solid gray;
+                    background: rgb(60, 60, 60);
+                }
+            }
+        }
+    }
+    .burnInventory {
+        font: normal bold 1.2rem Cinzel;
+        color: #ffbc00;
+    }
+}
+
+.dialog-title {
+    font-size: 1rem;
+    .title-yellow {
+        color: #ffbc00;
+        font-size: 1.2rem;
+    }
+}

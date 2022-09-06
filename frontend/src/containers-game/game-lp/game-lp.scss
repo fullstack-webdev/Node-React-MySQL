@@ -1,0 +1,131 @@
+.game-lp {
+    .scroll-content {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        color: white;
+    }
+}
+
+.blessing{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    span{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    p{font: normal 1.4rem Raleway; width: 100%;}
+
+    .blessingStatus{
+        position: relative;
+        width: 95%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 15px;
+        border-radius: 10px;
+        font: normal 1rem Raleway;
+        @media only screen and (max-width: 600px) {font-size: 0.75rem;}
+
+        .MuiSvgIcon-root{margin-right: 10px;}
+    }
+
+    .MuiButton-root{
+        font: 1.2rem bold Raleway;
+        color: white;
+        border: 3px solid white;
+        margin: 20px;
+        padding: 15px;
+        min-width: 250px;
+    }
+
+}
+
+.blessingReward{
+    display: flex;
+    flex-direction: column;
+
+    .blessingRewardDrop{
+        display: flex;
+        align-items: center;
+        font: 2rem normal Cinzel;
+        
+        .blessingRewardDropImage{
+            height: 80px;
+            width: 80px;
+        }
+    }
+}
+
+.tutorial{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 650px;
+    @media only screen and (max-width: 600px) {
+        min-height: 90vh;
+    }
+
+    .tutorialHead{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: small;
+    }
+
+    .tutorialImg{
+        max-height: 300px;
+        object-fit: scale-down;
+        // width: 80%;
+        // max-width: 300px;
+    }
+
+    p{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .tutorialNav{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        position: absolute;
+        bottom: 10px;
+
+        button{
+            font-size: 1.8rem;
+        }
+    }
+
+    .MuiButton-root.ctaBtn{
+        font: 1.2rem bold Raleway;
+        color: white;
+        border: 3px solid white;
+        margin: 20px;
+        padding: 15px;
+        min-width: 250px;
+    }
+}
+
+.waiting{background-color: rgb(185, 41, 41);}
+.warning{background-color: #F77621;}
+.success{background-color: #17852f;}
+.success-border{border-color: #1b9e38 !important}
+.gold{color: gold;}
+.full-width{width: 100%;}
+.icon-button{cursor: pointer;}
+.icon-button:hover{opacity: 0.7;}
+.max-right{
+    position: absolute;
+    right: 10px;
+}

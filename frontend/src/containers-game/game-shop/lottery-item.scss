@@ -1,0 +1,47 @@
+.lotteryTicket{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    object-fit:cover;
+    width: 20%;
+    min-width: 150px;
+    border: 1px solid white;
+    margin: 15px;
+
+    img{height: 100%; width: 100%;}
+
+    h3{
+        margin: 0;
+        position: absolute;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #161615;
+        font: normal 1.2rem Cinzel; 
+        color: white;
+        text-align: center;
+    }
+
+    h4{
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+        font: normal 0.6rem Raleway; 
+        text-transform: uppercase;
+        color: white;
+    }
+
+    h4.expired{color: red;}
+    h4.won{color: green;}
+}
+
+.lotteryTicket.expired{
+    border: 1px solid red;
+    opacity: 0.6;
+}
+
+.lotteryTicket.won{
+    border: 1px solid green;
+}

@@ -1,0 +1,15 @@
+export { default as GameNav } from './game-nav/GameNav';
+export { default as Inventory } from './inventory/Inventory';
+export { default as NFT } from './nft/NFT';
+export { default as PopupGameClaim } from './popup-game-actions/popup-game-claim/PopupGameClaim';
+export { default as PopupGameUpgrade } from './popup-game-actions/popup-game-upgrade/PopupGameUpgrade';
+export { default as PopupGameStaking } from './popup-game-actions/popup-game-staking/PopupGameStaking';
+export { default as PopupGameNotification } from './popup-game-actions/popup-game-notification/PopupGameNotification';
+export { default as PopupGameInfo} from './popup-game-actions/popup-game-info/PopupGameInfo';
+export { default as TableProfile} from './table/TableProfile';
+export { default as TableMarketplace} from './table/TableMarketplace';
+export { default as TableHistory} from './table/TableHistory';
+export { default as TableInventory} from './table/TableInventory';
+export { default as TableInventoryInfo} from './table/TableInventoryInfo';
+export { default as MarketplaceProfile} from './marketplace-profile/MarketplaceProfile';
+export { default as Notification} from './notification/Notification';

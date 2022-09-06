@@ -1,0 +1,488 @@
+.scholarship-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    @media screen and (max-height: 400px) {
+        display: none;
+    }
+    @media screen and (max-width: 300px) {
+        display: none;
+    }
+
+    .background-image {
+        z-index: 1;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .gamePanel {
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        z-index: 51;
+        transition: .2s all;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: rgb(75 175 50 / 28%);
+        border-top-right-radius: 50%;
+        padding-right: 5px;
+        padding-top: 5px;
+        box-shadow: 1px -1px 5px 1px #1d9900;
+    
+        &:hover {
+            background: rgba(106, 255, 69, 0.28);
+        }
+        a {
+            margin: 10px;
+            padding: 7px;
+            background: #318821;
+            border-radius: 50%;
+            border: 1px solid white;
+            transition: .2s all;
+            .gameBtn {
+                padding: 0px;
+                transition: .2s all;
+                background: transparent;
+        
+                svg {
+                    font-size: 25px;
+                    color: white;
+                }
+            }
+            &:hover {
+                background: white;
+                svg {
+                    color: #318821;
+                }
+            }
+        }
+    }
+    .page-content {
+        z-index: 2;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+
+        .page-container {
+            width: 80%;
+            height: 100%;
+            max-width: 1200px;
+            @media screen and (max-width: 700px) {
+                width: 90%;
+            }
+
+            .header {
+                height: 4rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+        
+                .page-title {
+                    width: fit-content;
+                    border-bottom: 1px dotted #ffbc00;
+                    padding: 0rem 0.5rem;
+
+                    span {
+                        color: #ffbc00;
+                        font: normal bold 1.2rem Cinzel;
+                    }
+                }
+            }
+            .body {
+                height: calc(100% - 9rem);
+
+                .list-header {
+                    display: flex;
+                    height: 6rem;
+
+                    .label {
+                        color: #fcbc00;
+                        font: normal bold 1.0rem Cinzel;
+                        @media screen and (max-width: 900px) {
+                            display: none;
+                        }                    
+                    }
+
+                    .wallet {
+                        width: calc(70% - 5rem);
+                        display: flex;
+                        align-items: center;
+                        padding-left: 5rem;
+                        @media screen and (max-width: 900px) {
+                            width: 100%;
+                            padding-left: 0rem;
+                        }
+
+                        .label {
+                            width: 10%;
+                        }
+                        .search {
+                            width: calc(90% - 2rem);
+                            padding-left: 2rem;
+                            @media screen and (max-width: 900px) {
+                                width: 100%;
+                                padding-left: 0rem;
+                            }
+
+                            .css-1u3bzj6-MuiFormControl-root-MuiTextField-root, .css-i44wyl {
+                                background: #2e2e2eb0;
+                                box-shadow: 0px -1px 5px 1px #ffd700;
+                                border-top-left-radius: 10px;
+                                border-top-right-radius: 10px;
+                                width: 100%;
+            
+                                label {
+                                    color: rgb(255, 230, 161);
+                                    font: normal 1.0rem Raleway;
+                                }
+                                .css-19mk8g1-MuiInputBase-root-MuiFilledInput-root:hover:not(.Mui-disabled):before {
+                                    border-bottom: 1px solid rgb(255 255 255 / 87%) !important;
+                                }
+                                .css-19mk8g1-MuiInputBase-root-MuiFilledInput-root:before, .css-17spqnz::before {
+                                    border-bottom: 1px solid rgb(255 255 255 / 42%);
+                                }
+                                .css-19mk8g1-MuiInputBase-root-MuiFilledInput-root:after, .css-17spqnz::after {
+                                    border-bottom: 2px solid #ffd900cb;
+                                }
+                                input {
+                                    color: white;
+                                    font: normal normal 1rem Raleway;
+                                }
+                            }
+                        }
+                    }
+                    .permission {
+                        width: calc(30% - 7rem);
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        padding-right: 7rem;
+                        @media screen and (max-width: 900px) {
+                            display: none;
+                        }
+                    }
+                }
+                .list-content {
+                    transition: .5s all;
+                    height: calc(100% - 6rem);
+                    background: rgb(30 50 60 / 75%);
+                    box-shadow: 0px 0px 5px 1px black;
+                    overflow: auto;
+
+                    &.hide{
+                        transform: scale(0.7);
+                    }
+                    .css-1elwnq4-MuiPaper-root-MuiAccordion-root, .css-67l5gl {
+                        background: rgb(20 20 20);
+                        
+                        &.Mui-expanded {
+                            margin: 10px 0;
+                            &:first-of-type {
+                                margin-top: 0;
+                            }
+                            &:last-of-type {
+                                margin-bottom: 0;
+                            }
+                        }
+                        .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root {
+                            border-bottom: 1px solid #3c3c3c75;
+
+                            .css-o4b71y-MuiAccordionSummary-content {
+                                &.Mui-expanded {
+                                    margin: 12px 0;
+                                }
+                            }
+                        }
+                        .css-15v22id-MuiAccordionDetails-root {
+                            padding: 1rem;
+                        }
+                        .summary {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            .left {
+                                display: flex;
+                                align-items: center;
+
+                                .wallet-checkbox {
+                                    padding: 10px;
+                                    background: #6063436b;
+                                    &:hover {
+                                        background: #bec5816b;
+                                    }
+
+                                    svg {
+                                        color: lightgray;
+                                    }
+                                    &.isAllowed {
+                                        svg {
+                                            color: rgb(238, 224, 153);
+                                        }
+                                    }
+                                }
+                                .wallet-address {
+                                    margin-left: 10px;
+                                    color: lightgray;
+                                    font: normal normal 1.0rem Raleway;
+
+                                    &.isAllowed {
+                                        color: rgb(238, 224, 153);
+                                    }
+                                }
+                            }
+                            .right {
+                                display: flex;
+                                align-items: center;
+                                
+                                button {
+                                    padding: 5px;
+                                    margin-right: 5px;
+                                    transition: .2s all;
+                                    opacity: 0.2;
+
+                                    svg {
+                                        font-size: 25px;
+                                    }
+                                    &.show {
+                                        opacity: 1.0;
+                                        padding: 10px;
+                                        margin-right: 20px;
+
+                                        @media screen and (max-width: 500px) {
+                                            margin-right: 10px;
+                                        }
+                                    }
+                                    &.resetBtn {
+                                        background: #5e5e5e6b;
+                                        svg {
+                                            color: #a0a0a0;
+                                        }
+                                        &:hover {
+                                            background: #8888886b;
+    
+                                            svg {
+                                                color: #b4b4b4;
+                                            }
+                                        }
+                                    }
+                                    &.deleteBtn {
+                                        background: #6241416b;
+                                        svg {
+                                            color: #ff7777;
+                                        }
+                                        &:hover {
+                                            background: #8f2f2f6b;
+    
+                                            svg {
+                                                color: #ff4646;
+                                            }
+                                        }
+                                    }
+                                    &.saveBtn {
+                                        background: #4262416b;
+                                        svg {
+                                            color: #77ff77;
+                                        }
+                                        &:hover {
+                                            background: #2f8f346b;
+    
+                                            svg {
+                                                color: #00ff44;
+                                            }
+                                        }
+                                    }
+                                }
+                                .permission-desc {
+                                    margin-right: 20px;
+                                    color: white;
+                                    font: italic 0.9rem Raleway;
+                                    text-align: right;
+
+                                    &.isAllowed {
+                                        color: rgb(238, 224, 153);
+                                    }
+                                }
+                            }
+                        }
+                        .details {
+                            padding: 0rem 2rem;
+                            display: flex;
+                            flex-wrap: wrap;
+
+                            .permission-switch {
+                                width: 25%;
+                                @media screen and (max-width: 1000px) {
+                                    width: 33.33%;
+                                }
+                                @media screen and (max-width: 800px) {
+                                    width: 50%;
+                                }
+                                @media screen and (max-width: 450px) {
+                                    width: 100%;
+                                }
+                                
+                                .css-1jaw3da {
+                                    .css-9l3uo3 {
+                                        color: lightgray;
+                                        font: normal bold 0.8rem Cinzel;
+                                    }
+                                    .css-1ju1kxc {
+                                        background: gray;
+                                    }
+                                    .css-1nr2wod.Mui-checked {
+                                        color: rgb(238, 224, 153);
+                                    }
+                                    .css-1nr2wod.Mui-checked + .MuiSwitch-track {
+                                        background: rgb(238, 224, 153);
+                                    }
+                                    &.Mui-disabled {
+                                        .MuiFormControlLabel-label {
+                                            color: gray;
+                                        }
+                                    }
+                                }
+                                .css-j204z7-MuiFormControlLabel-root {
+                                    .MuiFormControlLabel-label {
+                                        text-transform: uppercase;
+                                        color: lightgray;
+                                        font: normal bold 0.9rem Raleway;
+                                        word-break: break-word;
+                                    }
+                                    .css-1yjjitx-MuiSwitch-track {
+                                        background: gray;
+                                    }
+                                    .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked.Mui-disabled {
+                                        color: rgba(150, 140, 100);
+                                    }
+                                    .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-disabled {
+                                        color: gray;
+                                    }
+                                    .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
+                                        color: rgb(238, 224, 153);
+                                    }
+                                    .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track {
+                                        background: rgb(238, 224, 153);
+                                    }
+                                    &.Mui-disabled {
+                                        .MuiFormControlLabel-label {
+                                            color: gray;
+                                            font-weight: normal;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        svg {
+                            color: white;
+                            &.isAllowed {
+                                color: rgb(238, 224, 153);
+                            }
+                        }
+                        &:before {
+                            background-color: rgba(255, 255, 255, 0.185);
+                        }
+                    }
+                }
+            }
+            .footer {
+                height: 5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                button {
+                    width: 10rem;
+                    font: normal bold 0.8rem Cinzel;
+                    background: gold;
+                    color: black;
+                    // box-shadow: 0px 0px 5px 1px yellow;
+
+                    &:hover {
+                        background: #746200a8;
+                        color: white;
+                        // box-shadow: 0px 0px 5px #a18900a8;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#scholarship-add-modal {
+    .css-1t1j96h-MuiPaper-root-MuiDialog-paper, .css-uhb5lp {
+        background-color: rgb(15, 15, 15);
+        box-shadow: 0px 0px 5px 1px black;
+        color: white;
+        border: 1px solid #80808061;
+        border-radius: 0px;
+
+        .MuiDialogTitle-root+.css-ypiqx9-MuiDialogContent-root, .css-1ty026z {
+            padding: 0rem 1rem 1rem 1rem;
+
+            .css-qfso29-MuiTypography-root-MuiDialogContentText-root, .css-o3d33y {
+                color: lightgray;
+            }
+            .css-1u3bzj6-MuiFormControl-root-MuiTextField-root, .css-i44wyl {
+                margin: 1rem 0rem 0rem 0rem;
+                background: #2e2e2e;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                width: 100%;
+        
+                label {
+                    color: rgb(255, 230, 161);
+                    font: normal 1.0rem Raleway;
+                }
+                .css-19mk8g1-MuiInputBase-root-MuiFilledInput-root:hover:not(.Mui-disabled):before {
+                    border-bottom: 1px solid rgb(255 255 255 / 87%) !important;
+                }
+                .css-19mk8g1-MuiInputBase-root-MuiFilledInput-root:before, .css-17spqnz::before {
+                    border-bottom: 1px solid rgb(255 255 255 / 42%);
+                }
+                .css-19mk8g1-MuiInputBase-root-MuiFilledInput-root:after, .css-17spqnz::after {
+                    border-bottom: 2px solid #ffd900cb;
+                }
+                input {
+                    color: white;
+                    font: normal normal 1rem Raleway;
+                }
+
+                .css-1wc848c-MuiFormHelperText-root.Mui-error {
+                    color: white;
+                    font: normal normal 0.9rem Raleway;
+                    margin: 5px 15px;
+                }
+            }
+        }
+        
+        .css-hlj6pa-MuiDialogActions-root, .css-14b29qc {
+            padding: 0rem 1rem 1rem 1rem;
+
+            .css-1e6y48t-MuiButtonBase-root-MuiButton-root, .css-1ujsas3 {
+                background: rgb(0, 143, 0);
+                color: white;
+                font: normal bold 0.8rem Cinzel;
+
+                &:hover {
+                    background: rgb(41, 70, 0);
+                    color: white;
+                }
+                &.Mui-disabled {
+                    background: rgba(18, 151, 0, 0.5);
+                    color: gray;
+                }
+            }
+        }
+    }
+}

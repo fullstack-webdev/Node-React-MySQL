@@ -1,0 +1,85 @@
+.explanations{
+    padding-bottom: 50px;
+
+    h2{
+        font: normal normal normal 3rem Cinzel;
+        color: #882B21;
+    }
+    
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 10vh;
+    }
+
+    .explanation{
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        justify-content: center;
+        color: #882B21;
+        width: 90vw;
+        max-width: 500px;
+        margin-bottom: 2vh;
+        @media screen and (min-width: 1000px) {
+            width: 30vw;
+        }
+    }
+
+    .text{    
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    img{
+        width: 100%;
+    }
+
+    h3{
+        margin: 15px auto;
+        width: 80%;
+        width: 100%;
+        font-size: 1.1rem;
+        padding-top: 5px;
+        
+        @media screen and (min-width: 700px) {
+            font-size: 1.6rem;
+            padding-top: 10px;
+        }
+        @media screen and (min-width: 1000px) {
+            font-size: 1.4rem;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+    }
+
+    p{
+        margin: 5px auto;
+        width: 70%;
+        font: normal normal normal 4vw Raleway;
+
+        @media screen and (min-width: 501px) {
+            width: 50%;
+            font-size: 0.8rem;
+        }
+        @media screen and (min-width: 700px) {
+            font-size: 1.2rem;
+            margin: 15px auto;
+        }
+        @media screen and (min-width: 1000px) {
+            font-size: 0.9rem;
+            margin: 15px auto;
+        }
+        @media screen and (min-width: 1300px) {
+            font-size: 1.2rem;
+        }
+    }
+
+    p::before{
+        content: '• ';
+    }
+
+}

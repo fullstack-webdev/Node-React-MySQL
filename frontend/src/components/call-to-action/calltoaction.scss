@@ -1,0 +1,17 @@
+.call-to-action{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5vh auto;
+    width: 80vw;
+    max-width: 900px;
+
+    h2{
+        font: normal normal normal  1.8rem Cinzel;
+        color: #DFDFDD;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+}

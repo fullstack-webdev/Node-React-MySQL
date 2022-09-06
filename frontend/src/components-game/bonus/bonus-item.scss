@@ -1,0 +1,63 @@
+.bonus-item {
+    cursor: pointer;
+    
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: .2s all;
+
+    width: 20px;
+    height: 20px;
+    background: rgba(49, 49, 49, 0.8);
+    border: 1px solid black;
+    border-radius: 3px;
+    margin: 5px;
+
+    &.PREFIX {
+        background: rgb(100, 20, 100);
+        border-color: rgb(255 0 255 / 50%);
+    }
+
+    &.SUFFIX {
+        background: rgb(0, 100, 0);
+        border-color: rgba(0, 255, 0, 0.5);
+    }
+
+    &.IMPLICIT {
+        background: rgb(0, 80, 120);
+        border-color: rgba(0, 255, 255, 0.5);
+    }
+
+    &.empty {
+        background: rgb(255, 255, 255, 0.2);
+        border-color: rgba(150, 150, 150, 0.5);
+
+        .text-mark {
+            color: rgb(150 150 150);
+        }
+    }
+
+    &:hover,
+    &.selected {
+        border: 1px solid #ffbc00cc;
+    }
+
+    .text-mark {
+        font: normal normal normal 14px Raleway;
+        color: white;
+    }
+
+    .bonus-type-text {
+        position: absolute;
+        left: 50%;
+        bottom: -2px;
+        transform: translate(-50%, 100%);
+
+        font: normal bold normal 9px Raleway;
+        ;
+        color: #dfdfdd;
+        text-transform: capitalize;
+    }
+}

@@ -1,0 +1,495 @@
+.game-bonus {
+    .content {
+        position: relative;
+
+        .api-loading {
+            position: absolute;
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            border: 5px solid rgba(0, 0, 0, 0.5);
+
+            .apiCallingGif {
+                width: 180px;
+                height: 120px;
+                filter: drop-shadow(2px 4px 6px gold);
+            }
+
+            .loader {
+                margin-top: 20px;
+                font: normal bold 15px Raleway;
+                letter-spacing: 2px;
+                color: gold;
+                animation: smokeOut 1.5s ease-in-out infinite alternate;
+
+                &:before {
+                    content: "Loading";
+                }
+            }
+
+            @keyframes smokeOut {
+                100% {
+                    opacity: 0.08;
+                    filter: blur(5px);
+                    letter-spacing: 4px;
+                }
+            }
+        }
+    }
+
+    .scroll-content {
+        min-height: 300px;
+        // add your custom css here for the tab content
+        display: flex;
+
+        @media screen and (max-width: 800px) {
+            flex-direction: column;
+        }
+
+        .bonus-left-panel {
+            width: 60%;
+
+            @media screen and (max-width: 800px) {
+                padding: 0rem 0rem 1rem 0rem;
+                width: 100%;
+            }
+
+            display : flex;
+            align-items : center;
+            justify-content: center;
+            flex-direction : column;
+
+            .tool-list-panel {
+                width: calc(100% - 2rem);
+                display: flex;
+                padding: 0rem 1rem 1rem 1rem;
+
+                @media screen and (max-width: 800px) {
+                    padding: 0rem 0rem 1rem 0rem;
+                    width: 100%;
+                }
+
+                .css-1elwnq4-MuiPaper-root-MuiAccordion-root,
+                .css-67l5gl {
+                    background: rgb(20 30 60 / 80%);
+                    width: 100%;
+                    border: 1px solid rgb(255 255 255 / 25%);
+                    transition: 0.2s all;
+
+                    &:hover {
+                        border: 1px solid rgb(255 255 255 / 40%);
+                        box-shadow: 0px 0px 10px 5px #00325e;
+                    }
+
+                    .summary {
+                        width: 100%;
+                        height: 3.5rem;
+                        min-height: 3rem;
+                        display: flex;
+                        align-items: center;
+                        transition: all 0.5s;
+
+                        &.Mui-expanded {
+                            height: 3rem;
+
+                            .selected-tool {
+                                .selected-tool-info {
+                                    font-size: 13px;
+
+                                    .selected-tool-img {
+                                        width: 30px;
+                                        height: 30px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .selected-tool {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            .selected-tool-info {
+                                width: auto;
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: center;
+                                color: #ffbc00;
+                                font-size: 15px;
+                                transition: 0.2s all;
+
+                                a {
+                                    margin: 0px 10px;
+                                    color: white;
+                                }
+
+                                .selected-tool-img {
+                                    transition: 0.2s all;
+                                    width: 40px;
+                                    height: 40px;
+                                    background: gray;
+                                    border-radius: 3px;
+                                    border: 1px solid darkgray;
+                                    overflow: hidden;
+
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                }
+                            }
+
+                            .selected-tool-bonus-info {
+                                width: auto;
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: center;
+
+                                @media screen and (max-width: 800px) {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+
+                    .details {
+                        border-top: 1px dotted rgba(255, 255, 255, 0.2);
+                        padding: 5px 0px;
+                        width: 100%;
+                        max-height: 400px;
+
+                        .thumb-vertical {
+                            background-color: rgba(255, 255, 255, 0.2);
+                        }
+
+                        .tool-list {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+
+                            .tool {
+                                border-radius: 3px;
+                                cursor: pointer;
+                                transition: 0.2s all;
+
+                                &:hover {
+                                    background: rgba(0, 0, 0, 0.5);
+                                }
+
+                                &.selected {
+                                    background: rgb(255 255 0 / 20%);
+                                }
+
+                                display : flex;
+                                align-items: center;
+                                width : 90%;
+                                padding : 10px 2%;
+
+                                @media screen and (max-width: 800px) {
+                                    padding: 10px 2%;
+                                }
+
+                                &:not(:last-child) {
+                                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                                }
+
+                                .tool-left-panel {
+                                    display: flex;
+                                    align-items: center;
+
+                                    .tool-img {
+                                        width: 40px;
+                                        height: 40px;
+                                        background: gray;
+                                        border-radius: 3px;
+                                        border: 1px solid darkgray;
+                                        overflow: hidden;
+
+                                        img {
+                                            width: 100%;
+                                            height: 100%;
+                                        }
+                                    }
+                                }
+
+                                .tool-right-panel {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    width: -webkit-fill-available;
+
+                                    @media screen and (max-width: 800px) {
+                                        flex-direction: column;
+                                        align-items: flex-start;
+                                        justify-content: center;
+                                    }
+
+                                    .tool-info {
+                                        font-size: 15px;
+                                        color: lightgreen;
+                                        margin-left: 10px;
+
+                                        a {
+                                            margin: 0px 10px;
+                                            color: white;
+                                        }
+                                    }
+                                }
+
+                                .tool-bonus-info {
+                                    width: auto;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+
+                                    @media screen and (max-width: 800px) {
+                                        margin-left: 5px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    svg {
+                        color: rgba(255, 255, 255, 0.6);
+                    }
+                }
+            }
+
+            .selected-tool-panel {
+                width: calc(100% - 4rem);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+                margin: 0rem 1rem;
+                background: rgba(50, 50, 50, 0.8);
+                border: 1px solid rgba(169, 169, 169, 0.2);
+                border-radius: 3px;
+                position: relative;
+                transition: 0.2s all;
+
+                @media screen and (max-width: 800px) {
+                    width: calc(100% - 2rem);
+                    margin: 0rem;
+                }
+
+                &:hover {
+                    border: 1px solid rgb(255 255 255 / 30%);
+                    box-shadow: 0px 0px 10px 5px rgb(50 50 50 / 80%);
+                }
+
+                .tool-info {
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+
+                    .tool-header {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+
+                        .tool-img {
+                            background: gray;
+                            border-radius: 3px;
+                            border: 1px solid darkgray;
+                            overflow: hidden;
+
+                            width: 50px;
+                            height: 50px;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+
+                        .tool-attr {
+                            margin-left: 10px;
+
+                            .tool-name {
+                                font: normal bold normal 15px Raleway;
+                                color: #ffbc00;
+                            }
+
+                            .tool-lvl {
+                                font-size: 15px;
+                                color: white;
+                            }
+                        }
+                    }
+
+                    .tool-type {
+                        text-transform: uppercase;
+                        font: normal bold normal 10px Raleway;
+                        color: black;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        padding: 2px;
+                        background: rgb(150 150 150);
+                        border-bottom-left-radius: 5px;
+                        border: 1px solid rgb(200 200 200);
+
+                        z-index: 1;
+                    }
+
+                    .tool-description {
+                        color: #dfdfdd;
+                        font: normal normal normal 13px Raleway;
+                        text-indent: 1rem;
+                        line-height: 1.2;
+                        word-break: break-all;
+                        margin-top: 10px;
+                    }
+                }
+
+                .bonus-panel {
+                    width: calc(50% - 1rem);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    margin-left: 1rem;
+                }
+            }
+
+            .noToolDescription {
+                color: gray;
+                font: normal normal normal 15px Raleway;
+            }
+        }
+
+        .bonus-right-panel {
+            width: 40%;
+
+            @media screen and (max-width: 800px) {
+                width: 100%;
+            }
+
+            display : flex;
+            align-items : center;
+            justify-content: center;
+            flex-direction : column;
+
+            .selected-bonus-info {
+                padding: 10px;
+
+                width: calc(100% - 20px);
+                height: auto;
+
+                transition: 0.2s all;
+
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                flex-direction: column;
+                position: relative;
+
+                background: rgb(50 50 50 / 80%);
+                border: 1px solid rgb(169 169 169 / 20%);
+                border-top-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+
+                &:hover {
+                    border: 1px solid rgb(255 255 255 / 30%);
+                    box-shadow: 0px 0px 10px 5px rgb(50 50 50 / 80%);
+                }
+
+                .noSelectedBonusDescription {
+                    font: normal normal normal 13px Raleway;
+                    color: #dfdfdd;
+                }
+
+                .bonus-type {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font: normal bold normal 11px Raleway;
+                    padding: 2px 5px;
+                    color: white;
+                    border: 1px solid;
+                    border-bottom-left-radius: 5px;
+
+                    &.PREFIX {
+                        background: rgb(100, 20, 100);
+                        border-color: rgb(255 0 255 / 50%);
+                    }
+
+                    &.SUFFIX {
+                        background: rgb(0, 100, 0);
+                        border-color: rgba(0, 255, 0, 0.5);
+                    }
+
+                    &.IMPLICIT {
+                        background: rgb(0, 80, 120);
+                        border-color: rgba(0, 255, 255, 0.5);
+                    }
+                }
+
+                .bonus-name {
+                    font: normal normal normal 13px Raleway;
+                    color: #ffbc00;
+                    border-bottom: 1px solid #ffbc0080;
+                    padding: 0px 3px 3px 3px;
+                }
+
+                .bonus-description {
+                    margin: 10px;
+                    font: normal normal normal 13px Raleway;
+                    color: #dfdfdd;
+                    word-break: break-all;
+                }
+
+                .bonus-footer {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .bonus-effect {
+                        font: italic normal normal 13px Raleway;
+                        color: #dfdfdd;
+
+                        a {
+                            font: normal normal normal 15px Raleway;
+                            color: #ffbc00;
+                        }
+                    }
+
+                    .bonus-tier {
+                        font: italic normal normal 13px Raleway;
+                        color: #dfdfdd;
+
+                        a {
+                            font: normal normal normal 15px Raleway;
+                            color: #ffbc00;
+                        }
+                    }
+                }
+            }
+
+            .consumable-panel {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                align-items: center;
+
+                background: rgba(50, 50, 50, 0.8);
+                border: 1px solid rgba(169, 169, 169, 0.2);
+                margin: 1rem 0px;
+                border-radius: 10px;
+                padding: 5px;
+            }
+        }
+    }
+}

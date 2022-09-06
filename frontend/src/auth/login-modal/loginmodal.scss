@@ -1,0 +1,201 @@
+.login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    margin: 0 auto;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../../containers-game/map/assets/map.jpg");
+    background-position: 50% 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login-modal {
+    z-index: 9999;
+    position: fixed;
+    top: 25%;
+    left: 10vw;
+    right: 10vw;
+    margin: auto;
+    height: auto;
+    width: 500px;
+    max-width: 600px;
+    // overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.589);
+    color: white;
+
+    @media screen and (max-width: 600px) {
+        width: 100vw;
+        top: 20vh;
+        left: 0;
+    }
+
+    .head {
+        display: flex;
+        align-items: center;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        background-color: #16161583;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.589);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+
+        h2 {
+            margin: 1.2vw auto;
+            font: normal normal bold 1.6rem Cinzel;
+            color: white;
+        }
+
+        img {
+            width: 250px;
+            padding: 10px;
+            margin: 0 auto;
+        }
+    }
+
+    .body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 250px;
+        background-color: #16161583;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+        @media screen and (max-width: 600px) {
+            flex-direction: column-reverse;
+            padding-bottom: 15px;
+        }
+
+        img.connectWallet {
+            margin: 10px;
+            height: 120px;
+        }
+
+        img.connectWallet:hover {
+            cursor: pointer;
+            opacity: 0.9;
+            transform: scale(1.01);
+        }
+
+        .serverInfo {
+            padding-left: 25px;
+
+            @media screen and (max-width: 600px) {
+                padding: 0;
+            }
+
+            p {
+                display: flex;
+                align-items: center;
+                font: normal 1rem Raleway;
+
+                img {
+                    width: 25px;
+                    margin-left: 5px;
+                }
+
+                img.serverOnline {
+                    filter: invert(37%) sepia(94%) saturate(344%) hue-rotate(87deg) brightness(198%) contrast(93%);
+                }
+
+                img.serverOffline {
+                    filter: invert(18%) sepia(27%) saturate(5351%) hue-rotate(348deg) brightness(193%) contrast(85%);
+                }
+            }
+        }
+
+        .errorMetamask {
+            max-width: 200px;
+            margin-left: 40px;
+            padding: 15px;
+            font: normal normal bold 1rem Cinzel;
+        }
+    }
+
+    .socialIcons {
+        z-index: 9999;
+        position: absolute;
+        bottom: -55px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            margin: 10px;
+            filter: invert(100%) sepia(0%) saturate(7016%) hue-rotate(52deg) brightness(10%) contrast(74%);
+        }
+    }
+}
+
+.wallet-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .wallet-popup-container {
+        width: fit-content;
+        height: fit-content;
+        background: white;
+        border-radius: 10px;
+        filter: drop-shadow(2px 4px 6px black);
+        background-image: url("../../containers-game/map/assets/map.jpg");
+        // background-size: cover;
+
+        .wallet-list {
+            display: flex;
+            flex-direction: column;
+            background: radial-gradient(rgb(255 200 0 / 80%), rgb(0 0 0 / 40%));
+            // backdrop-filter: blur(2px);
+            padding: 1rem;
+            border-radius: 10px;
+
+            .wallet-info {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                transition: 0.2s all;
+                border-radius: 5px;
+                border: 1px solid rgb(50 50 50 / 50%);
+                padding: 10px;
+                margin: 5px;
+                background: rgba(0, 0, 0, 0.1);
+
+                &:hover {
+                    background: rgba(0, 0, 0, 0.2);
+                }
+
+                .wallet-icon {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 5px;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .wallet-name {
+                    margin-left: 1rem;
+                    font-weight: bold;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

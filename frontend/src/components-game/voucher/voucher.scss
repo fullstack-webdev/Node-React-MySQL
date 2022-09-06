@@ -1,0 +1,45 @@
+.voucher{
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px white solid;
+    margin-bottom: 5px;
+    @media screen and (max-width: 700px) {
+        width: 75vw;
+    }
+
+    img{
+        width: 50px;
+    }
+
+    p{
+        width: 100px;
+        font: normal normal normal 1.2rem Raleway;
+        text-align: center;
+    }
+
+    .btn-a.voucher-claim{
+        height: 10px;
+        width: 0px;
+        font: normal normal bold 1rem Cinzel;
+        border: 0.1px solid #000000;
+        transform: perspective(510px) rotateX(24deg);
+        background-color: #FFB13B;
+        color: #161615;
+    }
+    .btn-a.voucher-claim:hover{
+        transform: scale(0.9);
+    }
+
+    .btn-a.voucher-delete{
+        height: 10px;
+        width: 0px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font: normal normal bold 1rem Cinzel;
+        border: none;
+        background-color: #882A22;
+        color: white;
+    }
+}

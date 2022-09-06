@@ -1,0 +1,139 @@
+.bonus-consumable-popup {
+    background: #202020 !important;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 2px black;
+    padding: 0px;
+    width: 300px;
+
+    .bonus-consumable-detail {
+        .consumable-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .consumable-name {
+                color: #ffbc00;
+                font: normal bold normal 13px Raleway;
+            }
+
+            .consumable-type {
+                color: #dfdfdd;
+                font: italic normal normal 13px Raleway;
+                text-transform: lowercase;
+            }
+        }
+
+        .consumable-description {
+            word-break: break-all;
+
+            color: #dfdfdd;
+            font: normal normal normal 13px Raleway;
+            margin: 5px 0px;
+        }
+
+        .consumable-footer {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .consumable-effect {
+                color: #dfdfdd;
+                font: normal bold normal 13px Raleway;
+            }
+        }
+    }
+}
+
+.bonus-consumable {
+    cursor: pointer;
+    background: rgb(0 0 0 / 30%);
+    border-radius: 5px;
+    border: 1px solid rgb(0 0 0);
+    position: relative;
+    width: calc(20% - 10px - 2px);
+    margin: 5px;
+    overflow: hidden;
+
+    transition: .2s all;
+
+    &.ELEVATE {
+        .consumable-type {
+            color: #00ffff;
+        }
+
+    }
+
+    &.ENCHANTMENT {
+        .consumable-type {
+            color: #ffff00;
+        }
+    }
+
+    &.REROLL {
+        .consumable-type {
+            color: #00ff00;
+        }
+    }
+
+    &:hover {
+        background: rgb(0 0 0 / 70%);
+    }
+
+    &.available {
+        .consumable-type {
+            border-top: none;
+            border-left: none;
+        }
+
+        &.ELEVATE {
+            box-shadow: 0px 0px 3px 2px rgb(0 255 255 / 70%);
+        }
+
+        &.ENCHANTMENT {
+            box-shadow: 0px 0px 3px 2px rgb(255 255 0 / 70%);
+        }
+
+        &.REROLL {
+            box-shadow: 0px 0px 3px 2px rgb(0 255 0 / 70%);
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        width: calc(20% - 10px - 2px);
+    }
+
+    @media screen and (max-width: 400px) {
+        width: calc(25% - 10px - 2px);
+    }
+
+    .consumable-type {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        font: normal bold normal 9px Raleway;
+        color: white;
+        background: rgb(0 0 0 / 80%);
+        border: 1px solid rgb(255 255 255 / 40%);
+        border-top-left-radius: 5px;
+        padding: 2px;
+    }
+
+    .consumable-img {
+        width: 100%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .consumable-quantity {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+        color: white;
+        font-size: 13px;
+    }
+}

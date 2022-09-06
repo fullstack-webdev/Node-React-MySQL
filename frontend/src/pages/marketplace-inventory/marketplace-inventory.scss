@@ -1,0 +1,1040 @@
+.mrkt-res {
+    cursor: pointer;
+
+    margin: 5px 0px;
+
+    width: 50px !important;
+    height: 50px;
+    background-color: rgba(255, 255, 0, 0.4);
+    border-radius: 50%;
+    filter: drop-shadow(2px 4px 6px yellow);
+    border: 1px solid rgba(255, 255, 0, 0.5);
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    @media screen and (max-width: 900px) {
+        width: 30px !important;
+        height: 30px;
+    }
+}
+
+.tool-name-bonus-cell {
+    position: relative;
+
+    .inventory-name:not(:last-child) {
+        font-size: 14px;
+        padding-bottom: 5px;
+    }
+}
+
+.buyInventory {
+    max-height: 380px;
+    overflow: auto;
+
+    .drop {
+        width: calc(100% - 2rem);
+        height: 60px;
+        margin: 0rem 1rem;
+        display: flex;
+        align-items: center;
+        font: normal bold 0.9rem Raleway;
+
+        .drop-image {
+            width: 40px;
+            height: 40px;
+            border: 1px solid gray;
+            background-color: rgba(255, 255, 0, 0.4);
+            border-radius: 50px;
+            filter: drop-shadow(1px 2px 3px yellow);
+        }
+
+        .drop-desc {
+            display: flex;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .drop-quantity {
+            color: wheat;
+        }
+
+        .drop-price {
+            margin-left: 10px;
+            color: #ffbc00;
+        }
+
+        .disable-image {
+            filter: grayscale(1);
+        }
+
+        .line-through {
+            color: grey;
+            text-decoration: line-through;
+        }
+    }
+}
+
+.totalQuantity,
+.totalPrice,
+.alreadyBought {
+    margin: 1.2rem 1rem;
+    color: wheat;
+    font: normal bold 0.9rem Raleway;
+}
+
+.colorYellowGreen {
+    font-size: 1.1rem;
+    color: yellowgreen;
+}
+
+.colorRed {
+    color: red;
+}
+
+.marketplace-inventory-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    @media screen and (max-height: 400px) {
+        display: none;
+    }
+
+    @media screen and (max-width: 300px) {
+        display: none;
+    }
+
+    .cell-chk-img {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin: 5px 0px;
+
+        svg {
+            color: #a89420;
+        }
+    }
+
+    .background-image {
+        z-index: 1;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .resources {
+        position: fixed;
+        top: 1.5rem;
+        left: 4rem;
+        width: auto;
+        z-index: 51;
+        display: flex;
+        justify-content: space-evenly;
+
+        .resource {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            font: normal normal normal 1.2rem Raleway;
+
+            img {
+                z-index: 101;
+                width: 40px;
+            }
+
+            span {
+                color: #ffbc00;
+                margin-left: -1rem;
+                padding: 0.2rem 1rem 0.3rem 2rem;
+                background: rgb(0 0 0 / 40%);
+            }
+        }
+
+        @media screen and (max-width: 1000px) {
+            top: 3.2rem;
+            right: 4.5rem;
+
+            .resource {
+                img {
+                    width: 20px;
+                }
+
+                span {
+                    font-size: 0.8rem;
+                    padding: 0.1rem 0.5rem 0.2rem 1.5rem;
+                }
+            }
+        }
+    }
+
+    .gamePanel {
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        z-index: 51;
+        transition: .2s all;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: rgba(173, 175, 50, 0.28);
+        border-top-right-radius: 50%;
+        padding-right: 5px;
+        padding-top: 5px;
+        box-shadow: 1px -1px 5px 1px #ffbc00;
+
+        &:hover {
+            background: rgba(252, 255, 69, 0.28);
+        }
+
+        a {
+            margin: 10px;
+            padding: 7px;
+            background: #a89420;
+            border-radius: 50%;
+            border: 1px solid white;
+            transition: .2s all;
+
+            .gameBtn {
+                padding: 0px;
+                transition: .2s all;
+                background: transparent;
+
+                svg {
+                    font-size: 25px;
+                    color: white;
+                }
+            }
+
+            &:hover {
+                background: white;
+
+                svg {
+                    color: #a89420;
+                }
+            }
+        }
+    }
+
+    .page-content {
+        z-index: 2;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+
+        .apiLoader {
+            flex-direction: column;
+
+            .apiCallLoading {
+                transform: rotateZ(45deg);
+                perspective: 1000px;
+                border-radius: 50%;
+                width: 100px;
+                height: 100px;
+                color: rgb(251, 255, 0);
+            }
+
+            .apiCallLoading:before,
+            .apiCallLoading:after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: inherit;
+                height: inherit;
+                border-radius: 50%;
+                transform: rotateX(70deg);
+                animation: 1s spin linear infinite;
+            }
+
+            .apiCallLoading:after {
+                color: #ff9900;
+                transform: rotateY(70deg);
+                animation-delay: .4s;
+            }
+
+            @keyframes rotate {
+                0% {
+                    transform: translate(-50%, -50%) rotateZ(0deg);
+                }
+
+                100% {
+                    transform: translate(-50%, -50%) rotateZ(360deg);
+                }
+            }
+
+            @keyframes rotateccw {
+                0% {
+                    transform: translate(-50%, -50%) rotate(0deg);
+                }
+
+                100% {
+                    transform: translate(-50%, -50%) rotate(-360deg);
+                }
+            }
+
+            @keyframes spin {
+
+                0%,
+                100% {
+                    box-shadow: .2em 0px 0 0px currentcolor;
+                }
+
+                12% {
+                    box-shadow: .2em .2em 0 0 currentcolor;
+                }
+
+                25% {
+                    box-shadow: 0 .2em 0 0px currentcolor;
+                }
+
+                37% {
+                    box-shadow: -.2em .2em 0 0 currentcolor;
+                }
+
+                50% {
+                    box-shadow: -.2em 0 0 0 currentcolor;
+                }
+
+                62% {
+                    box-shadow: -.2em -.2em 0 0 currentcolor;
+                }
+
+                75% {
+                    box-shadow: 0px -.2em 0 0 currentcolor;
+                }
+
+                87% {
+                    box-shadow: .2em -.2em 0 0 currentcolor;
+                }
+            }
+
+            .loader {
+                margin-top: 20px;
+                font: normal bold 15px Raleway;
+                letter-spacing: 2px;
+                color: gold;
+                animation: smokeOut 1.5s ease-in-out infinite alternate;
+
+                &:before {
+                    content: "Loading";
+                }
+            }
+
+            @keyframes smokeOut {
+                100% {
+                    opacity: 0.08;
+                    filter: blur(5px);
+                    letter-spacing: 4px;
+                }
+            }
+        }
+
+        .page-container {
+            width: 100%;
+            height: 100%;
+
+            .header {
+                height: 4rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .page-title {
+                    width: fit-content;
+                    border-bottom: 1px dotted #ffbc00;
+                    padding: 0rem 0.5rem;
+
+                    span {
+                        color: #ffbc00;
+                        font: normal bold 1.2rem Cinzel;
+                    }
+                }
+            }
+
+            .body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                height: calc(100% - 4rem - 150px);
+                margin: 50px 0 100px 0;
+
+                @media screen and (max-width: 900px) {
+                    height: calc(100% - 4rem - 60px);
+                    margin: 15px 0 45px 0;
+                }
+
+                background: rgb(0 0 0 / 20%);
+                backdrop-filter: blur(5px);
+
+                .list-header {
+                    padding: 0 1.5rem;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    width: 80%;
+
+                    @media screen and (max-width: 900px) {
+                        justify-content: space-evenly;
+                        width: 100%;
+                    }
+
+                    @media screen and (max-width: 600px) {
+                        height: 8rem;
+                        justify-content: space-evenly;
+                        flex-direction: column-reverse;
+                    }
+
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+                    max-width: 1200px;
+                    height: 90px;
+
+                    .inventory-tab-desc {
+                        position: absolute;
+                        left: 2.5rem;
+
+                        @media screen and (max-width: 900px) {
+                            padding-left: 10px;
+                            display: none;
+                        }
+
+                        color: white;
+                        font: normal bold 1.2rem Raleway;
+                        text-transform: uppercase;
+                    }
+
+                    .inventory-filter {
+                        margin-right: 2rem;
+
+                        @media screen and (max-width: 900px) {
+                            margin-right: 0;
+                        }
+
+                        @media screen and (max-width: 600px) {
+                            width: 16rem;
+                        }
+
+                        .MuiBox-root {
+                            @media screen and (max-width: 900px) {
+                                height: 2.5rem;
+                            }
+
+                            @media screen and (max-width: 600px) {
+                                padding: 0rem 0.3rem 0rem 0.8rem;
+                                height: 2.5rem;
+                            }
+
+                            &:hover {
+                                border-color: wheat;
+
+                                svg {
+                                    color: wheat;
+                                }
+                            }
+                        }
+
+                        input {
+                            @media screen and (max-width: 900px) {
+                                font-size: 14px;
+                            }
+
+                            @media screen and (max-width: 600px) {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+
+                    .inventory-tabs {
+
+                        .inventory-type-tab {
+                            margin-right: 10px;
+                            padding: 8px;
+                            transition: .2s all;
+                            opacity: 1.0;
+                            background: rgb(0 48 70 / 60%);
+                            border: 2px solid #416795;
+
+                            @media screen and (max-width: 600px) {
+                                margin-right: 20px;
+                            }
+
+                            &:hover {
+                                background: rgba(0, 95, 139, 0.6);
+                            }
+
+                            &.selected {
+                                background: rgb(70 65 0 / 60%);
+                                border-color: #959241;
+
+                                &:hover {
+                                    background: rgba(136, 127, 0, 0.6);
+                                }
+                            }
+
+                            img {
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 50%;
+                                background: transparent;
+
+                                @media screen and (max-width: 900px) {
+                                    width: 30px;
+                                    height: 30px;
+                                }
+
+                                @media screen and (max-width: 600px) {
+                                    width: 25px;
+                                    height: 25px;
+                                }
+                            }
+
+                            &.resource {
+                                width: 60px;
+                                height: 60px;
+                                margin-left: 10px;
+
+                                @media screen and (max-width: 900px) {
+                                    width: 50px;
+                                    height: 50px;
+                                }
+
+                                @media screen and (max-width: 600px) {
+                                    margin-left: 20px;
+                                    width: 45px;
+                                    height: 45px;
+                                }
+
+                                img {
+                                    position: absolute;
+                                    width: 30px;
+                                    height: 30px;
+                                    background: transparent;
+                                    right: 5px;
+                                    bottom: 5px;
+
+                                    @media screen and (max-width: 900px) {
+                                        width: 25px;
+                                        height: 25px;
+                                    }
+
+                                    @media screen and (max-width: 600px) {
+                                        width: 22.5px;
+                                        height: 22.5px;
+                                    }
+                                }
+
+                                img:first-child {
+                                    left: 5px;
+                                    top: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .list-content {
+                    margin: 0.5rem 0;
+                    width: 80%;
+
+                    @media screen and (max-width: 900px) {
+                        margin: 0.5rem 1rem;
+                        width: calc(100% - 2rem);
+                    }
+
+                    max-width: 1200px;
+                    height: calc(100% - 100px);
+
+                    .thumb-vertical {
+                        background-color: rgba(255, 255, 255, 0.2);
+                    }
+
+                    .mk-inventory-list {
+                        width: 100%;
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-content: flex-start;
+
+                        .mk-inventory {
+                            height: fit-content;
+                            margin: 0.5rem;
+                            width: calc(25% - 1rem - 2px);
+
+                            @media screen and (max-width: 1200px) and (min-width: 600px) {
+                                margin: 0.5rem;
+                                width: calc(33.3333% - 1rem - 2px);
+                            }
+
+                            @media screen and (max-width: 600px) {
+                                margin: 0.5rem;
+                                width: calc(50% - 1rem - 2px);
+                                // width: calc(100% - 2rem - 2px);
+                            }
+
+                            position: relative;
+
+                            overflow: hidden;
+                            display: flex;
+                            flex-direction: column;
+                            background: rgba(22, 31, 56, 0.8);
+                            border: 1px solid rgba(255, 255, 255, 0.2);
+                            border-radius: 5px;
+                            transition: .2s all;
+                            cursor: pointer;
+
+                            &:hover {
+                                background: rgb(30, 43, 78);
+                                border: 1px solid rgba(255, 255, 255, 0.5);
+
+                                .mk-inventory-image {
+                                    img {
+                                        transform: scale(1.2);
+                                    }
+                                }
+                            }
+
+                            .mk-inventory-main {
+                                display: flex;
+
+                                .mk-inventory-image {
+                                    width: 50%;
+                                    padding: 5px 0px;
+
+                                    @media screen and (max-width: 600px) {
+                                        width: 40%;
+                                    }
+
+                                    img {
+                                        display: flex;
+                                        transition: .3s all;
+                                        filter: drop-shadow(2px 4px 6px yellow);
+                                        width: calc(100% - 40px);
+                                        margin: auto;
+
+                                        @media screen and (max-width: 600px) {
+                                            width: calc(100% - 1.5rem);
+                                        }
+
+                                        @media screen and (max-width: 400px) {
+                                            width: calc(100% - 1rem);
+                                        }
+                                    }
+                                }
+
+                                .mk-inventory-desc {
+                                    width: 50%;
+
+                                    @media screen and (max-width: 600px) {
+                                        width: 60%;
+                                    }
+
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    position: relative;
+
+                                    .mk-inventory-type {
+                                        position: absolute;
+                                        top: 0;
+                                        right: 0;
+                                        color: white;
+                                        width: fit-content;
+                                        padding: 3px 10px;
+                                        background: #215376;
+                                        text-transform: uppercase;
+                                        font-size: 0.9rem;
+
+                                        @media screen and (max-width: 900px) {
+                                            font-size: 0.7rem;
+                                            padding: 2px 8px;
+                                        }
+
+                                        @media screen and (max-width: 600px) {
+                                            font-size: 0.6rem;
+                                            padding: 2px 6px;
+                                        }
+                                    }
+
+                                    .mk-inventory-price {
+                                        display: flex;
+                                        align-items: center;
+                                        color: rgb(200, 200, 200);
+                                        font: normal bold 1.1rem Raleway;
+
+                                        @media screen and (max-width: 900px) {
+                                            font-size: 0.9rem;
+                                        }
+
+                                        @media screen and (max-width: 600px) {
+                                            align-items: flex-start;
+                                        }
+
+                                        @media screen and (max-width: 400px) {
+                                            font-size: 0.8rem;
+                                            align-items: flex-end;
+                                        }
+
+                                        span {
+                                            color: gold;
+                                            margin-left: 5px;
+                                        }
+
+                                        img {
+                                            margin-left: 10px;
+                                            width: 25px;
+
+                                            @media screen and (max-width: 900px) {
+                                                width: 20px;
+                                            }
+
+                                            @media screen and (max-width: 600px) {
+                                                margin-left: 5px;
+                                                width: 18px;
+                                            }
+
+                                            @media screen and (max-width: 400px) {
+                                                margin-left: 3px;
+                                                width: 14px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .mk-inventory-name {
+                                display: flex;
+                                justify-content: center;
+
+                                .mk-name {
+                                    width: 80%;
+                                    padding-bottom: 10px;
+                                    color: #ffbc00;
+                                    font-size: 1.1rem;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+
+                                    // font: normal bold 1.0rem Cinzel;
+                                    @media screen and (max-width: 900px) {
+                                        font-size: 0.9rem;
+                                    }
+
+                                    @media screen and (max-width: 600px) {
+                                        font-size: 0.8rem;
+                                        padding-bottom: 5px;
+                                    }
+
+                                    .mk-sname {
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                    }
+
+                                    .mk-inventory-level {
+                                        margin-left: 10px;
+                                        min-width: 2.5rem;
+                                        font-size: 0.9rem;
+                                        color: white;
+
+                                        @media screen and (max-width: 900px) {
+                                            font-size: 0.8rem;
+                                        }
+
+                                        @media screen and (max-width: 600px) {
+                                            font-size: 0.7rem;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .detailView {
+                    width: 80%;
+                    max-width: 1200px;
+                    margin-top: 2rem;
+                    display: flex;
+                    align-items: center;
+                    height: calc(100% - 2rem);
+
+                    @media screen and (max-width: 600px) {
+                        width: 100%
+                    }
+
+                    .container {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        height: 100%;
+                        overflow: auto;
+
+                        .detail-header {
+                            width: 100%;
+                            min-height: 40px;
+                            margin: 0.5rem 0rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            @media screen and (max-width: 600px) {
+                                min-height: 30px;
+                            }
+
+                            .backBtn {
+                                display: flex;
+                                cursor: pointer;
+                                align-items: center;
+                                color: white;
+
+                                .backImg {
+                                    width: 1.5rem;
+                                    height: 1.5rem;
+                                    filter: invert(100%);
+                                }
+
+                                .backText {
+                                    font: normal bold 1.2rem Cinzel;
+                                }
+
+                                @media screen and (max-width: 600px) {
+                                    margin-left: 1rem;
+
+                                    .backImg {
+                                        width: 1rem;
+                                        height: 1rem;
+                                    }
+
+                                    .backText {
+                                        font-size: 0.9rem;
+                                    }
+                                }
+
+                                &:hover {
+                                    .backImg {
+                                        filter: invert(70%) sepia(98%) saturate(415%) hue-rotate(333deg) brightness(102%) contrast(91%);
+                                    }
+
+                                    .backText {
+                                        color: rgb(255, 174, 0);
+                                    }
+                                }
+                            }
+
+                            .buyButton {
+                                background: #cd6a00;
+                                border-radius: 20px;
+                                padding: 0.5rem 1rem;
+                                color: wheat;
+
+                                span {
+                                    margin-left: 10px;
+                                    font: normal bold normal 0.8rem Raleway;
+                                }
+
+                                &:hover {
+                                    background: #ff9900;
+                                }
+
+                                @media screen and (max-width: 600px) {
+                                    margin-right: 1rem;
+                                    padding: 0.2rem 0.6rem;
+
+                                    .MuiSvgIcon-root,
+                                    .css-1wxaqej {
+                                        width: 1.2rem;
+                                    }
+
+                                    span {
+                                        margin-left: 5px;
+                                        font-size: 0.6rem;
+                                    }
+                                }
+                            }
+                        }
+
+
+                        .detail-info {
+                            display: flex;
+
+                            @media screen and (max-width: 900px) {
+                                flex-direction: column;
+                            }
+
+                            .detail-spec {
+                                width: 30%;
+                                display: flex;
+                                flex-direction: column;
+                                margin-top: 4rem;
+
+                                .detail-left {
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+
+                                    .inventory-image {
+                                        position: relative;
+                                        cursor: pointer;
+
+                                        max-width: 12rem;
+                                        width: calc(100% - 2rem);
+                                        border: 1px solid rgb(100 100 100);
+                                        // border: 1px solid red;
+                                        margin: 1rem;
+                                        border-radius: 5px;
+                                        opacity: 0.9;
+                                        background: rgb(60, 60, 60);
+
+                                        img {
+                                            width: 100%;
+                                            height: 100%;
+                                        }
+                                    }
+
+                                    .inventory-name {
+                                        display: flex;
+                                        flex-direction: column;
+                                        color: #ffbc00;
+                                        font: normal bold 1rem Cinzel;
+                                        margin: 0rem 2rem;
+                                        text-align: center;
+                                        margin-bottom: 10px;
+
+                                        .inventory-level {
+                                            color: white;
+                                            font-size: 0.8rem;
+                                        }
+                                    }
+                                }
+
+                                .detail-right {
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+
+                                    .inventory-description {
+                                        margin: 1rem;
+                                        font: italic normal normal 15px Raleway;
+                                        line-height: 1.5;
+                                        color: #DFDFDD;
+                                        word-spacing: 1px;
+
+                                        @media screen and (max-width: 400px) {
+                                            line-height: 1.3;
+                                        }
+                                    }
+
+                                    .text-intent {
+                                        text-indent: 2em;
+                                    }
+                                }
+
+                                @media screen and (max-width: 900px) {
+                                    width: 100%;
+                                    flex-direction: row;
+                                    margin: 0.5rem 0rem;
+
+                                    .detail-left {
+                                        width: 25%;
+                                    }
+
+                                    .detail-right {
+                                        width: 75%;
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        justify-content: flex-start;
+
+                                        .inventory-description {
+                                            margin: 0;
+                                        }
+                                    }
+                                }
+
+                                @media screen and (max-width: 600px) {
+                                    width: calc(100% - 1rem);
+                                    margin: 1rem 0rem 1rem 1rem;
+
+                                    .detail-left {
+                                        // width: 20%;
+                                        flex-direction: column;
+
+                                        .inventory-image {
+                                            width: calc(100% - 1rem);
+                                            margin: 0.5rem;
+                                        }
+
+                                        .inventory-name {
+                                            justify-content: space-around;
+                                            font-size: 0.9rem;
+
+                                            .inventory-level {
+                                                font-size: 0.7rem;
+                                            }
+                                        }
+                                    }
+
+                                    .detail-right {
+                                        // width: 80%;
+                                        display: flex;
+                                        justify-content: space-around;
+
+                                        .inventory-description {
+                                            width: calc(100% - 2rem);
+                                            font-size: 13px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .detail-table {
+                                width: calc(70% - 5rem);
+                                margin: 1.5rem 0.5rem 0rem 4.5rem;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+
+                                @media screen and (max-width: 900px) {
+                                    width: calc(100% - 3rem);
+                                    margin: 0rem 1.5rem;
+                                }
+
+                                @media screen and (max-width: 600px) {
+                                    width: calc(100% - 3rem);
+                                    margin: 0rem 1.5rem;
+
+                                    .pagination {
+                                        img {
+                                            width: 20px;
+                                        }
+                                    }
+                                }
+
+                                table {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

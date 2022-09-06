@@ -1,0 +1,155 @@
+.claim{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #882B21;
+    padding: 2.5vw 0;
+
+    .building{
+        height: auto;
+        max-height: 400px;
+        width: 40%;
+        object-fit:cover;
+        border: 3px #DFDFDD solid;
+
+        @media screen and (max-width: 700px) {
+            display: none;
+        }
+    }
+
+    .container{
+        width: 45%;
+        margin-left: 3vw;
+        @media screen and (max-width: 700px) {
+            margin-top: 5px;
+            width: 95%;
+            margin-left: 0;
+        }
+
+        .container-1{
+            display: flex;
+            align-items: center;
+            font: normal normal bold 1.2rem Cinzel;
+            margin-bottom: 10px;
+
+            img{
+                height: 25px;
+                margin-right: 5px;
+                //filter: brightness(0) saturate(100%) invert(88%) sepia(18%) saturate(1378%) hue-rotate(57deg) brightness(96%) contrast(93%);
+            }
+
+            span{
+                margin-left: 10px;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .container-2{
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            font: normal normal normal 0.8rem Raleway;
+            border: 1px #DFDFDD solid;
+            border-radius: 10px;
+            padding: 0 10px;
+            @media screen and (max-width: 700px) {font-size: 1.2rem;}
+
+            span{
+                display: flex;
+                align-items: center;
+            }
+
+            .c2-row{
+                display: flex;
+                justify-content: space-between;
+
+                p{margin-left: 10px;}
+            }
+
+            hr{width: 80%; margin: 0 auto;}
+        }
+
+        .c3-headline{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: normal normal normal 1.2rem Cinzel;
+            color: #DFDFDD;
+
+            @media screen and (max-width: 700px) {
+                flex-direction: column; 
+                font-size: 1.6rem; 
+
+                p{
+                    margin: 0;
+                }
+            }
+
+            @media screen and (min-width: 700px) {.new-balance{margin-left: 30px;}}
+            
+            img{
+                height: 15px;
+                width: 40px;
+                filter: brightness(0) saturate(100%) invert(88%) sepia(18%) saturate(1378%) hue-rotate(57deg) brightness(96%) contrast(93%);
+            }
+        }
+
+        .container-3{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border: 1px #DFDFDD solid;
+            border-radius: 10px;
+            padding: 2px 10px;
+            margin-top: 5px;
+
+            img{
+                height: auto;
+                width: 50%;
+            }
+
+            span{
+                display: flex;
+                align-items: center;
+                font: normal normal bold 1vmax Cinzel;
+            }
+
+            .enough{
+                color: auto;
+            }
+            .missing{
+                color: gold;
+            }
+        }
+
+        .btn-a.btn-claim-popup{
+            margin: 20px auto 0 auto;
+            width: 3vw;
+            height: 3vw;
+            font-size: 1.6rem;
+            transform: perspective(510px) rotateX(24deg);
+            @media screen and (max-width: 700px) {height: 5vw; width: 5vw; font-size: 1.8rem;}
+        }
+        .btn-span.btn-claim-popup{
+            transform: perspective(240px) rotateX(-10deg);
+        }
+        .btn-a.btn-claim-popup:hover:not(.disabled){
+            background: #c8c8c8;
+            transform: scale(0.9);
+        }
+
+        .btn-a.btn-claim-popup.disabled{
+            background-color: #848D8C;
+            border-top: #848D8C;
+            border-bottom: #848D8C;
+            cursor: not-allowed;
+        }
+
+    }
+
+    .green{
+        color: #73EE6F;
+    }
+}

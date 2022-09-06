@@ -1,0 +1,393 @@
+.city-banner {
+    position: fixed;
+    bottom: 0px;
+    width: calc(100% - 1rem);
+    background: rgba(116, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 51;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+
+    &.delegate {
+        background: rgba(10, 60, 0, 0.5);
+
+        .bannerCityName {
+            padding: 0rem 1rem;
+            color: gold;
+            font: normal bold 1.1rem Cinzel;
+        }
+    }
+
+    .bannerDescription {
+        color: white;
+        font: normal normal 1rem Raleway;
+    }
+
+    .bannerCityName {
+        padding: 0rem 1rem;
+        color: gold;
+        font: normal bold 1.1rem Cinzel;
+    }
+
+    .returnBtn {
+        position: absolute;
+        right: 5px;
+        padding: 5px;
+        transition: .2s all;
+        opacity: 1.0;
+        background: white;
+
+        svg {
+            font-size: 20px;
+            color: black;
+        }
+
+        &:hover {
+            background: black;
+
+            svg {
+                color: white;
+            }
+        }
+    }
+}
+
+.scholarshipPanel {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    z-index: 51;
+    transition: .2s all;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgb(175 50 50 / 50%);
+    border-top-right-radius: 50%;
+    padding-right: 5px;
+    padding-top: 5px;
+    box-shadow: 1px -1px 5px 1px #990000;
+
+    &:hover {
+        background: rgba(255, 62, 62, 0.5);
+    }
+
+    a {
+        margin: 10px;
+        padding: 7px;
+        background: #882b21;
+        border-radius: 50%;
+        border: 1px solid white;
+        transition: .2s all;
+
+        .scholarshipBtn {
+            padding: 0px;
+            transition: .2s all;
+            background: transparent;
+
+            svg {
+                font-size: 25px;
+                color: white;
+            }
+        }
+
+        &:hover {
+            background: white;
+
+            svg {
+                color: #882b21;
+            }
+        }
+    }
+}
+
+.mapComponent {
+    z-index: 50;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .bonusMark {
+        position: absolute;
+        z-index: 3;
+
+        .bonusHole {
+            cursor: pointer;
+            z-index: 2;
+            position: absolute;
+            width: 80%;
+            height: 100%;
+            margin: 0px 10%;
+        }
+
+        .bonusImg {
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .flagMark {
+        position: absolute;
+        z-index: 3;
+
+        .flagHole {
+            cursor: pointer;
+            z-index: 2;
+            position: absolute;
+            width: 80%;
+            height: 100%;
+            margin: 0px 10%;
+        }
+
+        .flagImg {
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .templeMark {
+        position: absolute;
+        z-index: 3;
+
+        .templeHole {
+            cursor: pointer;
+            z-index: 2;
+            position: absolute;
+            width: 80%;
+            height: 100%;
+            margin: 0px 10%;
+        }
+
+        .templeImg {
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .birds {
+        z-index: 3;
+        position: absolute;
+        pointer-events: none;
+
+        .bird {
+            width: 50px;
+            height: 50px;
+            animation: fly 1s steps(8, end) infinite;
+
+            &.bird0 {
+                background-image: url('./assets/birds/0.png');
+            }
+
+            &.bird45 {
+                background-image: url('./assets/birds/45.png');
+            }
+
+            &.bird-45 {
+                background-image: url('./assets/birds/-45.png');
+            }
+
+            &.bird90 {
+                background-image: url('./assets/birds/90.png');
+            }
+
+            &.bird-90 {
+                background-image: url('./assets/birds/-90.png');
+            }
+
+            &.bird135 {
+                background-image: url('./assets/birds/135.png');
+            }
+
+            &.bird-135 {
+                background-image: url('./assets/birds/-135.png');
+            }
+
+            &.bird180 {
+                background-image: url('./assets/birds/180.png');
+            }
+        }
+    }
+
+    .dolphins {
+        z-index: 3;
+        position: absolute;
+        pointer-events: none;
+
+        .dolphin {
+            width: 124px;
+            height: 50px;
+            animation: swim 1s steps(7, end);
+            background-image: url('./assets/dolphin.png');
+        }
+    }
+
+    @keyframes swim {
+        from {
+            background-position: 0px;
+        }
+
+        to {
+            background-position: -868px;
+        }
+    }
+
+    @keyframes fly {
+        from {
+            background-position: 0px;
+        }
+
+        to {
+            background-position: -400px;
+        }
+    }
+
+    .map {
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        img {
+            position: absolute;
+        }
+    }
+
+    .buildings {
+        z-index: 2;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        .buildingPlace {
+            position: absolute;
+
+            .slot {
+                cursor: pointer;
+                z-index: 2;
+                position: absolute;
+                margin: 28% 25% 27% 30%;
+                width: 45%;
+                height: 45%;
+                transform: rotate(32deg) skew(-25deg);
+                border-radius: 5px;
+
+                &.show {
+                    &:hover {
+                        color: rgba(0, 0, 0, 1);
+                        background: rgba($color: #000000, $alpha: 0.2);
+                    }
+                }
+            }
+
+            .buildingImage {
+                z-index: 1;
+            }
+
+            .prestigeButton {
+                position: absolute;
+                right: 10%;
+                top: 20%;
+
+                width: 20%;
+                height: 20%;
+                border-radius: 50%;
+
+                box-shadow: 0px 0px 10px 1px black, inset 0px 0px 30px 6px yellow;
+
+                z-index: 2;
+
+                animation: pulse 2s linear infinite alternate;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                cursor: pointer;
+
+                &:hover {
+                    box-shadow: 0px 0px 10px 1px black, inset 0px 0px 30px 6px rgb(255, 196, 0);
+                }
+
+                svg {
+                    width: 80%;
+                    height: 80%;
+                    color: #5c3300;
+                }
+
+                .building-level {
+                    position: absolute;
+                    font: normal bold normal 80% Raleway;
+                    color: #5c3300;
+                }
+
+                
+                &.max-level {
+                    box-shadow: 0px 0px 10px 1px black, inset 0px 0px 30px 6px rgb(255, 0, 0);
+                    &:hover {
+                        box-shadow: 0px 0px 10px 1px black, inset 0px 0px 30px 6px rgb(255, 20, 0);
+                    }
+
+                    svg {
+                        color: #5c0000;
+                    }
+                    .building-level {
+                        color: #5c0000;
+                    }
+                }
+            }
+
+            @keyframes pulse {
+                from {
+                    transform: scale(1);
+                    opacity: 1;
+                    transform: translate(10px 10px);
+                }
+
+                50% {
+                    transform: scale(0.95);
+                    opacity: 0.8;
+                }
+
+                to {
+                    transform: scale(1);
+                    opacity: 1;
+
+                    transform: translate(-10px -10px);
+                }
+            }
+        }
+    }
+}
+
+.notVisible {
+    display: none;
+}
+
+.nfts-container {
+    position: absolute;
+    // margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow: auto;
+
+    @media screen and (max-width: 1000px) {
+        height: 100%;
+        // margin-top: 50px;
+    }
+}

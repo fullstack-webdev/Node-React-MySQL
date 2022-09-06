@@ -1,0 +1,208 @@
+.filters{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .MuiPaper-root{
+        width: 90%;
+        background-color: #161615;
+        color: white;
+        border: 1px solid white;
+
+        .MuiCardActions-root{
+            justify-content: flex-end;
+            cursor: pointer;
+            p{
+                font: normal normal normal 1.2rem Cinzel;
+            }
+        }
+        .MuiButtonBase-root{
+            color: white;
+        }
+        .MuiCollapse-wrapperInner{
+            background-color: rgb(34, 34, 34);
+        }
+        .MuiCardContent-root{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+
+    .filters-container{
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.301);
+        border-radius: 10px;
+        padding: 10px;
+        margin-left: 15px;
+        margin-right: 15px;
+
+        img.mrkt-filter{ 
+            z-index: 10; 
+            margin: 2px;
+            padding: 5px;
+            border-radius: 50px;
+            background-color: #dbdbdb;
+            height: 50px;
+            width: 50px; 
+            cursor: pointer;
+        }
+        img.mrkt-filter:hover:not(.filter-active){
+            transform: scale(1.02);
+            background-color: rgb(250, 250, 250);
+        }
+        .mrkt-filter.filter-active{ 
+            border: 3px solid #FFB13B;
+        }
+        
+        *:disabled{
+            cursor: not-allowed;
+        }
+    }
+
+    .filters-inventory{
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        input{max-width: 200px}
+    }
+
+    img.mrkt-utils{
+        width: 35px;
+        filter: invert(93%) sepia(77%) saturate(0%) hue-rotate(326deg) brightness(102%) contrast(101%);
+        cursor: pointer;
+    }
+    img.mrkt-utils:hover{
+        transform: scale(1.1);
+    }
+}
+
+.marketplace-table{
+    width: 90%;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 0 1px;
+
+    thead{
+        font: normal normal normal 0.8rem Raleway;
+        color: #FFB13B;
+        text-transform: uppercase;
+    }
+    tbody tr{
+        color: #ffb13b;
+        font: normal normal normal 0.8rem Raleway;
+    }
+    tbody td{
+        width: 15vw;
+        border-bottom: 1px solid #dfdfdd;
+        border-top: 1px solid #dfdfdd;
+    }
+    .actionButton{
+        width: 50px;
+    }
+
+    //Marketplace Profile Stuff
+    .canceled > td, .expired > td {
+        opacity: 0.8;
+        border-bottom: 1px solid #FF1900;
+        border-top: 1px solid #FF1900;
+    }
+    .sold > td {
+        opacity: 0.8;
+        border-bottom: 1px solid #4BCE54;
+        border-top: 1px solid #4BCE54;
+    }
+    .onsale > td {
+        border-bottom: 1px solid #f3b8bb;
+        border-top: 1px solid #f3b8bb;
+        border-color: rgba(255, 255, 0, 0.4);
+        color: #ffbd5a;
+    }
+    .owner > td{
+        opacity: 0.8;
+        border-bottom: 1px solid #FF1900;
+        border-top: 1px solid #FF1900;
+    }
+    td.cell-canceled, td.cell-expired{
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #FF1900;
+    }
+    td.cell-sold{
+        text-transform: uppercase;
+        font-weight: bold;
+        color:#4BCE54;
+    }
+    
+    //Img Resource
+    .mrkt-res, .mrkt-inv-bk, .mrkt-inv{
+        width: 30px;
+    }
+    span.mrkt-inv-bk{
+        height: 30px;
+        color: white;
+    }
+    .th-price{
+        img{
+            vertical-align: middle;
+            margin-left: 5px;
+            width: 20px;
+            
+            @media screen and (max-width: 800px) {
+                display: none;
+            }
+        }
+    }
+
+    //Marketplace Stuff
+    tr:not(.owner):hover > td{
+        border-bottom: 1px solid #FEB03B;
+        border-top: 1px solid #FEB03B;
+    }
+    .btn-a.marketplace-btn-buy.miss-ancien{
+        background-color: #865e22;
+        opacity: 0.8;
+        cursor: not-allowed;
+    }
+    .btn-a.marketplace-btn-buy{
+        margin: auto 30px;
+        transform: perspective(510px) rotateX(40deg);
+        padding: 8px 15px;
+        width: 30px;
+        height: 20px;
+        font: normal normal bold 1rem Cinzel;
+        background-color: #FFB13B;
+        color: #161615;
+        border: 0.1px solid #000;
+
+        @media screen and (max-width: 800px) {
+            margin: auto 10px;
+            padding: 4px 7px;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+.pages, .pagination{
+    margin-top: 10px;
+    filter: invert(68%) sepia(98%) saturate(415%) hue-rotate(333deg) brightness(102%) contrast(101%);
+    img{width: 20px; height: 20px; margin: 10px; cursor: pointer;}
+    .page-disabled{opacity: 0.3; cursor: not-allowed;}
+}
+
+.mrkt-icon{
+    width: 25px;
+    cursor: pointer;
+}
+.mrkt-icon.again{
+    filter: invert(68%) sepia(98%) saturate(415%) hue-rotate(333deg) brightness(102%) contrast(101%);
+}
+.mrkt-icon.cancel, .mrkt-icon.remove{
+    filter: invert(19%) sepia(100%) saturate(6237%) hue-rotate(7deg) brightness(99%) contrast(101%);
+}

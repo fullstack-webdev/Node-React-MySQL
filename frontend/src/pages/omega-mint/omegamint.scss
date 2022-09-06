@@ -1,0 +1,353 @@
+.mintComponent{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
+    background-image: url('../../containers-game/map/assets/map_omega.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #E3E3E3;
+
+    .mintContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 10;
+        // padding-top: 20px;
+        
+        .mintListings{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            // align-items: center;
+            overflow-y: scroll; 
+            max-height: calc(100vh - 170px);
+            // max-width: 75vw;
+            // padding: 30px;
+
+            @media screen and (max-width: 600px) {
+                height: calc(100vh - 170px);
+                max-width: 100vw;
+                padding: 5px;
+                padding-top: 15px;
+            }
+            
+            .mintListing{
+                position: relative;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                align-items: center;
+                height: 300px;
+                width: 300px;
+                // border: 2px solid #FFB13B;
+                border-radius: 8px;
+                box-shadow: 8px 5px 10px #161615;
+                margin: 30px;
+                cursor: pointer;
+
+                @media screen and (max-width: 600px) {
+                    height: 150px;
+                    width: 150px;
+                    margin: 10px;
+                }
+
+                .listingName{
+                    width: 100%;
+                    text-align: center;
+                    font: 1.8rem normal Cinzel;
+                    color: #FFB13B;
+                    background-color: #121212d5;
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+                    // border-bottom: 1px solid #FFB13B;
+                    margin: 0;
+                    padding: 10px 0;
+                    @media screen and (max-width: 600px) {
+                        font: 1rem normal Cinzel;
+                    }
+                }
+
+                .listingImg{
+                    position: absolute;
+                    height: 300px;
+                    width: 300px;
+                    border-radius: 8px;
+                    z-index: -1;
+                    filter: grayscale(.2) blur(2px) ;
+                    @media screen and (max-width: 600px) {
+                        filter: inherit;
+                        height: 150px;
+                        width: 150px;
+                    }
+                }
+
+                .listingInfo{
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                    bottom: 15px;
+                    @media screen and (max-width: 600px) {
+                        display: none;
+                    }
+
+                    .listingPrice{
+                        padding: 5px;
+                        font: 1rem normal Cinzel;
+                    }
+                    .listingShowBtn{
+                        font: 1.4rem normal Raleway;
+                        color: black;
+                        background-color: #FFB13B;
+                    }
+                    .listingShowBtn:hover{opacity: 0.9;}
+                }
+            }
+        }
+
+        .mintSelected{
+            display: flex;
+            // flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            @media screen and (max-width: 1000px) {
+                flex-wrap: wrap;
+                margin-top: 0;
+                overflow-y: scroll; 
+                height: calc(100vh - 170px);
+                // margin-bottom: 50px;
+            }
+        
+            .mintSelectedContainer{
+                position: relative;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                height: 500px;
+                width: 500px;
+                padding: 30px;
+                background-color: #121212d5;
+                color: white;
+                // border: 2px solid #FFB13B;
+                border-radius: 8px;
+                box-shadow: 8px 5px 10px #161615;
+    
+                @media screen and (max-width: 600px) {
+                    // padding: calc(100vw - 350px);
+                    padding: 45px;
+                    box-shadow: none;
+                    min-height: 400px;
+                    width: 330px;
+                }
+
+                .mintSelectedHeader{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+
+                    .mintSelectedBack{
+                        position: absolute;
+                        cursor: pointer;
+                        img{
+                            border: none;
+                            width: 25px;
+                        }
+                        .disabled{
+                            opacity: 0.5;
+                        }
+                    }
+                    .mintSelectedBack:hover{opacity: 0.8;}
+
+                    h2{
+                        font-family: Cinzel;
+                        font-size: 1.6rem;
+                        color: #FFB13B;
+                        margin: 0;
+                        margin-bottom: 5px;
+                        text-align: center;
+                        @media screen and (max-width: 600px) {
+                            font-size: 1.4rem;
+                        }
+                    }
+
+                }
+                
+                .mintSelectedHeadlineAndImg{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    
+                    img{
+                        width: 90%;
+                        // border: 1px solid #FFB13B;
+                        border-radius: 8px;
+                    }
+                }
+                
+                select{
+                    height: 38px;
+                    width: 300px;
+                    padding: 5px;
+                    background-color: #161615;
+                    font: normal normal normal 1rem Raleway;
+                    color: #FFB13B;
+                    border: 1px solid #FFB13B;
+                    outline: none;
+                    cursor: pointer;
+                }
+
+                .listingDesc{
+                    border-bottom: 1px solid white;
+                }
+
+                .listingDrops{
+                    align-self: flex-start;
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 20px;
+
+                    .listingDrop{
+                        margin: 0;
+                    }
+                    .isNFT{
+                        color: #8ec3ff;
+                        font-weight: bold;
+                    }
+                }
+                .listingDrops::before{
+                    content: 'Includes: ';
+                    color: #FFB13B;
+                    text-transform: uppercase;
+                    font: 1rem Cinzel;
+                    font-weight: 600;
+                }
+
+                .mintActions{
+                    margin-top: 50px;
+                }
+
+                .mintQuantity{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 5px;
+                    @media screen and (max-width: 600px) {
+                        width: 90%;
+                    }
+
+                    input{
+                        height: 26px;
+                        padding: 5px;
+                        background-color: #161615;
+                        text-align: center;
+                        font: normal normal normal 1.2rem Raleway;
+                        color: #FFB13B;
+                        border: 1px solid #FFB13B;
+                        outline: none;
+                    }
+            
+                    .btnQuantity{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 5px;
+                        height: 25px;
+                        width: 25px;
+                        background-color: #2e2e2c;
+                        font: normal normal normal 1.4rem Raleway;
+                        color: #FFB13B;
+                        border: 1px solid #FFB13B;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .option_img{
+                @media screen and (max-width: 600px) {
+                    min-height: 330px;
+                    height: 330px;
+                }
+            }
+    
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        /* Track */
+        ::-webkit-scrollbar-track {
+        background: #121212;
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+        background: #FFB13B;
+        }
+        
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+        background: #ffa114;
+        }
+    }
+
+    .useWallet{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 15px;
+
+        h3, p{margin: 5px;}
+        p.switchNetwork{
+            text-align: center;
+            cursor: pointer;
+            color: gainsboro;
+            text-decoration: underline;
+        }
+        p.priceRecap{
+            color: #FFB13B;
+        }
+        button{
+            width: 300px;
+            margin-top: 10px;
+        }
+    }
+
+    .omega-header{
+        background-color: #121212d5;
+        position: sticky;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80px;
+        width: 100vw;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        // border-bottom: 1px solid rgba(255, 255, 255, 0.428);
+        img{
+            max-width: 95vw;
+            width: 400px;
+        }
+    }
+
+    .omega-footer{
+        // z-index: 10;
+        background-color: #121212d5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 100vw;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        // border-top: 1px solid rgba(255, 255, 255, 0.428);
+        margin-top: auto;
+        img{width: 150px;}
+    }
+}
+
+.ancientGold{color: #FFB13B;}

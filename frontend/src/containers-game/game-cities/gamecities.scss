@@ -1,0 +1,161 @@
+.game-cities {
+    .scroll-content {
+        min-height: 300px;
+        position: relative;
+        
+        .backDrop {
+            z-index: 2;
+            position: absolute;
+            width: calc(100% - 2rem);
+            height: calc(100% - 2rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .city-table {
+            tr {
+                th {
+                    font: normal bold 0.9rem Raleway;
+                    color: gold;
+                    text-transform: uppercase;
+                    padding: 1rem;
+                }
+                td {
+                    color: #ffbc00;
+                    font: normal normal 1rem Raleway;
+                    word-break: break-word;
+                    
+                    .avatar {
+                        width: 50px;
+                        height: 50px;
+                        border: 1px solid gray;
+                        transition: .2s all;
+                        &:hover {
+                            transform: scale(1.2);
+                        }
+                    }
+                    .iconBtn {
+                        padding: 10px;
+                        transition: .2s all;
+                        opacity: 1.0;
+                        background: #4262416b;
+                    }
+                    .infoIcon{
+                        svg {
+                            font-size: 30px;
+                            color: #afbeff;
+                        }
+                        &:hover {
+                            background: #b4c1fc6b;
+
+                            svg {
+                                color: #98abff;
+                            }
+                        }
+                    }
+                    .visitIcon{
+                        svg {
+                            font-size: 30px;
+                            color: #77ff77;
+                        }
+                        &:hover {
+                            background: #2f8f346b;
+
+                            svg {
+                                color: #00ff44;
+                            }
+                        }
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    &:hover {
+                        background: rgba(0, 0, 0, 0.5);
+                    }
+                }
+            }
+        }
+        .pagination {
+            padding: 0rem;
+            margin: 0rem;
+            margin-top: 10px;
+        }
+        .notAllowedText {
+            font-size: 0.9rem;
+            color: gray;
+        }
+    }
+}
+
+.visit-city-info {
+    font: normal normal 1.2rem Raleway;
+
+    span {
+        color: #ffbc00;
+        font-weight: bold;
+        margin: 0px 5px;
+    }
+}
+.delegation-list {
+    @media screen and (max-width: 800px) {
+        max-height: 300px;
+    }
+}
+.delegation-info {
+    display: flex;
+    padding: 10px 0px;
+    align-items: center;
+    &:not(:last-child) {
+        border-bottom: 1px solid gray;
+    }
+    &:hover {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .delegateBtn {
+        padding: 10px;
+        transition: .2s all;
+        opacity: 0.2;
+        background: #4262416b;
+        margin-left: 10px;
+        cursor: default;
+        &.show {
+            opacity: 1.0;
+        }
+        svg {
+            font-size: 25px;
+            color: #77ff77;
+        }
+        &:hover {
+            background: #2f8f346b;
+    
+            svg {
+                color: #00ff44;
+            }
+        }
+    }
+    .delegationType {
+        color: white;
+        font: normal bold 1rem Cinzel;
+        margin-left: 10px;
+
+        .notAllowedText {
+            font: normal bold 0.8rem Cinzel;
+            color: gray;
+        }
+    }
+}
+
+.enterCityBtn {
+    font-size: 0.9rem !important;
+    background: #4262416b !important;
+    color: #77ff77 !important;
+    border: 1px solid #77ff77 !important;
+
+    &:hover {
+        background: #2f8f346b !important;
+        color: #00ff44 !important;
+    }
+}

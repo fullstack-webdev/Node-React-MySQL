@@ -1,0 +1,283 @@
+.guest-city-banner {
+    position: fixed;
+    bottom: 0px;
+    width: calc(100% - 1rem);
+    background: rgba(116, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 51;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+/*     .bannerDescription {
+        color: white;
+        font: normal normal 1rem Raleway;
+
+        a {
+            padding: 0rem 1rem;
+            color: gold;
+            font: normal bold 1.1rem Cinzel;
+        }
+    } */
+    .bannerDescription {
+        color: white;
+        font: normal normal 1rem Raleway;
+    }
+    .bannerCityName {
+        padding: 0rem 1rem;
+        color: gold;
+        font: normal bold 1.1rem Cinzel;
+    }
+    .returnBtn {
+        position: absolute;
+        right: 5px;
+        padding: 5px;
+        transition: .2s all;
+        opacity: 1.0;
+        background: white;
+        svg {
+            font-size: 20px;
+            color: black;
+        }
+        &:hover {
+            background: black;
+            svg {
+                color: white;
+            }
+        }
+    }
+}
+.guest-city {
+    z-index: 50;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .birds {
+        z-index: 3;
+        position: absolute;
+        pointer-events: none;
+        
+        .bird {
+            width: 50px;
+            height: 50px;
+            animation: fly 1s steps(8, end) infinite;
+    
+            &.bird0 {
+                background-image: url('./assets/birds/0.png');
+            }
+            &.bird45 {
+                background-image: url('./assets/birds/45.png');
+            }
+            &.bird-45 {
+                background-image: url('./assets/birds/-45.png');
+            }
+            &.bird90 {
+                background-image: url('./assets/birds/90.png');
+            }
+            &.bird-90 {
+                background-image: url('./assets/birds/-90.png');
+            }
+            &.bird135 {
+                background-image: url('./assets/birds/135.png');
+            }
+            &.bird-135 {
+                background-image: url('./assets/birds/-135.png');
+            }
+            &.bird180 {
+                background-image: url('./assets/birds/180.png');
+            }
+        }
+    }
+    .dolphins {
+        z-index: 3;
+        position: absolute;
+        pointer-events: none;
+
+        .dolphin {
+            width: 124px;
+            height: 50px;
+            animation: swim 1s steps(7, end);
+            background-image: url('./assets/dolphin.png');
+        }
+    }
+    
+    @keyframes swim {
+        from {
+            background-position: 0px;
+        }
+        to {
+            background-position: -868px;
+        }
+    }
+    @keyframes fly {
+        from {
+            background-position: 0px;
+        }
+          to {
+            background-position: -400px;
+        }
+    }
+    .map {
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        img {
+            position: absolute;
+        }
+    }
+    .buildings {
+        z-index: 2;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        .buildingPlace {
+            position: absolute;
+            .slot {
+                cursor: pointer;
+                z-index: 2;
+                position: absolute;
+                margin: 28% 25% 27% 30%;
+                width: 45%;
+                height: 45%;
+                transform: rotate(32deg) skew(-25deg);
+                border-radius: 5px;
+                &.show {
+                    &:hover {
+                        color:rgba(0, 0, 0, 1);
+                        background: rgba($color: #000000, $alpha: 0.2);
+                    }
+                }
+            }
+            .buildingImage {
+                z-index: 1;
+            }
+        }
+    }
+}
+
+.notVisible{
+    display: none;
+}
+
+.my-nfts-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    &.show {
+        z-index: 100;
+    }
+}
+.my-nft{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    z-index: 50;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+
+    .nft-view {
+        width: 80%;
+        max-width: 800px;
+        @media screen and (max-width: 1000px) {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            flex-direction: column;
+        }
+
+        padding: 2rem 0rem;
+
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 7px;
+        box-shadow: 0px 0px 15px 1px black;
+        border: 1px solid gray;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        position: relative;
+
+        .menu-icon-close{
+            cursor: pointer;
+            z-index: 251;
+            position: absolute;
+            left: 1rem;
+            top: 3rem;
+            width: 35px;
+            right: 5px;
+            @media screen and (min-width: 1000px) {
+                display: none;
+            }
+        }
+        .left-view {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 30%;
+            @media screen and (max-width: 1000px) {
+                width: 100%;
+                padding: 5rem 0px;
+            }
+            .nft-image {
+                width: 150px;
+                height: 150px;
+                @media screen and (max-width: 1000px) {
+                    width: 60%;
+                    height: auto;
+                }
+
+                border: 1px solid #ff8b0094;
+                border-radius: 50%;
+            }
+        }
+        .right-view {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            width: 70%;
+            @media screen and (max-width: 1000px) {
+                width: calc(100% - 2rem);
+            }
+
+            padding: 0px 1rem;
+
+            .nft-name {
+                margin: 1rem 0px;
+                color: #ffbc00;
+                font: normal normal normal 20px Raleway;
+                a {
+                    color: #ffbc00;
+                }
+            }
+            .nft-description {
+                color: #d0d0d0;
+                font: normal normal normal 14px Raleway;
+                text-indent: 1rem;
+                line-height: 1.2;
+            }
+            .nft-desc {
+                color: gray;
+                font: normal normal normal 15px Raleway;
+                margin: 1rem 0px;
+            }
+        }
+    }
+}

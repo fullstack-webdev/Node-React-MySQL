@@ -1,0 +1,276 @@
+.game-inventory{
+    color: white;
+
+    .content {
+        position: relative;
+    }
+    .scroll-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // justify-content: center;
+        overflow: auto;
+        
+        .tab-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .vouchers{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h2{
+                @media screen and (max-width: 700px) {
+                    padding-left: 0;
+                }
+            }
+        }
+
+        .resources{
+            margin-top: 0px;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: space-evenly;
+
+            .resource{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                cursor: pointer;
+
+                width: 20%;
+                padding: 1rem;
+
+                font: normal normal bold 1.4rem Cinzel;
+                border: 1px solid #ffb13b;
+
+                img{
+                    width: 45px;
+                }
+
+                @media screen and (max-width: 1000px) {
+                    margin: 5px;
+                    padding: 5px;
+
+                    span{display: none;}
+                }
+            }
+
+            .resource.selected{
+                border: 4px solid #ffb13b;
+            }
+        }
+
+        .alert{
+            display: flex;
+            align-items: center;
+            margin-top: 35px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            background-color: rgb(41, 95, 144);
+            border-radius: 30px;
+            padding: 15px 25px;
+
+            svg{
+                margin-left: 5px;
+
+                &:hover{opacity: 0.8;cursor: pointer;}
+            }
+        }
+
+        .mint-burn{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            height: fit-content;
+
+            @media screen and (max-width: 800px) {
+                flex-direction: column;
+            }
+
+            .mint{
+                background-image: url('../../assets-game/mintBk.svg');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: 50%;
+
+                @media screen and (max-width: 1000px) {
+                    background-size: cover;
+                }
+
+                position: relative;
+
+                .addressInput {
+                    color: gold;
+                    font: normal bold 1rem Cinzel;
+                    margin-bottom: 10px;
+                    background: #222222;
+                    border: 1px solid gray;
+                    padding: 0.25rem 1rem;
+                    width: 50%;
+                    border-radius: 5px;
+
+                    &:hover {
+                        border: 1px solid black;
+                    }
+                }
+
+                .css-1jaw3da {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    
+                    .css-9l3uo3 {
+                        color: white;
+                        font: normal bold 0.8rem Cinzel;
+                    }
+                    .css-1ju1kxc {
+                        background: gray;
+                    }
+                    .css-1nr2wod.Mui-checked {
+                        color: gold;
+                    }
+                    .css-1nr2wod.Mui-checked + .MuiSwitch-track {
+                        background: gold;
+                    }
+                }
+                .css-j204z7-MuiFormControlLabel-root {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+
+                    .MuiFormControlLabel-label {
+                        color: white;
+                        font: normal bold 0.8rem Cinzel;
+                    }
+                    .css-1yjjitx-MuiSwitch-track {
+                        background: gray;
+                    }
+                    .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
+                        color: gold;
+                    }
+                    .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track {
+                        background: gold;
+                    }
+                }
+            }
+
+            .add{
+                background-image: url('../../assets-game/addBk.svg');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: 50%;
+
+                @media screen and (max-width: 1000px) {
+                    background-size: cover;
+                }
+            }
+
+            .action{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 30vw;
+                width: 33vw;
+                max-width: 350px;
+                max-height: 320px;
+
+                @media screen and (max-width: 1000px) {
+                    width: 340px;
+                    height: 300px;
+                    // margin-left: 50px;
+                    // margin-right: 50px;
+                }
+
+                .display{
+                    display: flex;
+                    flex-direction: column;
+
+                    width: 170px;
+                    padding: 10px;
+                    margin-bottom: 15px;
+
+                    background-color: #161615;
+                    border: 1px solid #ffb13b;
+
+                    opacity: 0.8;
+
+                    font: normal normal normal 0.8rem Raleway;
+                    color: #DFDFDD;
+
+                    span{display: flex; justify-content: space-between;}
+
+                    img{
+                        height: 35px;
+                        width: 35px;
+                    }
+                    img:hover{
+                        opacity: 0.8;
+                    }
+
+                    input{
+                        height: 30px;
+                        width: 120px;
+                        font-size: 1.2rem;
+                        text-align: right;
+                        background-color: #161615;
+                        color: white;
+                        opacity: 1;
+                        border: none;
+                    }
+
+                    input:focus{
+                        outline: none;
+                    }
+
+                    p{
+                        font-size: 0.7rem;
+                        margin: 0;
+                        opacity: 0.5;
+                    }
+            
+                }
+            
+            }
+
+            img.img-arrow{
+                height: 250px;
+                margin: 0 20px;
+                @media screen and (max-width: 800px) {
+                    display: none;
+                }
+            }
+        }
+
+        .btn-action.btn-a{
+            width: 80px;
+            height: 10px;
+            font-size: 1rem;
+            transform: perspective(510px) rotateX(24deg);
+            margin-bottom: 10px;
+        }
+        .btn-action.btn-span{
+            transform: perspective(240px) rotateX(-10deg);
+        }
+        .btn-disabled{
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+    }
+
+    .vouchers{
+        margin-bottom: 50px;
+        h2{text-align: center; font: normal normal bold 2rem Cinzel;}
+    }
+
+}

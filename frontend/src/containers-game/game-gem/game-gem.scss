@@ -1,0 +1,35 @@
+.notAvailableATM{
+    font: normal large Raleway;
+    color: white;
+}
+
+.notAvailableATM_Img{
+    height: auto;
+    width: 90%;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.game-gem {
+    .scroll-content {
+        &.buy-gem-tab {
+            /* height: 400px !important;
+            @media screen and (max-width: 1000px) {
+                height: -webkit-fill-available !important;
+            } */
+        }
+
+        .notAllowed {
+            pointer-events: none;
+            opacity: 0.4;
+        }
+        .thumb-vertical {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .bundle-list {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+}

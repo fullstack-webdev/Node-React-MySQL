@@ -1,0 +1,224 @@
+.game-prestige {
+    .content {
+        position: relative;
+
+        .api-loading {
+            position: absolute;
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            border: 5px solid rgba(0, 0, 0, 0.5);
+
+            .apiCallingGif {
+                width: 180px;
+                height: 120px;
+                filter: drop-shadow(2px 4px 6px gold);
+            }
+
+            .loader {
+                margin-top: 20px;
+                font: normal bold 15px Raleway;
+                letter-spacing: 2px;
+                color: gold;
+                animation: smokeOut 1.5s ease-in-out infinite alternate;
+
+                &:before {
+                    content: "Loading";
+                }
+            }
+
+            @keyframes smokeOut {
+                100% {
+                    opacity: 0.08;
+                    filter: blur(5px);
+                    letter-spacing: 4px;
+                }
+            }
+        }
+    }
+
+    .scroll-content {
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+
+        @media screen and (max-width: 1000px) {
+            flex-direction: column;
+        }
+
+        overflow: auto;
+
+        .prestige-left-panel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: calc(40% - 6rem);
+            padding: 1rem 3rem;
+
+            @media screen and (max-width: 1000px) {
+                width: 100%;
+                padding: 2rem 0px;
+            }
+
+            .nft-image {
+                position: relative;
+
+                width: 100%;
+
+                @media screen and (max-width: 1000px) {
+                    width: 70%;
+                }
+
+                // border-radius: 50%;
+                box-shadow: 0px 0px 5px 1px rgb(255 200 0),
+                inset 0px 0px 100px 5px rgb(255 200 0 / 50%);
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .nft-level {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+
+                    background: white;
+                    padding: 5px 10px;
+
+                    box-shadow: 0px 0px 10px 1px black;
+
+                    font: normal bold normal 15px Raleway;
+
+                    a {
+                        color: red;
+                    }
+                }
+            }
+        }
+
+        .prestige-right-panel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: calc(60% - 2rem);
+            padding: 0px 1rem;
+
+            @media screen and (max-width: 1000px) {
+                width: 100%;
+                padding: 2rem 0px;
+            }
+
+            .prestige-description {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                text-align: center;
+
+                font: normal normal normal 15px Raleway;
+                color: #dfdfdd;
+                line-height: 1.5;
+            }
+
+            .action-panel {
+                padding: 1rem 0px;
+
+                button {
+                    transition: 0.2s all;
+                    padding: 3px 10px;
+                    font-size: 0.7rem;
+                    background: rgb(100 50 0);
+                    color: white;
+
+                    &:hover {
+                        background: rgb(150 50 0);
+                        color: white;
+                    }
+
+                    &.notAllowed {
+                        pointer-events: none;
+                        opacity: 0.4;
+                    }
+                }
+            }
+
+            .drops-view {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+
+                .drop {
+                    width: calc(50% - 20px);
+                    margin: 0px 10px;
+
+                    @media screen and (max-width: 1000px) {
+                        width: 80%;
+                        margin: 10px 10%;
+                    }
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    background: rgb(255 200 0 / 30%);
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: .2s all;
+
+                    &:hover {
+                        background: rgb(255 200 0 / 40%);
+                    }
+
+                    .drop-desc {
+                        width: 40%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+
+                        .drop-quantity {
+                            font-size: 15px;
+                            color: #dfdfdd;
+                        }
+
+                        .drop-name {
+                            font-size: 15px;
+                            color: #ffff00;
+                        }
+                    }
+
+                    .drop-img {
+                        width: 30%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 10px;
+                        background: gray;
+                        border-radius: 50%;
+                    }
+                }
+
+                .noDropDescription {
+                    width: 100%;
+                    justify-content: center;
+                    align-items: center;
+                    font: normal normal normal 13px Raleway;
+                    color: darkgray;
+
+                    display: none;
+
+                    &:first-child {
+                        display: flex;
+                    }
+                }
+            }
+        }
+    }
+}

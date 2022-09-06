@@ -1,0 +1,285 @@
+.game-craft{
+    z-index: 150;
+    background-color: #161615;
+
+    margin: auto;
+    display: flex;
+    max-width: 1000px;
+    @media screen and (min-width: 1000px) {
+        width: 70%;
+        height: fit-content;
+    }
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+        height: 100%;
+    }
+    @media screen and (max-width: 300px) {
+        display: none;
+    }
+
+    .container {
+        margin: auto;
+        width: 90%;
+        @media screen and (min-width: 1000px) {
+            height: fit-content;
+        }
+        @media screen and (max-width: 1000px) {
+            height: 100%;
+        }
+
+        .header {
+            border-bottom: 1px solid #ffb13b;
+
+            width: 100%;
+            height: 5rem;
+            display: flex;
+            align-items: center;
+            .title {
+                color: #ffb13b;
+                font: normal bold 1.4rem Cinzel;
+                margin-left: 1rem;
+            }
+        }
+
+        .content {
+            margin: auto;
+            
+            width: 100%;
+            display: flex;
+            @media screen and (min-width: 1000px) {
+                height: fit-content;
+            }
+            @media screen and (max-width: 1000px) {
+                height: calc(100% - 5rem - 1px);
+                overflow: auto;
+            }
+            
+            .scroll-content {
+                margin: auto;
+
+                width: 100%;
+                height: fit-content;
+                display: flex;
+                align-items: center;
+
+                @media screen and (max-width: 700px) {
+                    flex-direction: column;
+                }
+
+                .recipePanel {
+                    width: 40%;
+                    padding: 2rem 1rem;
+                    @media screen and (max-width: 700px) {
+                        width: calc(100% - 2rem);
+                    }
+
+                    .craft {
+                        display: flex;
+                        align-items: center;
+
+                        .craft-image {
+                            padding: 0.25rem;
+                            width: calc(30% - 0.5rem);
+                            height: 30%;
+                            border: 2px solid rgba(255, 225, 52, 0.705);
+                         
+                            &.empty {
+                                filter: invert(68%) sepia(98%) saturate(415%) hue-rotate(333deg) brightness(102%) contrast(101%);
+                            }
+                        }
+                        .craft-desc {
+                            margin-left: 1rem;
+                            display: flex;
+                            flex-direction: column;
+
+                            .craft-text {
+                                color: white;
+                                font: normal bold 0.9rem Cinzel;
+                                text-align: center;
+                            }
+                            button {
+                                margin-top: 1rem;
+                                height: 2rem;
+                            }
+                            &.missing {
+                                button {
+                                    cursor: not-allowed;
+                                    color: rgba(255, 255, 255, 0.5);
+                                    background-color: rgba(151, 0, 0, 0.5);
+                                }
+                            }
+                        }
+                        
+                    }
+                    .requirements {
+                        min-height: 500px;
+                        padding-top: 1rem;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+
+                        .empty {
+                            width: 100%;
+                            color: #ffcb7c;
+                            font: normal bold 1.5rem Cinzel;
+                            text-align: center;
+                        }
+                        .requirement {
+                            display: flex;
+                            margin-top: 1rem;
+
+                            &.available {
+                                .required-item {
+                                    .required-item-img {
+                                        border: 1px solid #8cff8c;
+                                    }
+                                    .required-item-desc {
+                                        .require-item-desc-title {
+                                            color: #8cff8c;
+                                        }
+                                        .require-item-desc-count {
+                                            color: #8cff8c;
+                                        }
+                                    }
+                                }
+                                .required-available {
+                                    span {
+                                        color: #8cff8c;
+                                    }
+                                }
+                            }
+                            &.missing {
+                                .required-item {
+                                    .required-item-img {
+                                        border: 1px solid #ff5a5a;
+                                    }
+                                    .required-item-desc {
+                                        .require-item-desc-title {
+                                            color: #ff5a5a;
+                                        }
+                                        .require-item-desc-count {
+                                            color: #ff5a5a;
+                                        }
+                                    }
+                                }
+                                .required-available {
+                                    span {
+                                        color: #ff5a5a;
+                                    }
+                                }
+                            }
+                            .required-item {
+                                width: 50%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                .required-item-img {
+                                    width: 40%;
+                                }
+                                .required-item-desc {
+                                    width: 60%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    padding-left: 10px;
+                                    .require-item-desc-title {
+                                        font: normal bold 1.0rem Cinzel;
+                                    }
+                                    .require-item-desc-count {
+                                        font: normal bold 0.9rem Cinzel;
+                                    }
+                                }
+                            }
+                            .required-available {
+                                width: 50%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                span {
+                                    font: normal bold 1.3rem Cinzel;
+                                }
+                            }
+                        }
+                    }
+                }
+                .craft-inventory {
+                    width: 60%;
+                    padding: 1rem;
+                    @media screen and (max-width: 700px) {
+                        width: calc(100% - 2rem);
+                    }
+
+                    .tabNav {
+                        width: 100%;
+                        display: flex;
+                        border-bottom: 1px solid gray;
+
+                        .tab {
+                            cursor: pointer;
+                            margin-left: 1rem;
+                            color: #ffb13b;
+                            font: normal bold 0.9rem Raleway;
+                            padding: 0.5rem;
+                            border-top-right-radius: 10px;
+                            border-top-left-radius: 10px;
+
+                            &.active {
+                                background: #ffffff24;
+                                border-bottom: 3px solid gold;
+                            }
+                        }
+                    }
+                    .craft-items {
+                        height: fit-content;
+                        padding: 0.5rem 0rem;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: flex-start;
+                        align-items: center;
+                        align-content: flex-start;
+
+                        .craft-item {
+                            cursor: pointer;
+
+                            width: calc(33.33% - 0.5rem);
+                            height: fit-content;
+                            @media screen and (max-width: 800px) {
+                                width: calc(33.33% - 0.5rem);
+                            }
+                            @media screen and (max-width: 400px) {
+                                width: calc(50% - 0.5rem);
+                            }
+                            padding: 0.25rem;
+                            
+                            .craft-item-container {
+                                width: calc(100% - 0.5rem);
+                                height: fit-content;
+                                display: flex;
+                                align-items: flex-end;
+                                padding: 0.25rem;
+                                justify-content: space-around;
+                                border: 1px solid rgba(255, 231, 104, 0.4392156863);
+                                &:hover {
+                                    border: 1px solid gold;
+                                }
+    
+                                .craft-item-img {
+                                    width: 50%;
+                                }
+                                .craft-item-desc {
+                                    .craft-item-desc-count {
+                                        color: white;
+                                    }
+                                }
+                            }
+
+                            
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}

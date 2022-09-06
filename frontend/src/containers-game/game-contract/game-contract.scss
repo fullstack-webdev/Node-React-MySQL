@@ -1,0 +1,319 @@
+.game-contract {
+    .content {
+        position: relative;
+        .api-loading {
+            position: absolute;
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 100;
+            border: 5px solid rgba(0, 0, 0, 0.5);
+            .apiCallingGif {
+                width: 180px;
+                height: 120px;
+                filter: drop-shadow(2px 4px 6px gold);
+            }
+            .loader{
+                margin-top: 20px;
+                font: normal bold 15px Raleway;
+                letter-spacing: 2px;
+                color: gold;
+                animation: smokeOut 1.5s ease-in-out infinite alternate;
+
+                &:before {
+                    content: "Loading";
+                }
+            }
+            
+            @keyframes smokeOut {
+                100% {
+                    opacity: 0.08;
+                    filter: blur(5px);
+                    letter-spacing: 4px;
+                }
+            }
+        }
+        .notAllowed {
+            pointer-events: none;
+            opacity: 0.4;
+        }
+    }
+    .scroll-content {
+        min-height: 300px;
+        position: relative;
+        @media screen and (max-width: 400px) {
+            width: 100% !important;
+            padding: 0rem !important;
+        }
+        .priceUnitImg {
+            width: 20px;
+            height: 20px;
+        }
+        input {
+            width: 70px;
+            color: #ffbc00;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            font: normal bold normal 17px Raleway;
+            padding: 3px 5px;
+            margin: 0px 1rem;
+            outline: none;
+            transition: 0.2s all;
+        }
+        .left-panel, .right-panel {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .info-text {
+            display: flex;
+            align-items: center;
+            padding: 5px 0px;
+            width: 100%;
+            color: #DFDFDD;
+            font: normal normal normal 15px Raleway;
+            a {
+                &:first-child {
+                    width: 50%;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                }
+                &:last-child {
+                    margin-left: 10px;
+                    font-weight: bold;
+                    color: #ffbc00;
+                    padding: 0px 5px;
+                    font-size: 17px;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+        .contract-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @media screen and (max-width: 500px) {
+                flex-direction: column;
+            }
+            .left-panel {
+                @media screen and (max-width: 500px) {
+                    width: 100%;
+                    padding: 1rem 0rem;
+                }
+                color: #DFDFDD;
+                font: normal normal normal 15px Raleway;
+                .sign-info {
+                    display: flex;
+                    align-items: center;
+                }
+                .status-info {
+                    display: flex;
+                    align-items: center;
+                    margin-top: 10px;
+                    b {
+                        margin-left: 10px;
+                        color: rgb(255, 72, 0);
+                    }
+                }
+                .contract-status {
+                    margin-left: 1rem;
+                    padding: 2px 5px;
+                    font: normal bold normal 11px Cinzel;
+                    text-transform: uppercase;
+                    border-radius: 5px;
+                    &.created {
+                        background: #474747;
+                        color: white;
+                    }
+                    &.active {
+                        background: #004c00;
+                        color: white;
+                    }
+                    &.pending {
+                        background: #474747;
+                        color: white;
+                    }
+                    &.deleted {
+                        background: white;
+                        color: red;
+                    }
+                }
+            }
+            .right-panel {
+                @media screen and (max-width: 500px) {
+                    width: 100%;
+                }
+            }
+        }
+        .create-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #DFDFDD;
+            font: normal normal normal 15px Raleway;
+            @media screen and (max-width: 500px) {
+                margin-top: 1rem;
+            }
+        }
+        .create-panel {
+            display: flex;
+            margin: 1rem 0px;
+            padding-top: 1rem;
+            border-top: 1px dotted rgba(255, 255, 255, 0.2);
+            @media screen and (max-width: 500px) {
+                flex-direction: column;
+            }
+            .left-panel {
+                @media screen and (max-width: 500px) {
+                    width: 100%;
+                }
+                .feeInput, .durationInput {
+                    border: 1px solid rgba(0, 225, 255, 0.5);
+                    &:hover {
+                        box-shadow: 0px 0px 5px 1px rgb(0, 225, 255);
+                    }
+                    &:focus {
+                        border: 1px solid rgb(0, 225, 255);
+                    }
+                }
+                .ctCheckInput {
+                    padding: 0px 10px;
+                    svg {
+                        border-radius: 4px;
+                        padding: 3px;
+                        font-size: 20px;
+                        color: #00ffff;
+                        background: #00ffff2b;
+                        border: 1px solid #00ffffff;
+                        opacity: 0.5;
+                    }
+                    &.Mui-checked {
+                        svg {
+                            opacity: 1.0;
+                        }
+                    }
+                }
+            }
+            .right-panel {
+                @media screen and (max-width: 500px) {
+                    width: 100%;
+                    margin-top: 1rem;
+                    padding-top: 1rem;
+                    border-top: 1px dotted rgba(255, 255, 255, 0.2);
+                }
+                .createContractBtn {
+                    transition: 0.2s all;
+                    padding: 3px 10px;
+                    font-size: 0.7rem;
+                    background: rgb(0 87 112);
+                    color: white;
+                    &:hover {
+                        background: rgb(0, 118, 151);
+                        color: white;
+                    }
+                }
+            }
+        }
+        .contract-panel {
+            display: flex;
+            margin: 1rem 0px;
+            padding-top: 1rem;
+            border-top: 1px dotted rgba(255, 255, 255, 0.2);
+            @media screen and (max-width: 500px) {
+                flex-direction: column;
+            }
+            .left-panel {
+                @media screen and (max-width: 500px) {
+                    width: 100%;
+                }
+                .ticketCountInput, .ticketCostInput {
+                    border: 1px solid rgba(0, 225, 255, 0.5);
+                    &:hover {
+                        box-shadow: 0px 0px 5px 1px rgb(0, 225, 255);
+                    }
+                    &:focus {
+                        border: 1px solid rgb(0, 225, 255);
+                    }
+                }
+                .ttCheckInput {
+                    padding: 0px 10px;
+                    svg {
+                        border-radius: 4px;
+                        padding: 3px;
+                        font-size: 20px;
+                        color: #00ffff;
+                        background: #00ffff2b;
+                        border: 1px solid #00ffffff;
+                        opacity: 0.5;
+                    }
+                    &.Mui-checked {
+                        svg {
+                            opacity: 1.0;
+                        }
+                    }
+                }
+                .createTicketBtn {
+                    transition: 0.2s all;
+                    margin-top: 10px;
+                    padding: 3px 10px;
+                    font-size: 0.7rem;
+                    background: #006c6c;
+                    color: white;
+                    &:hover {
+                        background: #00aaaa;
+                        color: white;
+                    }
+                }
+            }
+            .right-panel {
+                @media screen and (max-width: 500px) {
+                    width: 100%;
+                    margin-top: 1rem;
+                    padding-top: 1rem;
+                    border-top: 1px dotted rgba(255, 255, 255, 0.2);
+                }
+                .deleteContractBtn {
+                    transition: 0.2s all;
+                    padding: 3px 10px;
+                    font-size: 0.7rem;
+                    background: rgb(110, 0, 0);
+                    color: white;
+                    &:hover {
+                        background: rgb(150, 15, 15);
+                        color: white;
+                    }
+                }
+                .showAllTicketsBtn {
+                    transition: 0.2s all;
+                    margin-top: 1rem;
+                    padding: 3px 10px;
+                    font-size: 0.7rem;
+                    background: rgb(0 80 10);
+                    color: white;
+                    &:hover {
+                        background: rgb(0, 145, 19);
+                        color: white;
+                    }
+                }
+                .delete-desc {
+                    margin-top: 5px;
+                    color: #DFDFDD;
+                    font: normal normal normal 13px Raleway;
+                }
+            }
+        }
+        .notAllowedText {
+            font-size: 0.9rem;
+            color: gray;
+        }
+    }
+}

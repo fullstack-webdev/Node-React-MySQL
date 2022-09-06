@@ -1,0 +1,45 @@
+.leaderboards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    margin: 5rem auto 10rem auto;
+
+    .leaderboard{
+        max-height: 700px;
+        min-height: 450px;
+        min-width: 300px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        justify-content: center;
+        padding: .5rem;
+        text-align: center;
+        color: #d9d9d9;
+        margin-left: 50px;
+        margin-right: 50px;
+
+        img{
+            min-width: 300px;
+            max-width: 350px;
+            max-height: 100%;
+        }
+    
+        h3{
+            position: absolute;
+            align-self: flex-start;
+            padding-top: 20px;
+            font: normal normal normal 1.4rem Cinzel;
+            color: #DFDFDD;
+        }
+        p{
+            position: absolute;
+            align-self: center;
+            font: normal normal normal 1.2rem Raleway;
+            color: #DFDFDD;
+        }
+    }
+
+    
+
+}

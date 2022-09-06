@@ -1,0 +1,258 @@
+.game-leaderboard {
+    .scroll-content {
+        width: 100%;
+        height: fit-content;
+        display: block;
+        // flex-direction: column;
+        // align-items: center;
+        // justify-content: center;
+        .lb-table-loader {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .myRankingPanel {
+            padding: 1rem 0rem 0rem 0rem;
+            div:first-child {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .myRanking, .myName, .myExp, .myImage {
+                    margin-left: 15px;
+                    color: #ffb13b;
+                    font: normal bold 1rem Cinzel;
+                }
+                .myName {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .myImage > img{width: 50px; height: 50px;}
+            }
+        }
+    }
+}
+
+.specPanel{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+
+        .specSection{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .sectionTop{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0.5rem 2.5rem;
+
+            @media screen and (max-width: 500px) {
+                padding: 0.5rem;
+            }
+            @media screen and (max-width: 350px) {
+                padding: 0.2rem;
+            }
+            @media screen and (max-width: 800px) {
+                padding: 0.3rem;
+            }
+
+            .specBack {
+                height: auto;
+
+                @media screen and (max-width: 500px) {
+                    width: 5rem;
+                }
+            }
+            .back-1st {
+                width: 12rem;
+
+                @media screen and (max-width: 500px) {
+                    width: 7rem;
+                }
+            }
+            .back-2nd {
+                width: 8rem;
+                filter: brightness(1.2);
+
+                @media screen and (max-width: 500px) {
+                    width: 5rem;
+                }
+            }
+            .back-3rd {
+                width: 8rem;
+                filter: brightness(1.2);
+
+                @media screen and (max-width: 500px) {
+                    width: 5rem;
+                }
+            }
+
+            .specAvatar {
+                position: absolute;
+                border-radius: 50%;
+            }
+            .avatar-1st{
+                top: 4.65rem;
+                width: 7rem;
+                height: 7rem;
+                z-index: -1;
+
+                @media screen and (max-width: 800px) {
+                    top: 4.5rem;
+                    width: 7rem;
+                    height: 7rem;
+                }
+                @media screen and (max-width: 500px) {
+                    top: 2.75rem;
+                    width: 4rem;
+                    height: 4rem;
+                }
+            }
+            .avatar-2nd{
+                top: 2.4rem;
+                width: 4rem;
+                height: 4rem;
+
+                @media screen and (max-width: 800px) {
+                    top: 2.2rem;
+                    width: 4rem;
+                    height: 4rem;
+                }
+                @media screen and (max-width: 500px) {
+                    top: 1.4rem;
+                    width: 2.6rem;
+                    height: 2.6rem;
+                }
+            }
+            .avatar-3rd{
+                top: 2.4rem;
+                width: 4rem;
+                height: 4rem;
+
+                @media screen and (max-width: 800px) {
+                    top: 2.2rem;
+                    width: 4rem;
+                    height: 4rem;
+                }
+                @media screen and (max-width: 500px) {
+                    top: 1.4rem;
+                    width: 2.6rem;
+                    height: 2.6rem;
+                }
+            }
+            .specRanking{
+                position: absolute;
+            }
+            .rank-1st{
+                width: 2rem;
+                right: 2.5rem;
+                bottom: -0.5rem;
+
+                @media screen and (max-width: 800px) {
+                    width: 2rem;
+                    right: 0.1rem;
+                    bottom: -0.3rem;
+                }
+                @media screen and (max-width: 500px) {
+                    width: 1.3rem;
+                    right: 0.1rem;
+                    bottom: -0.2rem;
+                }
+            }
+            .rank-2nd{
+                width: 2rem;
+                right: 2rem;
+                bottom: -1rem;
+
+                @media screen and (max-width: 800px) {
+                    width: 1.5rem;
+                    right: 0rem;
+                    bottom: -0.3rem;
+                }
+                @media screen and (max-width: 500px) {
+                    width: 1.2rem;
+                    right: 0.2rem;
+                    bottom: -0.5rem;
+                }
+            }
+            .rank-3rd{
+                width: 2rem;
+                right: 2rem;
+                bottom: -1rem;
+
+                @media screen and (max-width: 800px) {
+                    width: 1.5rem;
+                    right: 0rem;
+                    bottom: -0.3rem;
+                }
+                @media screen and (max-width: 500px) {
+                    width: 1.2rem;
+                    right: -0.1rem;
+                    bottom: -0.3rem;
+                }
+            }
+        }
+
+        .sectionBottom {
+            display: flex;
+            align-items: center;
+            margin-top: 0.75rem;
+
+            @media screen and (max-width: 800px) {
+                width: 5rem;
+                flex-direction: column;
+            }
+
+            .specEmblem {
+                width: 3rem;
+                height: 3rem;
+                transition: .2s all;
+
+                &:hover {
+                    transform: scale(4);
+
+                    @media screen and (max-width: 800px) {
+                        transform: scale(3.5);
+                    }
+                    @media screen and (max-width: 500px) {
+                        transform: scale(3);
+                    }
+                }
+            }
+            .specCity {
+                margin-left: 1rem;
+                width: 5rem;
+                color: #efb864;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font: normal normal bold 1rem Raleway;
+
+                @media screen and (max-width: 500px) {
+                    width: auto;
+                    max-width: 5rem;
+                    margin-left: 0;
+                }
+            }
+            .specExp {
+                margin-left: 1rem;
+                color: #efb864;
+                font: normal normal bold 1rem Raleway;
+
+                @media screen and (max-width: 800px) {
+                    margin-left: 0;
+                }
+                @media screen and (max-width: 500px) {
+                    margin-left: 0;
+                }
+            }
+        }
+}

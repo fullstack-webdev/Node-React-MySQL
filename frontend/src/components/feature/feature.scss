@@ -1,0 +1,25 @@
+.ftr-border{
+    border: 0.5px solid rgba(255, 255, 255, 0.041);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.iconsHomePage{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    .iconHomePage{
+        margin: 5px;
+        width: 35px !important;
+        filter: none !important;
+        @media only screen and (max-width: 600px) {
+            width: 25px !important;
+        }
+    }
+}
+
+.text-first > .iconsHomePage{
+    justify-content: flex-end;
+}

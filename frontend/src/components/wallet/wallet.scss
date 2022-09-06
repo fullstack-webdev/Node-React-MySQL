@@ -1,0 +1,31 @@
+.wallet-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+
+    
+    p{
+        white-space: pre-line;
+        position: absolute;
+        margin: 5px 0;
+        font: normal normal normal 1.8rem Cinzel;
+        color: #DFDFDD;
+
+        @media screen and (max-width: 600px) {
+            margin-top: 10px;
+        }
+    }
+
+    .wallet{
+        height: 147px;
+        margin-right: 20px;
+        margin-left: 20px;
+        padding-top: 20px; 
+    }
+
+}
+.wallet-container:hover{
+    transform: scaleY(1.02);
+}

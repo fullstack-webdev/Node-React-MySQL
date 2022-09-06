@@ -1,0 +1,595 @@
+.game-setting {
+        .scroll-content {
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            
+            .avatarPanel {
+                width: calc(50% - 4rem);
+                @media screen and (max-width: 700px) {
+                    width: calc(100% - 4rem);
+                }
+
+                padding: 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                
+                .avatar {
+                    width: 10rem;
+                    height: 10rem;
+                    @media screen and (max-width: 400px) {
+                        width: 8rem;
+                        height: 8rem;
+                    }
+                    border: 2px solid #ffb13b;
+                    position: relative;
+                    display: flex;
+
+                    .avatarImg {
+                        object-fit:cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .description {
+                        color: #ffc670;
+                        margin: auto;
+                        font: normal bold 0.9rem Cinzel;
+                        display: flex;
+
+                        span {
+                            text-align: center;
+                        }
+                    }
+                    .uploadBtn {
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        background: rgba(255, 251, 38, 0.726);
+                        border-radius: 50%;
+                        span {
+                            color: black;
+                        }
+                        svg {
+                            width: 2rem;
+                            height: 2rem;
+
+                            @media screen and (max-width: 400px) {
+                                width: 1.5rem;
+                                height: 1.5rem;
+                            }
+                        }
+                    }
+                }
+                .action {
+                    button {
+                        padding: 0.5rem;
+                        color: white;
+                        background: #747474;
+                        border-radius: 10px;
+                        font: normal bold 0.8rem Cinzel;
+                    }
+                }
+            }
+            .cityName {
+                width: calc(50% - 4rem);
+                @media screen and (max-width: 700px) {
+                    width: calc(100% - 4rem);
+                }
+
+                padding-bottom: 2rem;
+                display: flex;
+                justify-content: center;
+
+                .css-i44wyl {
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                    background: #2e2e2e;
+
+                    label {
+                        color: rgb(255, 230, 161);
+                    }
+                    .css-17spqnz::before {
+                        border-bottom: 1px solid rgb(255 255 255 / 42%);
+                    }
+                    .css-17spqnz::after {
+                        border-bottom: 2px solid gold;
+                    }
+                    input {
+                        color: gold;
+                        font: normal bold 0.9rem Cinzel;
+                    }
+                }
+                .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+                    background: #2e2e2e;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+
+                    label {
+                        color: rgb(255, 230, 161);
+                    }
+                    .css-19mk8g1-MuiInputBase-root-MuiFilledInput-root:hover:not(.Mui-disabled):before {
+                        border-bottom: 1px solid rgb(255 255 255 / 87%) !important;
+                    }
+                    .css-19mk8g1-MuiInputBase-root-MuiFilledInput-root:before {
+                        border-bottom: 1px solid rgb(255 255 255 / 42%);
+                    }
+                    .css-19mk8g1-MuiInputBase-root-MuiFilledInput-root:after {
+                        border-bottom: 2px solid gold;
+                    }
+                    input {
+                        color: gold;
+                        font: normal bold 0.9rem Cinzel;
+                    }
+                }
+            }
+
+            .setting-panel {
+                width: 100%;
+                display: flex;
+                padding: 1rem 0rem;
+
+                .css-1elwnq4-MuiPaper-root-MuiAccordion-root, .css-67l5gl {
+                    background: rgb(20 20 20);
+                    width: 100%;
+                    border: 1px solid rgba(255, 153, 0, 0.233);
+                    &:hover {
+                        border: 1px solid rgba(255, 153, 0, 0.705);
+                    }
+
+                    .summary {
+                        width: 100%;
+                        height: 5rem;
+                        display: flex;
+                        align-items: center;
+                        transition: all .5s;
+
+                        &.Mui-expanded {
+                            height: 2rem;
+                        }
+                        .setting-accordion-summary {
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            span:first-child {
+                                color: #ffbc00;
+                                font: normal bold 0.9rem Raleway;
+                            }
+                            span:last-child {
+                                color: gold;
+                                font: normal bold 1.0rem Cinzel;
+                            }
+                        }
+                    }
+                    .details {
+                        border-top: 1px dotted rgba(255, 153, 0, 0.233);
+                        padding: 30px 0px;
+                        width: 100%;
+                        display: flex;
+                    }
+                }
+                svg {
+                    color: gold;
+                }
+            }
+            
+            .musicPanel {
+                .css-1elwnq4-MuiPaper-root-MuiAccordion-root, .css-67l5gl {
+                    .details {
+                        justify-content: flex-end;
+                        @media screen and (max-width: 700px) {
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        
+                        .musicList {
+                            width: 40%;
+                            @media screen and (max-width: 600px) {
+                                width: 100%;
+                            }
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            .musicSelectBtn {
+                                cursor: pointer;
+                                border-radius: 5px;
+                                border: 3px solid #f8ff6647;
+                                background: #362f00;
+
+                                padding: 0.5rem 1rem;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+
+                                span {
+                                    color: white;
+                                }
+                                &:hover {
+                                    border: 3px solid rgb(243 255 0 / 28%);
+                                    background: #6e6424;
+
+                                    span {
+                                        color: gold;
+                                    }
+                                }
+                            }
+                        }
+                        .musicSetting {
+                            width: calc(60% - 4rem);
+                            padding: 1rem 2rem;
+                            display: flex;
+                            flex-direction: column;
+                            @media screen and (max-width: 600px) {
+                                width: calc(100% - 4rem);
+                            }
+
+                            .muteBtn {
+                                display: flex;
+                                justify-content: flex-end;
+                                @media screen and (max-width: 600px) {
+                                    justify-content: center;
+                                }
+                                
+                                .css-1jaw3da {
+                                    .css-9l3uo3 {
+                                        color: white;
+                                        font: normal bold 0.8rem Cinzel;
+                                    }
+                                    .css-1ju1kxc {
+                                        background: gray;
+                                    }
+                                    .css-1nr2wod.Mui-checked {
+                                        color: gold;
+                                    }
+                                    .css-1nr2wod.Mui-checked + .MuiSwitch-track {
+                                        background: gold;
+                                    }
+                                }
+                                .css-j204z7-MuiFormControlLabel-root {
+                                    .MuiFormControlLabel-label {
+                                        color: white;
+                                        font: normal bold 0.8rem Cinzel;
+                                    }
+                                    .css-1yjjitx-MuiSwitch-track {
+                                        background: gray;
+                                    }
+                                    .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
+                                        color: gold;
+                                    }
+                                    .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track {
+                                        background: gold;
+                                    }
+                                }
+                            }
+                            .musicVolume {
+                                display: flex;
+                                flex-direction: row;
+                                margin: 0.5rem 0rem;
+                                padding: 0.5rem 0rem;
+                                align-items: center;
+                                
+                                .desc {
+                                    text-align: center;
+                                    width: 30%;
+                                    color: white;
+                                    font: normal bold 0.9rem Cinzel;
+                                }
+                                .inputs {
+                                    width: 70%;
+                                    display: flex;
+                                    align-items: center;
+
+                                    .css-exkjcx {
+                                        margin: 0rem 1rem;
+                                        color: gold;
+
+                                        &.Mui-disabled {
+                                            color: gray;
+                                        }
+                                    }
+                                    .css-187mznn-MuiSlider-root {
+                                        margin: 0rem 1rem;
+                                        color: gold;
+                                        
+                                        &.Mui-disabled {
+                                            color: gray;
+                                        }
+                                    }
+                                    svg {
+                                        color: white;
+                                    }
+                                }
+                            }
+                            .effectVolume {
+                                display: flex;
+                                flex-direction: row;
+                                margin: 0.5rem 0rem;
+                                padding: 0.5rem 0rem;
+                                align-items: center;
+                                justify-content: space-between;
+                                
+                                .desc {
+                                    text-align: center;
+                                    width: 30%;
+                                    color: white;
+                                    font: normal bold 0.9rem Cinzel;
+                                }
+                                .inputs {
+                                    width: 70%;
+                                    display: flex;
+                                    align-items: center;
+
+                                    .css-exkjcx {
+                                        margin: 0rem 1rem;
+                                        color: gold;
+
+                                        &.Mui-disabled {
+                                            color: gray;
+                                        }
+                                    }
+                                    .css-187mznn-MuiSlider-root {
+                                        margin: 0rem 1rem;
+                                        color: gold;
+
+                                        &.Mui-disabled {
+                                            color: gray;
+                                        }
+                                    }
+                                    svg {
+                                        color: white;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .emblemPanel {
+                .css-1elwnq4-MuiPaper-root-MuiAccordion-root, .css-67l5gl {
+                    .details {
+                        align-items: center;
+                        justify-content: space-evenly;
+                        @media screen and (max-width: 700px) {
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        
+                        .moveBtn {
+                            cursor: pointer;
+                            width: 1.5rem;
+                            height: 1.5rem;
+                            filter: invert(1);
+                            transition: all .1s ease-in-out;
+
+                            &.disabled {
+                                pointer-events: none;
+                                transform: scale(0.9);
+                                filter: invert(0.3);
+                            }
+                            &:hover {
+                                transform: scale(1.1);
+                                filter: invert(90%) sepia(98%) saturate(415%) hue-rotate(333deg) brightness(102%) contrast(91%);
+                            }
+                            @media screen and (max-width: 700px) {
+                                transform: rotate(90deg);
+                                padding: 0.5rem 0rem;
+                                &.disabled {
+                                    transform: rotate(90deg) scale(0.9);
+                                }
+                                &:hover {
+                                    transform: rotate(90deg) scale(1.1);
+                                }
+                            }
+                        }
+                        .emblem {
+                            cursor: pointer;
+                            position: relative;
+                            width: 150px;
+                            height: 150px;
+                            border-radius: 50%;
+                            padding: 1rem;
+                            background: #222222;
+                            transition: all .3s;
+                            @media screen and (max-width: 700px) {
+                                margin: 0.5rem 0rem;
+                            }
+
+                            .emblem-img {
+                                width: 100%;
+                                height: 100%;
+                                transform: scale(1.4);
+                                transition: all .1s ease-in-out;
+
+                                &:hover {
+                                    // filter: drop-shadow(2px 1px 1px gold) drop-shadow(-1px 3px 1px gold) drop-shadow(1px -2px 1px gold) drop-shadow(-2px -1px 1px gold);
+                                    transform: scale(1.5);
+                                }
+                            }
+                            .emblem-status {
+                                position: absolute;
+                                right: 0.15rem;
+                                bottom: 0.15rem;
+                                width: 2rem;
+                                height: 2rem;
+                                border-radius: 50%;
+                                background: #000000;
+
+                                .emblem-status-mark {
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                            &.equipped {
+                                border: 2px solid rgb(22, 194, 22);
+                                
+                                &:hover {
+                                    box-shadow: 0px 0px 10px 5px rgb(22, 194, 22);
+                                }
+                            }
+                            &.available {
+                                border: 2px solid rgb(180, 180, 121);
+                                
+                                &:hover {
+                                    box-shadow: 0px 0px 10px 5px rgb(218, 218, 161);
+                                }
+                            }
+                            &.locked {
+                                border: 2px solid rgb(187, 22, 22);
+                                
+                                &:hover {
+                                    box-shadow: 0px 0px 10px 5px rgb(187, 22, 22);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .utilsPanel{
+                padding: 1rem 0rem;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                /* @media screen and (max-width: 700px) {
+                    flex-direction: column;
+                    align-items: center;
+                } */
+
+                .actionPanel {
+                    display: flex;
+                    align-items: center;
+                    margin-right: 2rem;
+
+                    .saveBtn {
+                        background: rgb(0, 143, 0);
+                        color: white;
+                        font: normal bold 0.8rem Cinzel;
+                        
+                        &:hover {
+                            background: rgb(41, 70, 0);
+                            color: white;
+                        }
+                    }
+                    p {
+                        min-width: 3rem;
+                        text-align: center;
+                        margin-top: 0px;
+                        margin-left: 10px;
+                    }
+                }
+                .importBtn {
+                    font: normal bold 0.8rem Cinzel;
+                    background: rgb(255, 255, 0);
+                    color: black;
+
+                    &:hover {
+                        background: #746200a8;
+                        color: white;
+                    }
+                }
+                .airdropBtn {
+                    margin-right: 10px;
+                    font: normal bold 0.8rem Cinzel;
+
+                    &:hover {
+                        background: #746200a8;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+}
+
+#musicSelectList {
+    .css-177ic5c {
+        background: #161615 !important;
+        box-shadow: 0 0px 5px 2px rgba(217, 255, 0, 0.856) !important;
+        width: 10rem;
+
+        div.selected {
+            color: gold;
+        }
+        .css-1km1ehz {
+            color: white;
+            font: normal bold 0.9rem Cinzel;
+            &:not(:last-child) {
+                border-bottom: 1px solid gray;
+            }
+            &:hover {
+                background: rgb(95, 95, 95);
+                color: gold;
+            }
+        }
+    }
+    .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+        background: #161615 !important;
+        box-shadow: 0 0px 5px 2px rgba(217, 255, 0, 0.856) !important;
+        width: 10rem;
+        
+        div.selected {
+            color: gold;
+        }
+        .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+            color: white;
+            font: normal bold 0.9rem Cinzel;
+            &:not(:last-child) {
+                border-bottom: 1px solid gray;
+            }
+            &:hover {
+                background: rgb(95, 95, 95);
+                color: gold;
+            }
+        }
+    }
+}
+
+#emblem-popup {
+    background: #202020 !important;
+    border: 1px dotted rgb(255, 170, 0);
+    // box-shadow: 0px 0px 5px 1px rgb(255, 174, 0);
+    width: 300px;
+    padding: 0px;
+    
+    .emblem-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .emblem-title {
+            width: 90%;
+            color: rgb(255, 166, 0);
+            font: normal bold 1.0rem Cinzel;
+        }
+        .emblem-desc {
+            width: 90%;
+            margin-top: 0.5rem;
+            line-height: 1.5 !important;
+            color: white;
+            font: normal normal 0.8rem Raleway;
+        }
+        .emblem-status {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font: italic bold 0.8rem Cinzel;
+
+            &.equipped {
+                color: rgb(26, 209, 26);
+            }
+            &.available {
+                color: rgb(236, 236, 152);
+            }
+            &.locked {
+                color: rgb(250, 33, 33);
+            }
+        }
+    }
+}

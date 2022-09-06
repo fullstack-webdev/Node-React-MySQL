@@ -1,0 +1,27 @@
+.game-city{
+    display: flex;
+    flex-direction: column;
+    background-image: url('../../assets-game/nfts-bk.svg');
+    width: 75vw;
+    max-width: 1200px;
+
+    @media screen and (max-width: 1000px) {
+        padding-top: 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .error{
+        height: 400px;
+        width: 80%;
+        padding: 30px;
+
+        a{
+            font-weight: bold;
+            color: #FFB13B;
+        }
+    }
+}
+
+.notVisible{display: none;}

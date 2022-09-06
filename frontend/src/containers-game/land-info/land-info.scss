@@ -1,0 +1,306 @@
+.land-info {
+    .content {
+        position: relative;
+        .api-loading {
+            position: absolute;
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            border: 5px solid rgba(0, 0, 0, 0.5);
+            .apiCallingGif {
+                width: 180px;
+                height: 120px;
+                filter: drop-shadow(2px 4px 6px gold);
+            }
+            .loader{
+                margin-top: 20px;
+                font: normal bold 15px Raleway;
+                letter-spacing: 2px;
+                color: gold;
+                animation: smokeOut 1.5s ease-in-out infinite alternate;
+
+                &:before {
+                    content: "Loading";
+                }
+            }
+            
+            @keyframes smokeOut {
+                100% {
+                    opacity: 0.08;
+                    filter: blur(5px);
+                    letter-spacing: 4px;
+                }
+            }
+        }
+    }
+    .scroll-content {
+        min-height: 300px;
+        
+        .tab {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @media screen and (max-width: 600px) {
+                flex-direction: column;
+            }
+            .noContractDesc {
+                font: normal normal normal 12px Raleway;
+                color: #dfdfdd;
+            }
+            .landinfo-left-panel, .landinfo-right-panel {
+                width: 50%;
+                @media screen and (max-width: 600px) {
+                    padding: 1rem 0rem;
+                    width: 100%;
+                }
+
+                .land-info {
+                    width: calc(100% - 2rem);
+                    padding: 5px 1rem;
+
+                    color: #dfdfdd;
+                    font: normal normal normal 15px Raleway;
+
+                    display: flex;
+                    align-items: center;
+
+                    &.claim-desc {
+                        padding: 1rem 0px;
+                    }
+                    a {
+                        &:first-child {
+                            width: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-end;
+                        }
+                        &:last-child {
+                            margin: 0px 10px;
+                            color: #ffbc00;
+                        }
+                    }
+                    .city-image {
+                        padding: 1rem 0px;
+                        width: 50%;
+                        display: flex;
+                        justify-content: flex-end;
+                        img {
+                            width: 100px;
+                            height: 100px;
+                            border-radius: 50%;
+                            box-shadow: 0px 0px 10px 1px #ffbc00;
+                        }
+                    }
+                    .emblem-image {
+                        width: 50%;
+                        display: flex;
+                        justify-content: center;
+                        img {
+                            width: 100px;
+                            height: 100px;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+                .landName-edit-panel {
+                    display: flex;
+                    align-items: center;
+                }
+                .landName-update-panel {
+                    display: flex;
+                    flex-direction: column;
+                }
+                input {
+                    width: 100px;
+                    color: #ffbc00;
+                    background: rgba(0, 0, 0, 0.5);
+                    border-radius: 5px;
+                    font: normal bold normal 15px Raleway;
+                    padding: 3px 5px;
+                    outline: none;
+                    transition: 0.2s all;
+                }
+                .landNameInput {
+                    margin: 5px 0px;
+
+                    border: 1px solid rgba(0, 225, 255, 0.5);
+                    &:hover {
+                        box-shadow: 0px 0px 5px 1px rgb(0, 225, 255);
+                    }
+                    &:focus {
+                        border: 1px solid rgb(0, 225, 255);
+                    }
+                }
+                .land-name-edit-panel {
+                    display: flex;
+                    justify-content: center;
+                    .iconBtn {
+                        margin: 0px 5px;
+                        padding: 5px;
+                        transition: .2s all;
+                        opacity: 1.0;
+                        svg {
+                            font-size: 20px;
+                        }
+                        
+                        &.editBtn{
+                            background: #4262416b;
+                            svg {
+                                color: #77ff77;
+                            }
+                            &:hover {
+                                background: #2f8f346b;
+            
+                                svg {
+                                    color: #00ff44;
+                                }
+                            }
+                        }
+                        &.updateBtn{
+                            background: #5f62416b;
+                            svg {
+                                color: #e5ff00cc;
+                            }
+                            &:hover {
+                                background: #5f6241;
+            
+                                svg {
+                                    color: #e5ff00;
+                                }
+                            }
+                        }
+                        &.cancelBtn{
+                            background: #6241416b;
+                            svg {
+                                color: #ff7777;
+                            }
+                            &:hover {
+                                background: #8f2f2f6b;
+            
+                                svg {
+                                    color: #ff0000;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .contract-tab {
+            .upgrade-panel {
+                width: 100%;
+                padding-bottom: 1rem;
+            }
+            .claim-panel {
+                width: 100%;
+            }
+            .upgrade-desc {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                color: #DFDFDD;
+                font: normal normal normal 13px Raleway;
+                padding: 1rem 0px;
+            }
+            .cost-list {
+                display: flex;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                align-items: center;
+                
+                @media screen and (max-width: 600px) {
+                    width: 100%;
+                    margin-bottom: 1rem;
+                }
+                
+                .noRequirementsText {
+                    color: gray;
+                    font: normal normal 0.8rem Arial;
+                }
+                .cost {
+                    display: flex;
+                    align-items: center;
+                    padding: 0.5rem 0rem;
+                    @media screen and (max-width: 600px) {
+                        width: 50%;
+                    }
+
+                    &.notAllowed {
+                        .costDesc {
+                            color: #ff5a5a;
+                        }
+                        .costImg {
+                            border: 1px solid #ff5a5a;
+                        }
+                    }
+                    .costDesc {
+                        width: 100px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                        margin-right: 10px;
+                        margin-left: 10px;
+                        color: #8cff8c;
+
+                        .costQuantity {
+                            font-size: 14px;
+                        }
+                        .burnMark {
+                            color: rgb(255, 50, 50);
+                            font: normal bold 13px Cinzel;
+                            // text-align: right;
+                        }
+                        .costName {
+                            font: normal bold 13px Cinzel;
+                            text-align: right;
+                            word-break: break-word;
+                        }
+                    }
+                    .costImg {
+                        min-width: 40px;
+                        width: 40px;
+                        height: 40px;
+                        border: 1px solid gray;
+                        background: rgb(60, 60, 60);
+                    }
+                }
+            }
+            .actionBtn {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .upgradeBtn {
+                transition: 0.2s all;
+                padding: 3px 10px;
+                font-size: 0.7rem;
+                background: rgb(110, 0, 0);
+                color: white;
+                &:hover {
+                    background: rgb(150, 15, 15);
+                    color: white;
+                }
+            }
+            .claimBtn {
+                transition: 0.2s all;
+                padding: 3px 10px;
+                font-size: 0.7rem;
+                background: rgb(0 80 10);
+                color: white;
+                &:hover {
+                    background: rgb(0, 145, 19);
+                    color: white;
+                }
+            }
+        }
+    }
+}
